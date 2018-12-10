@@ -1,0 +1,89 @@
+/**app.wxss**/
+page{
+  font-family:PingFangSC-Regular;
+}
+.line{
+  color: #E0E0E0;
+  background-color: #E0E0E0;
+  height: 2rpx;
+}
+.background{
+  color: #F4F4F4;
+}
+.primaryColor{
+  color:#CFA358;
+}
+.btn{
+  display: block;
+  height:105rpx;
+  background:rgba(207,163,88,1);
+  box-shadow:0px 1px 9px 0px rgba(207,163,88,0.45);
+  border-radius:53rpx;
+  font-size:32rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(255,255,255,1);
+  line-height: 105rpx;
+  text-align: center;
+}
+.btn.disable{
+  background-color: #CFA358;
+  opacity: 0.3;
+}
+.btn.enable{
+  background-color: #CFA358;
+}
+.flex{
+  display: flex;
+}
+.flex.flex-center-vertical{
+  align-items: center;
+}
+.flex.flex-center-horizontal{
+  justify-content: center;
+}
+.flex.flex-space-between {
+  justify-content: space-between;
+}
+.flex.flex-space-around {
+ justify-content:space-around; 
+}
+
+.listView-bottom-hint{
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(170,170,170,1);
+  margin-top: 41rpx;
+  margin-bottom: 41rpx;
+  display: block;
+  text-align: center;
+}
+.item-decorator{
+    background-color: white;
+    position: relative;
+
+}
+.item-decorator::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 28rpx;
+  right: 0;
+  background-color: #E0E0E0;
+  height: 2rpx;
+}
+.item-decorator:last-of-type::after{
+  height:0rpx;
+}
+.modal{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+}
+.scroll-y{
+  overflow-y: scroll;
+  white-space: nowrap;
+}

@@ -1,0 +1,22 @@
+<!--pages/home/productCenter.wxml-->
+<view class='flex' style='flex-direction:column;width:750rpx;height:{{windowHeight}}px;'>
+  <view class='line'></view>
+  <tab class="tab" tabs="{{tabs}}" type="fixed"></tab>
+  <view class='line'></view>
+  <scroll-view scroll-y style='white-space:nowrap;overflow:scroll;flex :1'>
+    <view style='margin-top:21rpx;'></view>
+
+    <view class='item-decorator' wx:for="productList" wx:key="1">
+             
+        <item></item>
+
+    </view>
+
+
+    <label class='listView-bottom-hint'>
+        已经到底啦~
+    </label>
+  </scroll-view>
+
+  <shoppingcar></shoppingcar>
+</view>

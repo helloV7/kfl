@@ -1,0 +1,49 @@
+//index.js
+//获取应用实例
+const app = getApp()
+let resourcePath = "/resource/image";
+
+
+Page({
+  data: {
+    currentTab:0,
+     iconHomeNormal : resourcePath + "/ic_main_tab_home_normal.png",
+     iconHomePressed : resourcePath + "/ic_main_tab_home_pressed.png",
+     iconScanQRCodeNormal : resourcePath + "/ic_main_tab_code_normal.png",
+     iconScanQRcodePressed : resourcePath + "/ic_main_tab_code_pressed.png",
+     iconShoppingNormal : resourcePath + "/ic_main_tab_shopping_normal.png",
+     iconShoppingPressed : resourcePath + "/ic_main_tab_shopping_pressed.png",
+     iconUserCenterNormal : resourcePath + "/ic_main_tab_user_center_normal.png",
+     iconUserCenterPressed : resourcePath + "/ic_main_tab_user_center_pressed.png",
+     iconMoreNormal : resourcePath + "/ic_main_tab_more_normal.png",
+     iconMorePressed : resourcePath + "/ic_main_tab_more_pressed.png",
+     windowHeight:0
+  },
+  onLoad: function () {
+    var that = this;
+    wx.getSystemInfo({
+      success: function(res) {
+        console.log(res.windowHeight)
+        that.setData({
+          windowHeight:res.windowHeight
+        })
+      },
+    })
+  },
+  onTabClick(e){
+    var tabIndex = e.currentTarget.dataset.tabIndex;
+
+    if(tabIndex==1){
+      //二维码扫描
+      return;
+    }
+
+    if(this.data.currentTab==tabIndex){
+      return;
+    }
+    
+    this.setData({
+      currentTab:tabIndex
+    })
+  }
+})

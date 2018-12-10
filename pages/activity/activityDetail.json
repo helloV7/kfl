@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "活动详情",
+  "usingComponents": {
+    "shoppingcar": "/component/shoppingcarFloatBtn",
+    "item": "/component/productListItem"
+  }
+}

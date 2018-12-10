@@ -1,0 +1,7 @@
+<!--pages/home/brandIntroduce.wxml-->
+<view class='line'></view>
+<tab tabs="{{tabs}}"></tab>
+<view class='line'></view>
+<web-view>
+</web-view>
+

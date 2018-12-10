@@ -1,0 +1,16 @@
+<!--pages/home/seasonTheme.wxml-->
+<scroll-view scroll-y style='white-space:nowrap;overflow:scroll;height:{{windowHeight}}px;'>
+
+    <view class='item-decorator' wx:for="productList" wx:key="1">
+             
+        <item type="action" showIcon="true"></item>
+
+    </view>
+
+
+    <label class='listView-bottom-hint'>
+        已经到底啦~
+    </label>
+  </scroll-view>
+
+  <shoppingcar></shoppingcar>

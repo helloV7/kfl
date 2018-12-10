@@ -1,0 +1,30 @@
+<!--pages/home/home.wxml-->
+
+<scroll-view scroll-y style='height:100%;'>
+  <view style='position:relative;'>
+  <swiper class='banner' indicator-dots='true'  indicator-active-color='#FFFFFF' indicator-color='#C6C6C6'>
+    <swiper-item wx:for="{{bannerImages}}">
+      <image src='{{item}}' mode='aspectFill' bindtap='onBannerClick'></image>
+    </swiper-item>
+  </swiper>
+  <image src='/resource/image/banner_mask.png' class="banner-mask" mode='widthFix'></image>
+  </view>
+  <view class='topGrid'>
+    <view class='item' wx:for="{{topGridList}}" bindtap='_onTopGridItemClick' data-url="{{item.url}}">
+      <image src='{{item.image}}'></image>
+      <label>{{item.name}}</label>
+    </view>
+  </view>
+
+  <view class='product-layout'>
+    <view class='item' wx:for="{{productList}}">
+      <image mode='aspectFill' src='{{item}}'></image>
+    </view>
+  </view> 
+</scroll-view>
+
+<view class='floatBtn' hidden='{{!isShowFloatBtn}}'>
+  <image src='/resource/image/ic_circle_member@2x.png' class="float-image"></image>
+  <image src='/resource/image/ic_circle_close_white@2x.png' class='close'></image>
+</view>
+

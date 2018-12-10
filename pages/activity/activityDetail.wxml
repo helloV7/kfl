@@ -1,0 +1,20 @@
+<!--pages/activity/activityDetail.wxml-->
+<scroll-view scroll-y style='white-space:nowrap;overflow:scroll;height:100%;'>
+  <rich-text style='background:white;'>
+  </rich-text>
+
+  <view style='margin-top:25rpx;'></view>
+
+  <view class='item-decorator' wx:for="productList" wx:key="1" style='background:white;'>
+              
+        <item type="action" showIcon="true"></item>
+
+    </view>
+
+
+    <label class='listView-bottom-hint'>
+        已经到底啦~
+    </label>
+  </scroll-view>
+
+  <shoppingcar></shoppingcar>

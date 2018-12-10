@@ -1,0 +1,95 @@
+/* component/productListItem.wxss */
+label{
+  overflow: hidden;
+  white-space: nowrap;  
+  text-overflow: ellipsis;
+}
+.layout{
+  position: relative;
+  padding: 28rpx;
+}
+.image{
+  width:250rpx;
+  height:170rpx;
+  border-radius:5rpx;
+}
+.title{
+  width:240px;
+  height:29px;
+  font-size:30rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(51,51,51,1);
+  position: absolute;
+  top: 35rpx;
+  left: 299rpx;
+  
+  }
+.description{
+  font-size:26rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(148,148,148,1);
+  position: absolute;
+  top: 82rpx;
+  left: 299rpx;
+  }
+.image-icon{
+  width: 29rpx;
+  height: 29rpx;
+  margin-right: 14rpx;
+}
+.value1-layout{
+   position: absolute;
+  top: 116rpx;
+  left: 299rpx;
+}
+.value1{
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(215,35,35,1);
+}
+.value2-layout{
+  position: absolute;
+  left: 299rpx;
+  bottom: 28rpx;
+}
+.value2{
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(215,35,35,1);
+}
+.number{
+  font-size:32rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(0,0,0,1);
+  position: absolute;
+  right: 21rpx;
+  bottom: 28rpx;
+}
+.action-layout{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 20rpx;
+  bottom: 28rpx;
+}
+.action-image{
+  width: 48rpx;
+  height: 48rpx;
+}
+.action-count{
+  text-align: center;
+  width: 80rpx;
+  font-size:30rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(0,0,0,1);
+}
+/* .layout::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  background-color:rgba(224,224,224,1); 
+  height: 2rpx;
+  left: 28rpx;
+  right: 0;
+} */

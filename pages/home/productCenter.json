@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "产品中心",
+  "usingComponents":{
+    "tab":"/component/tab",
+    "item":"/component/productListItem",
+    "shoppingcar":"/component/shoppingcarFloatBtn"
+  }
+}

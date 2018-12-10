@@ -1,0 +1,6 @@
+<!--component/tab.wxml-->
+<view class='tab {{type=="scroll"?"scroll":"fixed"}}' >
+  <label wx:for='{{tabs}}' class='{{index==currentIndex?"sel":""}}' data-index="{{index}}" bindtap='_onTabClick'>
+    {{item}}
+  </label>
+</view>

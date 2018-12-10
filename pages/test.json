@@ -1,0 +1,8 @@
+{
+ "usingComponents": {
+  "tab": "/component/tab",
+  "item":"/component/productListItem",
+  "search":"/component/searchview",
+  "filterTab":"/component/filterTab"
+}
+}

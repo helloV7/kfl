@@ -1,0 +1,70 @@
+<!--pages/product/productDetail.wxml-->
+<scroll-view style='height:calc({{windowHeight}}px - 100rpx);'>
+  <view class='productBanner'>
+    <swiper>
+      <swiper-item>
+        <image></image>
+      </swiper-item>
+    </swiper>
+
+    <view class='bannerIndicator'>
+      <label>1</label><label>/3</label>
+    </view>
+  </view>
+
+  <view class="info-layout">
+    <label class='title'>裹海之谜 精华 让年轻活在基因里 解读肌肤年龄</label>
+    <label class='description'>精华 250ml</label>
+
+    <view class='value-layout'>
+      <image class='icon' src='/resource/image/ic_price_small_golden@2x.png' ></image>
+      <label class='value'>880.00</label>
+    </view>
+
+    <view class='value-layout'>
+      <image class='icon' src='/resource/image/ic_integral_small_golden@2x.png'></image>
+      <label class='value'>88</label>
+    </view>
+    <view class='line'></view>
+
+    <label class='score'>扫描积分：550分</label>
+    <label class='description2'>规格：180ml 编号：LA.1301H</label>
+
+
+  </view>
+
+  <rich-text>
+  </rich-text>
+</scroll-view>
+
+<view class='bottom-layout'>
+  <view class='left'>
+    <view class='item'>
+      <image src='/resource/image/ic_home_black@2x.png' style='width:45rpx;' mode='widthFix'></image>
+      <label>首页</label>
+    </view>
+     <view  class='item'>
+      <image src='/resource/image/ic_shopping_black@2x.png' style='width:44rpx;' mode='widthFix'></image>
+      <label>购物车</label>
+    </view>
+  </view>
+  <view class='right'>
+    <label bindtap='showModal'>加入购物车</label>
+  </view>
+</view>
+
+<view class='modal' hidden='{{!showModal}}' catchtap='hideModal'>
+
+  <view class='buy-layout' catchtap='nothing'>
+    <label class='numberHint'>购买数量</label>
+
+    <view class='action-layout' >
+      <image class='action-image' src='/resource/image/ic_circle_reduce_middle_gray@2x.png' catchtap='sub'></image>
+      <label class='action-count'>{{count}}</label>
+      <image class='action-image' src='/resource/image/ic_circle_add_middle_gray@2x.png' catchtap='add'></image>
+   </view>
+
+    <view class='buyBtn' catchtap='hideModal'>确定</view>
+  </view>
+ 
+</view>

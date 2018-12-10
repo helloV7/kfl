@@ -1,0 +1,60 @@
+/* pages/login/userInformation.wxss */
+@import "/pages/common/common.wxss";
+page{
+ background-color: #F4F4F4;
+}
+.hintLabel{
+  padding-left: 29rpx;
+  height: 75rpx;
+  line-height: 75rpx;
+  font-size: 28rpx;
+  color: #666666;
+  background-color: #F4F4F4;
+  display: block;
+}
+.info-item{
+  display: flex;
+  height:97rpx;
+  padding-left: 27rpx;
+  align-items: center;
+  position: relative;
+  background-color: white;
+}
+.info-item::after{
+  content: "";
+  height:2rpx;
+  background-color:#E0E0E0;
+  width:calc(100% - 27rpx);
+  position: absolute;
+  bottom: 0px;
+}
+.info-item:last-of-type::after{
+  background-color: white;
+  height: 0px;
+}
+.info-item>label{
+  color: #333333;
+  font-size: 30rpx;
+}
+.input{
+  margin:0 34rpx;
+  color: #000;
+  font-size: 30rpx;
+  flex:1;
+  text-align: right
+}
+.input-placeholder{
+  color: #AAA;
+  font-size: 30rpx;
+}
+.btn{
+  height:95rpx;
+  line-height:95rpx;
+  position:absolute;
+  bottom:35rpx;
+  left:62rpx;
+  right:62rpx;
+}
+.inline-block{
+  display: inline-block;
+}

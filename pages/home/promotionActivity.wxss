@@ -1,0 +1,23 @@
+/* pages/home/promotionActivity.wxss */
+page{
+  background-color: #F4F4F4;
+}
+.activity{
+  margin: 30rpx 30rpx 0;
+  box-shadow:0rpx 10rpx 30rpx 0rpx rgba(153,153,153,0.2);
+  border-radius:12px;
+  position: relative;
+  font-size: 0;
+}
+.activity .image{
+  width:690rpx;
+  height:438rpx;
+  border-radius:12rpx 12rpx 0rpx 0rpx;
+}
+.activity .title{
+  font-size:30rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(28,28,28,1);
+  margin: 28rpx;
+  display: inline-block;
+}

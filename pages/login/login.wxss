@@ -1,0 +1,88 @@
+/* pages/login/login.wxss */
+@import "/pages/common/common.wxss";
+
+.input-layout{
+  margin-left: 60rpx;
+  margin-right: 60rpx;
+  margin-top: 156rpx;
+}
+.input-item{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+}
+.input-label{
+  font-size:31rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(51,51,51,1);
+}
+.input{
+  margin-left: 54rpx;
+  color: #000;
+  font-size: 31rpx;
+  flex:1;
+}
+.input-placeholder{
+  color: #AAA;
+  font-size: 31rpx;
+}
+.line{
+  margin-top: 32rpx;
+  height: 1rpx;
+}
+.show-password-image{
+  width:31rpx;
+  margin-right: 29rpx;
+}
+.forget-psd{
+  font-size: 28rpx;
+  color: #949494;
+  float: right;
+  margin-right: 62rpx;
+  margin-top: 40rpx;
+}
+.btn.login{
+  margin-top:150rpx;
+  margin-left: 62rpx;
+  margin-right: 62rpx;
+  width: auto;
+  height: 95rpx;
+  line-height: 95rpx;
+}
+.to-register{
+  font-size: 30rpx;
+  color: #333333;
+}
+
+.login-hint>label{
+  font-size: 28rpx;
+  color: #666;
+}
+.login-hint .line{
+  margin:0;
+  width:133rpx;
+  display: inline-block;
+}
+
+.bottom-login-layout{
+  position:absolute;
+  bottom:0px;
+  left:149rpx;
+  right:149rpx;
+}
+.wechat-login{
+  border: 0;
+  padding: 0;
+  height: auto;
+  background-color: transparent;
+  margin-bottom: 64rpx;
+  margin-top: 59rpx;
+}
+button.wechat-login::after{ 
+  border: none; 
+} 
+.wechat-login>image{
+  width: 100rpx;
+  height:100rpx;
+}

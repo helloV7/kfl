@@ -1,0 +1,4 @@
+/* component/customImage.wxss */
+image{
+  animation: all 0.4ms;
+}

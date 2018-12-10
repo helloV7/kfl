@@ -1,0 +1,29 @@
+<!--component/productListItem.wxml-->
+<view class='layout' bindtap='_itemClick'>
+
+  <image class='image' src='https://cdn.pixabay.com/photo/2018/11/23/14/19/forest-3833973__340.jpg'>
+  
+  </image>
+
+<label class='title'>全效焕颜按摩精华{{title}}</label>
+<label class='description'>规格250ml 编号LA.0125R{{description}}</label>
+
+<view class='value1-layout'>
+  <image class='image-icon' src='/resource/image/ic_price_small_golden@2x.png' mode="widthFix" wx:if="{{showIcon}}"></image>
+  <label class='value1'>积分 1000{{value1}}</label>
+</view>
+
+<view class='value2-layout'>
+  <image class='image-icon' src='/resource/image/ic_integral_small_golden@2x.png' mode="widthFix" wx:if="{{showIcon}}"></image>
+  <label class='value2'>￥1000{{value2}}</label>
+</view>
+<label class='number' wx:if="{{type=='show'}}">x1{{count}}</label>
+
+
+<view class='action-layout' wx:if="{{type=='action'}}">
+  <image class='action-image' src='/resource/image/ic_circle_reduce_middle_gray@2x.png' bindtap='_sub' hidden='{{count==0}}'></image>
+  <label class='action-count' hidden='{{count==0}}'>{{count}}</label>
+  <image class='action-image' src='/resource/image/ic_circle_add_middle_gray@2x.png' bindtap='_add'></image>
+</view>
+
+</view>

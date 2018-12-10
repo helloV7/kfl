@@ -1,0 +1,75 @@
+/* component/searchview.wxss */
+.search-view{
+  position: relative;
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 30rpx;
+  padding-right: 30rpx; 
+}
+.search-view::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #E0E0E0;
+  height: 2rpx;
+}
+.icon-search{
+  width: 31rpx;
+  height: 31rpx;
+  margin-left: 26rpx;
+  margin-right: 23rpx;
+}
+.icon-close{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 19rpx;
+  margin-left: 19rpx;
+}
+.search-input-layout{
+  width:601rpx;
+  height:60rpx;
+  background:rgba(243,243,243,1);
+  border-radius:29rpx;
+  display: inline-flex;
+  justify-content: start;
+  align-items: center;
+
+}
+.input{
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+  flex: 1;
+}
+.input-placeholder{
+  font-size:28rpx;
+
+}
+.cancel-text{
+  display: inline-block;
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(51,51,51,1);
+}
+.search-item{
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(33,33,33,1);
+  padding: 41rpx 31rpx;
+  position: relative;
+}
+.search-item::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 17rpx;
+  right: 17rpx;
+  background-color: #E0E0E0;
+  height: 2rpx;
+}

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "custom-image": "/component/customImage",
+    "home":"/pages/home/home"
+  },
+  "navigationBarTitleText": "卡连弗"
+}

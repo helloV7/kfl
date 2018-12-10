@@ -1,0 +1,7 @@
+/* component/shoppingcarFloatBtn.wxss */
+.layout{
+  display: inline-block;
+  position: absolute;
+  left: 15rpx;
+  bottom: 183rpx;
+}

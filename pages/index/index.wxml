@@ -1,0 +1,34 @@
+<!--index.wxml-->
+
+
+<view class='main' >
+
+<scroll-view style='height:calc({{windowHeight}}px - 98rpx);' scroll-y>
+    <home></home>
+</scroll-view> 
+<view class='toolbar'>
+    <view class='flex flex-center-vertical flex-center-horizontal flex-space-around'>
+    <view class='item  {{currentTab==0?"sel":""}}' bindtap='onTabClick' data-tab-index="0">
+        <image  mode='widthFix' src='{{currentTab==0?iconHomePressed:iconHomeNormal}}'></image>
+        <label>首页</label>
+    </view>
+    <view class='item  {{currentTab==1?"sel":""}}' bindtap='onTabClick' data-tab-index="1">
+        <image  mode='widthFix' src='{{currentTab==1?iconScanQRCodePressed:iconScanQRCodeNormal}}'></image>
+        <label>扫描积分</label>
+    </view>
+    <view class='item  {{currentTab==2?"sel":""}}' bindtap='onTabClick' data-tab-index="2">
+        <image  mode='widthFix' src='{{currentTab==2?iconShoppingPressed:iconShoppingNormal}}'></image>
+        <label>礼品商城</label>
+    </view>
+    <view class='item  {{currentTab==3?"sel":""}}' bindtap='onTabClick' data-tab-index="3">
+        <image  mode='widthFix' src='{{currentTab==3?iconUserCenterPressed:iconUserCenterNormal}}'></image>
+        <label>我的</label>
+    </view>
+     <view class='item {{currentTab==4?"sel":""}}' bindtap='onTabClick' data-tab-index="4">
+        <image mode='widthFix' src='{{currentTab==4?iconMorePressed:iconMoreNormal}}'></image>
+        <label>更多</label>
+    </view>
+  </view>
+
+</view>
+</view>

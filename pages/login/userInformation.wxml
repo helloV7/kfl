@@ -1,0 +1,57 @@
+<!--pages/login/userInformation.wxml-->
+<label class='hintLabel'>
+  基本信息
+</label>
+
+<view class='info-item'>
+  <label >姓名</label>
+    <input class='input' placeholder-class='input-placeholder' placeholder='请输入姓名' value='{{form.name}}'></input> 
+</view>
+
+<view class='info-item'>
+  <label >昵称</label>
+    <input class='input' placeholder-class='input-placeholder' placeholder='请输入昵称'></input> 
+</view>
+
+<view class='info-item'>
+  <label >手机号</label>
+    <input class='input' placeholder-class='input-placeholder' placeholder='请输入手机号' type='number'></input> 
+</view>
+
+<view class='info-item'>
+  <label >所属地</label>
+  <picker class='input flex flex-center-vertical ' mode="region" bindchange="bindRegionChange" value="{{region}}" style="justify-content:flex-end;">
+    <label hidden='{{region.length!=3}}'>
+      {{region[0]}}{{region[1]}}{{region[2]}}
+    </label>
+    <label hidden='{{region.length==3}}' class='input-placeholder'>
+      请选择省市区
+    </label>
+      <image style='width:13rpx;margin-left:18rpx;' src='/resource/image/ic_arrow_right_dark_brown.png' mode='widthFix'></image>
+  </picker>
+</view>
+
+<view class='info-item'>
+  <label >邮箱</label>
+    <input class='input' placeholder-class='input-placeholder' placeholder='请输入邮箱' ></input> 
+</view>
+
+<view class='info-item'>
+  <label >微信号</label>
+    <input class='input' placeholder-class='input-placeholder' placeholder='请输入微信号'></input> 
+</view>
+
+<view class='info-item'>
+  <label >开户行</label>
+    <input class='input' placeholder-class='input-placeholder' placeholder='请输入开户行' ></input> 
+</view>
+
+<view class='info-item'>
+  <label >银行卡号</label>
+    <input class='input' placeholder-class='input-placeholder' placeholder='请输入银行卡号' type='number'></input> 
+</view>
+
+
+<label class='btn' bindtap='onFinishClick'>
+  完成
+</label>

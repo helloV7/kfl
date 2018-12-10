@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "应季主题",
+  "usingComponents":{
+    "shoppingcar":"/component/shoppingcarFloatBtn",
+    "item":"/component/productListItem"
+  }
+}

@@ -1,0 +1,47 @@
+/* component/tab.wxss */
+.tab{
+  height: 85rpx;
+  white-space: nowrap;
+  background-color: white;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  font-size: 0;
+}
+.tab.scroll{
+  position: relative;
+  overflow-x: scroll;
+}
+.tab::-webkit-scrollbar {
+    display: none;
+}
+.tab.fixed{
+  justify-content: space-between;
+}
+.tab.fixed label{
+  margin: 0;
+}
+.tab label{
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(102,102,102,1);
+  min-width: 110rpx;
+  width:110rpx;
+  display: inline-block;
+  margin-left:30rpx;
+  height: 85rpx;
+  line-height: 85rpx;
+  position: relative;
+}
+ .tab label.sel{
+  color:rgba(200,150,68,1);
+} 
+ .tab label.sel::after{
+  content: "";
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: 5rpx;
+  background-color: #C89644;
+}  

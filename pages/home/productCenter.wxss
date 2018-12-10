@@ -1,0 +1,11 @@
+/* pages/home/productCenter.wxss */
+page{
+  background: #F4F4F4;
+}
+.tab{
+  background-color: white;
+  display: inline-block;
+  width: calc(100% - 129rpx -129rpx);
+  padding-left: 129rpx;
+  padding-right: 129rpx;
+}
