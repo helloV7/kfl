@@ -1,1 +1,7 @@
-{}
+{
+  "navigationBarTitleText": "手机官网",
+  "usingComponents":{
+    "filter":"/component/filterTab",
+    "item":"/component/productListItem"
+  }
+}

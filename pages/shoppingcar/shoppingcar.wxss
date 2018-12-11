@@ -1,0 +1,136 @@
+/* pages/shoppingcar/shoppingcar.wxss */
+page{
+  height: 100%;
+  font-size: 0;
+  width: 100%;
+  background: white;
+}
+.shopping-car-page{
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.list{
+  flex: 1;
+}
+.bottom-layout{
+  width: 100%;
+  height: 95rpx;
+  background: white;
+  box-shadow:0rpx -1rpx 5rpx 0rpx rgba(228,228,228,0.5);
+  display: flex;
+}
+.item{
+  white-space: nowrap;
+  transition: all 0.5s;
+  position: relative;
+  background: white;
+}
+.item::after{
+
+  position: absolute;
+  bottom: 0;
+  left: 70rpx;
+  right: 0;
+  height: 2rpx;
+  background-color: #E0E0E0;
+
+}
+.item.move{
+  transform: translateX(-170rpx);
+}
+.product-info{
+  width: 750rpx;
+  height: 226rpx;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.sel-icon{
+  width:40rpx;
+  height: 40rpx;
+}
+.item-decoration{
+  display: inline-block;
+  width: 680rpx;
+  overflow: hidden;
+}
+.del{
+  width:170rpx;
+  height:227rpx;
+  background:rgba(252,86,94,1);
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.bottom-layout .left{
+  width:510rpx;
+  height:95rpx;
+  background:rgba(255,255,255,1);
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+.bottom-layout .right{
+  flex: 1;
+  height: 95rpx;
+  background:rgba(207,163,88,1);
+  display: inline-flex;
+  font-size:32rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  align-items: center;
+  justify-content: center;
+}
+.sel-all{
+  height: 95rpx;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.sel-all .sel-icon{
+  margin-left: 15rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.sel-all .text{
+  margin-left: 24rpx;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+}
+.total-hint{
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+  display: inline-block;
+  margin-left: 30rpx;
+  margin-right: 17rpx;
+  align-self: flex-start;
+  margin-top: 16rpx;
+}
+.total-value-layout{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  align-self: flex-start;
+  margin-top: 16rpx;
+}
+.total-value{
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(215,35,35,1);
+  display: block;
+}

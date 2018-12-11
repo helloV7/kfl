@@ -1,2 +1,13 @@
 <!--pages/home/officialWebsite.wxml-->
-<text>pages/home/officialWebsite.wxml</text>
+<view class='item-list-view'>
+  <view class='top-search'>
+    <image src='/resource/image/ic_search_gray@2x.png'></image>
+    <label  class='text'>商品名称</label>
+  </view>
+  <view class='line'></view>
+  <filter style='z-index:999'></filter>
+  <view class='line'></view>
+  <scroll-view class='item-list scroll-y' scroll-y>
+    <item wx:for='1111111111'></item>
+  </scroll-view>
+</view>

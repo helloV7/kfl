@@ -22,6 +22,7 @@ label{
   position: absolute;
   top: 35rpx;
   left: 299rpx;
+  right: 28rpx;
   
   }
 .description{
@@ -31,6 +32,8 @@ label{
   position: absolute;
   top: 82rpx;
   left: 299rpx;
+    right: 28rpx;
+
   }
 .image-icon{
   width: 29rpx;
