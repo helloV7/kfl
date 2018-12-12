@@ -1,0 +1,10 @@
+<!--pages/order/PayResult.wxml-->
+<view class='main-layout'>
+<image src='/resource/image/ic_circle_successful_payment@2x.png' class='result-image'></image>
+
+<label class='result-text'>您的订单已支付成功！</label>
+
+<view class='to-detail'>查看详情</view>
+
+<view class='to-home'>返回首页</view>
+</view>

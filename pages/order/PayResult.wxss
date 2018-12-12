@@ -1,0 +1,61 @@
+/* pages/order/PayResult.wxss */
+page{
+  font-size: 0;
+  background: white;
+  height: 100%;
+  width: 100%;
+}
+.main-layout{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+.result-image{
+  width: 194rpx;
+  height: 194rpx;
+  margin-top: 119rpx;
+  display: block;
+}
+.result-text{
+  margin-top: 43rpx;
+  font-size:36rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  display: block;
+
+}
+.to-detail{
+  margin-top: 104rpx;
+  width:560rpx;
+  height:95rpx;
+  background:rgba(207,163,88,1);
+  border-radius:48px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size:32rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+}
+.to-home{
+  margin-top: 40rpx;
+  width:560rpx;
+  height:95rpx;
+  border:1rpx solid rgba(207, 163, 88, 1);
+  border-radius:48rpx;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size:32rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(200,150,68,1);
+}

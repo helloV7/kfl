@@ -1,8 +1,11 @@
 {
   "pages": [
+    "pages/test",    
+    "pages/address/addressListManagement",
+    "pages/address/addressList",
+    "pages/order/PayResult",
     "pages/shoppingcar/shoppingcar",
     "pages/home/officialWebsite",
-    "pages/test",
     "pages/product/productDetail",
     "pages/activity/activityDetail",
     "pages/home/promotionActivity",
@@ -14,7 +17,7 @@
     "pages/login/forgetPassword",
     "pages/login/userInformation",
     "pages/login/register"
-  ],
+      ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

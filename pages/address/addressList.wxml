@@ -1,0 +1,17 @@
+<!--pages/address/addressList.wxml-->
+<view class='main-layout'>
+  <scroll-view class='scroll-y' scroll-y>
+    
+    <view class='address-item-layout' wx:for='1111111111'>
+      <view class='address-name'>蓝盈盈</view>
+      <view class='address-phone'>18699551060</view>
+      <view class='address-address'>      
+        <view class='address-isdefaule'>[默认地址]</view>
+广东省广州市海珠区丽影广场A座505</view>
+    </view>
+  </scroll-view>
+
+  <view class='bottom-layout'>
+    管理地址
+  </view>
+</view>
