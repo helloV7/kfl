@@ -1,0 +1,28 @@
+<!--pages/order/orderComfirm.wxml-->
+
+<view class='layout'>
+
+  <scroll-view class='scroll-y' scroll-y>
+    <label class='address-hint'>配送地址</label>
+
+    <view class='address-layout'>
+      <image src='unsel_icon'></image>
+      <view>
+        <label>寄到美容院</label>
+        <label>广州市天河区华夏路28号富力盈信3811</label>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class='bottom-layout'>
+      <view class='left'>
+        <label class='total-hint'>合计：</label>
+        <view class='total-value-layout'>
+          <label class='total-value'>积分 1000</label>
+          <label class='total-value'>价格 ￥668</label>
+
+        </view>
+      </view>
+      <label class='right'>结算</label>
+    </view>
+  </view>

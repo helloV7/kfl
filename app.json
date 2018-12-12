@@ -1,5 +1,6 @@
 {
   "pages": [
+        "pages/order/orderComfirm",
     "pages/shoppingcar/shoppingcar",
     "pages/home/officialWebsite",
     "pages/test",

@@ -2,15 +2,16 @@
 <view class='shopping-car-page'>
   <scroll-view scroll-y class='list scroll-y' scroll-y>
 
-<!-- style='transform:translateX({{moveX}}px);' -->
-    <view class='item {{item.touchMove?"move":""}}' wx:for='{{productList}}'  data-index="{{index}}">
+  <view wx:for='{{productList}}' class='decoration'>
+    <view class='item {{item.touchMove?"move":""}}'   data-index="{{index}}">
       <view class='product-info' bindtouchstart='onItemTouchStart' bindtouchmove='onItemTouchMove' bindtouchend='onItemTouchEnd' data-index='{{index}}'>
         <image class='sel-icon' src='{{item.sel?sel_icon:unsel_icon}}' catchtap='onSelClick' data-index='{{index}}'></image>
         <view class='item-decoration' >
           <item type='action'></item>
         </view>
       </view>
-      <label class='del'>删除</label>
+      <view class='del'>删除</view>
+    </view>
     </view>
   </scroll-view>
 
