@@ -3,6 +3,7 @@
   "tab": "/component/tab",
   "item":"/component/productListItem",
   "search":"/component/searchview",
-  "filterTab":"/component/filterTab"
+  "filterTab":"/component/filterTab",
+  "alertDialog":"/component/alertDialog"
 }
 }
