@@ -27,6 +27,10 @@ page{
 .address-layout{
   width: 750rpx;
   height: 150rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: white;
 }
 .address-layout image{
   width: 40rpx;
@@ -34,8 +38,31 @@ page{
   margin-left: 20rpx;
   margin-right: 20rpx;
 }
+.address-layout .right{
+  display: inline-flex;
+  flex-direction: column;
+}
+.address-layout .title{
+  font-size:30rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(0,0,0,1);
+  display: block;
+}
+.address-layout .address{
+  margin-top: 26rpx;
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+}
+.line{
+  margin-left: 27rpx;
+}
 .sel-icon{
-
+  margin: 20rpx ;
+  width: 40rpx;
+  height: 40rpx;
 }
 .bottom-layout{
   width: 100%;
@@ -91,4 +118,96 @@ page{
   font-weight:400;
   color:rgba(215,35,35,1);
   display: block;
+}
+.item-decoration{
+  position: relative;
+  background: white;
+  display: block;
+}
+.item-list{
+  margin-top: 20rpx;
+}
+.item-decoration::after{
+  content: "";
+  position: absolute;
+  background: #E0E0E0;
+  height: 2rpx;
+  left: 27rpx;
+  right: 0;
+  bottom: 0;
+}
+.item-decoration:last-of-type::after{
+  content: none;
+}
+.price-layout{
+  margin-top: 20rpx;
+  width:750rpx;
+  height:205rpx;
+  background:rgba(255,255,255,1);
+  position: relative;
+}
+.price-layout label{
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+}
+.price-layout .price-label{
+  position: absolute;
+  left: 27rpx;
+  top: 33rpx;
+}
+.price-layout .price-value{
+   position: absolute;
+  right: 22rpx;
+  top: 33rpx;
+}
+.price-layout .score-label{
+   position: absolute;
+  left: 27rpx;
+  top: 88rpx;
+}
+.price-layout .score-value{
+     position: absolute;
+  right: 22rpx;
+  top: 91rpx;
+}
+.price-layout .freight-label{
+   position: absolute;
+  left: 27rpx;
+  top:144rpx;
+}
+.price-layout .freight-value{
+     position: absolute;
+  right: 22rpx;
+  top: 147rpx;
+}
+.message-layout{
+  margin-top: 20rpx;
+  margin-bottom: 38rpx;
+  width:750rpx;
+  height:85rpx;
+  background:rgba(255,255,255,1);
+  display: flex;
+  align-items: center;
+}
+.message-layout .title{
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+  margin-left: 30rpx;
+  margin-right: 23rpx;
+}
+.message-input{
+  display: inline-block;
+    font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+}
+.message-placeholder{
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(170,170,170,1);
 }

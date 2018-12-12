@@ -1,2 +1,16 @@
 <!--component/alertDialog.wxml-->
-<text>component/alertDialog.wxml</text>
+<view class='modal' bindtap='_modalBgClick' hidden='{{!show}}'>
+  <view class='dialog' catchtap='_nothing'>
+
+    <label class='dialog-message'>{{message}}</label>
+    <view class='dialog-line-hor'></view>
+
+    <view class='dialog-control-layout'>
+      <label class='dialog-cancel' catchtap='_onCancelClick'>{{cancelText}}</label>
+          <view class='dialog-line-ver'></view>
+      <label class='dialog-comfirm' catchtap='_onComfirmClick'>{{confirmText}}</label>
+    </view>
+  
+
+  </view>
+</view>

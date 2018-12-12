@@ -19,7 +19,7 @@
         <image class='edit-image' src='/resource/image/ic_edit_gray@2x.png'></image>
         <label class='edit-text'>编辑</label>
         </view>
-        <view class='del-layout'>
+        <view class='del-layout' bindtap='onItemDelClick'>
          <image class='del-image' src='/resource/image/ic_delete_gray@2x.png'> </image>
         <label class='del-text'>删除</label>
         </view>>
@@ -31,3 +31,5 @@
     新增地址
   </view>
 </view>
+
+<alertDialog show="{{showDialog}}" message="确定要删除该地址吗？" bind:cancel='onDelCancel' bind:comfirm='onDelComfirm'></alertDialog>

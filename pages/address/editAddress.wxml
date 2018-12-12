@@ -1,0 +1,35 @@
+<!--pages/address/editAddress.wxml-->
+<view class='line'></view>
+<view class='input-layout'>
+  <label class='label'>收货人</label>
+  <input placeholder='请输入收货人姓名' class='input' placeholder-class='input-placeholder'></input>
+</view>
+<view class='input-layout'>
+  <label class='label'>联系方式</label>
+  <input placeholder='请输入收货人联系方式' class='input' placeholder-class='input-placeholder'></input>
+</view>
+<view class='input-layout'>
+  <label class='label'>所在地区</label>
+  <!-- <input placeholder='选择所在地区' class='input' placeholder-class='input-placeholder' disabled='true'></input> -->
+    <picker class='input flex flex-center-vertical ' mode="region" bindchange="bindRegionChange" value="{{region}}" style="justify-content:flex-end;">
+    <label hidden='{{region.length!=3}}'>
+      {{region[0]}}{{region[1]}}{{region[2]}}
+    </label>
+    <label hidden='{{region.length==3}}' class='input-placeholder'>
+      请选择省市区
+    </label>
+      <image class='sel-location-image' src='/resource/image/ic_arrow_right_dark_brown.png' mode='widthFix'></image>
+  </picker>
+</view>
+<view class='input-layout address'>
+  <label class='label'>详细地址</label>
+  <textarea placeholder='街道、楼排号等' class='input' placeholder-class='input-placeholder'></textarea>
+</view>
+<view class='set-default-layout'>
+  <image src='{{unsel_icon}}'></image>
+  <label >设为默认</label>
+</view>
+
+<view class='save'>
+  保存
+</view>

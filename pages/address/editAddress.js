@@ -1,4 +1,4 @@
-// pages/address/addressListManagement.js
+// pages/address/editAddress.js
 const sel_icon = "/resource/image/ic_circle_brown_selected@2x.png"
 const unsel_icon = "/resource/image/ic_circle_gray_no_choose@2x.png"
 
@@ -10,7 +10,11 @@ Page({
   data: {
     sel_icon: sel_icon,
     unsel_icon: unsel_icon,
-    showDialog:false
+    region:[],
+    province:null,
+    city:null,
+    area:null
+
   },
 
   /**
@@ -68,19 +72,13 @@ Page({
   onShareAppMessage: function () {
 
   },
-  onItemDelClick(e){
-      this.setData({
-        showDialog:true
-      })
-  },
-  onDelComfirm(e){
+  bindRegionChange: function (e) {
+    this.data.province = e.detail.value[0]
+    this.data.city = e.detail.value[1]
+    this.data.area = e.detail.value[2]
+
     this.setData({
-      showDialog: false
-    })
-  },
-  onDelCancel(e){
-    this.setData({
-      showDialog:false
+      region: e.detail.value
     })
   }
 })
