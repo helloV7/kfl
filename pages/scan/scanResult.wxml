@@ -1,0 +1,24 @@
+<!--pages/scan/scanResult.wxml-->
+<view class='top-tag'>
+  <image src='/resource/image/bg_prize_winning@2x.png'></image>
+  <label class='message'>恭喜你通过【高圆圆】获得</label>
+  <view class='score'>
+    <label class='number'>100</label>
+    <label class='text'>积分</label>
+
+  </view>
+  <view class='cash'>
+    <label class='number'>100</label>
+    <label class='text'>现金</label>
+  </view>
+</view>
+
+<view class='input-decoration'>
+  <input class='input' placeholder-class='input-placeholder' placeholder='输入审核码（非必填）'></input>
+</view>
+
+<view class='btn-layout'>
+  <label class='btn'>累计到本人账号</label>
+  <label class='btn'>累计到其他账号</label>
+
+</view>

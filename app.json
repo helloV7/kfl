@@ -1,6 +1,7 @@
 {
   "pages": [
-        "pages/address/editAddress",
+        "pages/scan/scanResult",
+    "pages/address/editAddress",
     "pages/address/addressListManagement",
     "pages/test",
     "pages/order/orderComfirm",
