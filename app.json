@@ -2,6 +2,7 @@
   "pages": [
         "pages/test",
         
+        "pages/scan/scanResult",
     "pages/address/editAddress",
     "pages/address/addressListManagement",
     "pages/order/orderComfirm",
