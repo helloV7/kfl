@@ -4,6 +4,8 @@
   "item":"/component/productListItem",
   "search":"/component/searchview",
   "filterTab":"/component/filterTab",
-  "alertDialog":"/component/alertDialog"
+  "alertDialog":"/component/alertDialog",
+  "searchTabView":"/component/searchTabView",
+  "presents":"/pages/presents/presents"
 }
 }

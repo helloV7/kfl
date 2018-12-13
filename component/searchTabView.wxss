@@ -1,0 +1,27 @@
+/* component/searchTabView.wxss */
+.stv-layout{
+  width: 750rpx;
+  height: 100rpx;
+  background: white;
+}
+.stv-layout .background{
+  margin:20rpx 30rpx;
+  width:690rpx;
+  height:60rpx;
+  background:rgba(243,243,243,1);
+  border-radius:30px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.stv-layout .image{
+  width: 31rpx;
+  height: 31rpx;
+}
+.stv-layout .text{
+  margin-left: 15rpx;
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+}
