@@ -1,0 +1,12 @@
+<!--pages/userCenter/applyForBeautician.wxml-->
+<view class='line'></view>
+<view class='apply-layout'>
+  <image class='apply-image' src='/resource/image/ic_audit_code@2x.png'></image>
+  <input placeholder='审核码' placeholder-class='input-placeholder' class='apply-code'></input>
+</view>
+<view class='apply-layout-under-line'></view>
+<label class='error-hint' >
+  审核码有误，请核实
+</label>
+
+<view class='btn'>确认</view>

@@ -1,8 +1,11 @@
 {
   "pages": [
-        "pages/test",
-        
-        "pages/scan/scanResult",
+        "pages/message/message",
+    "pages/userCenter/applyForBeautician",
+    "pages/test",
+    "pages/product/productListWidthTab",
+    "pages/index/index",
+    "pages/scan/scanResult",
     "pages/address/editAddress",
     "pages/address/addressListManagement",
     "pages/order/orderComfirm",
@@ -16,7 +19,6 @@
     "pages/home/seasonTheme",
     "pages/home/productCenter",
     "pages/home/brandIntroduce",
-    "pages/index/index",
     "pages/login/login",
     "pages/login/forgetPassword",
     "pages/login/userInformation",

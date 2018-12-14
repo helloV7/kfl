@@ -1,0 +1,15 @@
+<!--pages/product/productListWidthTab.wxml-->
+<view class='page'>
+  <searchView></searchView>
+  <view class='line'></view>
+  <tab type='scroll' tabs="{{tab}}" ></tab>
+
+  <view class='filterTab-decoration'>
+    <filterTab></filterTab>
+  </view>
+  <scroll-view class='product-list' scroll-y>
+    <productItem wx:for='123123'></productItem>
+  </scroll-view>
+</view>
+
+<shoppingcar></shoppingcar>

@@ -1,0 +1,44 @@
+<!--pages/userCenter/userCenter.wxml-->
+<view class='line'></view>
+<view class='top-layout'>
+  <image class='avatar'></image>
+  <label class='name'>蓝盈盈 <image src='/resource/image/ic_edit_black@2x.png'></image></label>
+  <label class='state'>申请美容师 <image src='/resource/image/ic_arrow_right_gray@2x.png'></image></label>
+
+  <image src='/resource/image/ic_notice_black@2x.png'class='message-image' ></image>
+  <label class='message-text'>5</label>
+</view>
+<view class='order-layout'>
+  <label class='my-order'>
+    我的订单 <image src='/resource/image/ic_arrow_right_dark_brown@2x.png'></image>
+  </label>
+
+  <view class='item-group'>
+    <view class='item'>
+      <image src='/resource/image/ic_to_paying@2x.png'></image>
+      <label>待付款</label>
+    </view>
+     <view class='item'>
+      <image src='/resource/image/ic_to_send_the_goods@2x.png'></image>
+      <label>待发货</label>
+    </view>
+     <view class='item'>
+      <image src='/resource/image/ic_to_take_delivery_of_goods@2x.png'></image>
+      <label>待收货</label>
+    </view>
+     <view class='item'>
+      <image src='/resource/image/ic_completed@2x.png'></image>
+      <label>已完成</label>
+    </view>
+  </view>
+</view>
+
+<view class='function-item'>
+  我的钱包<image src='/resource/image/ic_arrow_right_dark_brown@2x.png'></image>
+</view>
+<view class='function-item'>
+  我的积分<image src='/resource/image/ic_arrow_right_dark_brown@2x.png'></image>
+</view>
+<view class='function-item'>
+  排行榜<image src='/resource/image/ic_arrow_right_dark_brown@2x.png'></image>
+</view>

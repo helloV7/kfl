@@ -1,0 +1,11 @@
+<!--pages/message/message.wxml-->
+<view class='line'></view>
+
+<view class='message-item'>
+  <label class='date'>11月07日 22:50</label>
+  <view class='message-body'>
+    <view class='message-title'>国庆放假</view>
+    <view class='message-content'>国庆放假通知，10月1日-7日休息，期间会延迟
+发货，造成不便请见谅</view>
+  </view>
+</view>

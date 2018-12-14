@@ -1,0 +1,47 @@
+/* pages/message/message.wxss */
+page{
+  background:#F3F3F3;
+}
+.message-item{
+  margin-top: 35rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.date{
+  background:rgba(3,3,3,0.2);
+  /* opacity:0.2; */
+  border-radius:6rpx;
+  padding: 7rpx 15rpx;
+  font-size:22rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+}
+.message-body{
+  margin-top: 35rpx;
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+  background:rgba(255,255,255,1);
+  border:2rpx solid rgba(229,229,229,1);
+  border-radius:21rpx;
+}
+.message-title{
+  margin: 35rpx 0 0 30rpx ;
+  display: block;
+
+  font-size:32rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(0,0,0,1);
+}
+.message-content{
+  margin: 30rpx;
+  display: block;
+
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+}

@@ -6,6 +6,7 @@
   "filterTab":"/component/filterTab",
   "alertDialog":"/component/alertDialog",
   "searchTabView":"/component/searchTabView",
-  "presents":"/pages/presents/presents"
+  "presents":"/pages/presents/presents",
+  "userCenter":"/pages/userCenter/userCenter"
 }
 }

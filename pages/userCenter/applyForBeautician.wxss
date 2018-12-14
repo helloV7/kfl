@@ -1,0 +1,44 @@
+/* pages/userCenter/applyForBeautician.wxss */
+.apply-layout{
+  display: flex;
+  margin: 123rpx 74rpx 28rpx;
+  align-items: center;
+}
+.apply-layout-under-line{
+  margin:0 60rpx;
+  background:rgba(207,207,207,1);
+  height: 2rpx;
+}
+.apply-image{
+  width: 41rpx;
+  height: 43rpx;
+}
+.apply-code{
+  margin-left: 31rpx;
+  font-size:32rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:black;
+}
+.input-placeholder{
+  font-size:32rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(170,170,170,1);
+}
+.btn{
+  position: absolute;
+  left: 63rpx;
+  top: 330rpx;
+  right: 63rpx;
+}
+.error-hint{
+  display: block;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,80,91,1);
+  margin-top: 29rpx;
+  margin-left: 63rpx;
+
+}

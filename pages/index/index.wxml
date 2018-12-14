@@ -4,7 +4,12 @@
 <view class='main' >
 
 <scroll-view style='height:calc({{windowHeight}}px - 98rpx);' scroll-y>
-    <home></home>
+    <view hidden='{{currentTab!=0}}' class='page-decoration'>
+      <home></home>
+    </view>
+    <view hidden='{{currentTab!=2}}' class='page-decoration'>
+       <presents></presents>
+    </view>
 </scroll-view> 
 <view class='toolbar'>
     <view class='flex flex-center-vertical flex-center-horizontal flex-space-around'>

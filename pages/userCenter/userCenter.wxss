@@ -1,0 +1,142 @@
+/* pages/userCenter/userCenter.wxss */
+.line{
+  height: 2rpx;
+  width: 100%;
+  background: #D1D1D1;
+}
+.top-layout{
+  position: relative;
+}
+.avatar{
+  width:145rpx;
+  height:145rpx;
+  border-radius:50%;
+  /* position: absolute; */
+  background: #F0F0F0;
+  margin: 55rpx;
+}
+.name{
+  font-size:34rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(1,1,1,1);
+
+  position: absolute;
+  left: 244rpx;
+  top:81rpx;
+
+}
+.name image{
+  margin-left: 19rpx;
+  width: 31rpx;
+  height: 30rpx;
+}
+.state{
+  padding: 6rpx 18rpx;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background:rgba(243,232,213,1);
+  border-radius:25rpx;
+  position: absolute;
+  top: 140rpx;
+  left: 240rpx;
+
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+}
+.state image{
+  margin-left: 14rpx;
+  width: 8rpx;
+  height: 14rpx;
+}
+.order-layout{
+  width:700rpx;
+  height:220rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0rpx 1rpx 15rpx 0rpx rgba(127,127,127,0.15);
+  border-radius:9rpx;
+  margin-left: 25rpx;
+  font-size: 0;
+}
+.my-order{
+  margin-top: 32rpx;
+  margin-left: 38rpx;
+  width: calc(100% - 38rpx - 22rpx);
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.my-order image{
+  width:13rpx;
+  height:23rpx;
+  opacity:0.5;
+}
+.order-layout .item-group{
+  margin: 30rpx 49rpx 0;
+  display: flex;
+  justify-content: space-between;
+}
+.order-layout .item-group .item{
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+}
+.order-layout .item-group .item image{
+  width: 54rpx;
+  height: 43rpx;
+
+}
+.order-layout .item-group .item label{
+  margin-top: 22rpx;
+  font-size:26rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+}
+.function-item{
+  margin-top: 63rpx;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 51rpx;
+  padding-right: 47rpx;
+}
+.function-item image{
+  width: 13rpx;
+  height: 23rpx;
+}
+.message-image{
+  width: 38rpx;
+  height: 46rpx;
+  position: absolute;
+  top: 55rpx;
+  right: 45rpx;
+
+}
+.message-text{
+  padding: 3rpx 12rpx;
+  display: inline-flex;
+  /* width:35px;
+  height:28px; */
+  background:rgba(244,48,46,1);
+  border-radius:14rpx;
+
+  font-size:22rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  position: absolute;
+  right: 25rpx;
+  top: 40rpx;
+}
