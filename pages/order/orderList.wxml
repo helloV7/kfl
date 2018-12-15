@@ -1,0 +1,25 @@
+<!--pages/order/orderList.wxml-->
+<view class='container'>
+  <view class='line'></view>
+  <view class='tab-decoration'>
+    <tab tabs="{{tabs}}" type='fixed'></tab>
+  </view>
+  <scroll-view class='scroll-y' scroll-y>
+
+    <view class='order-block'>
+      <view class='type bottom-line'>
+        待发货
+      </view>
+      <view class='item-decoration bottom-line' wx:for='123123'>
+        <item></item>
+      </view>
+      <view class='total-info-layout'>
+          <label class='type1'>共2件商品 实付：</label>
+          <label class='type2'>积分</label>
+          <label class='type3'>2000 </label>
+          <label class='type3'> ￥1486</label>
+          <label class='type4'>（含运费￥10） </label>
+      </view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,6 +1,8 @@
 {
   "pages": [
-        "pages/message/message",
+    "pages/order/orderDetail",
+    "pages/order/orderList",
+    "pages/message/message",
     "pages/userCenter/applyForBeautician",
     "pages/test",
     "pages/product/productListWidthTab",

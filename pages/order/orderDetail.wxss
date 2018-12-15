@@ -1,0 +1,114 @@
+/* pages/order/orderDetail.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background: #F3F3F3;
+}
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.scroll-y{
+  flex: 1;
+}
+.order-state{
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 24rpx 31rpx;
+}
+.order-state .state{
+  font-size:32rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(215,35,35,1);
+  margin-bottom: 10rpx;
+}
+.order-state .info{
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+}
+.address-layout{
+  height: 145rpx;
+  background: white;
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.address-layout .image{
+  width: 33rpx;
+  height: 38rpx;
+  margin-left: 26rpx;
+  margin-right: 23rpx;
+
+}
+
+.address-layout .name{
+  font-size:32rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+  display: flex;
+  align-items: baseline;
+}
+.address-layout .phone{
+  margin-left: 24rpx;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+}
+.address-layout .address{
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+}
+.item-list{
+  margin-top: 20rpx;
+  background: white;
+}
+
+.order-price{
+  margin-top: 20rpx;
+  padding: 33rpx 27rpx;
+  background: white;
+}
+.order-price .info{
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+
+  display: flex;
+  justify-content: space-between
+}
+.order-price .line{
+  margin-left: 27rpx;
+}
+.total-price{
+  display: flex;
+  justify-content: flex-end;
+}
+.total-price .total{
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+}
+.total-price .price-label{
+  font-size:28rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(215,35,35,1);
+}
+.total-price .price-number{
+  font-size:30rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(215,35,35,1);
+}

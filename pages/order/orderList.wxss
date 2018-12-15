@@ -1,0 +1,84 @@
+/* pages/order/orderList.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background: #F3F3F3;
+}
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.scroll-y{
+  flex: 1;
+
+}
+.tab-decoration{
+  padding:0 35rpx;
+  background: white;
+}
+
+.order-block{
+  margin-top: 20rpx;
+  background: white;
+}
+.order-block .type{
+  display: flex;
+  align-items: center;
+  width:750rpx;
+  height:80rpx;
+  background:rgba(255,255,255,1);
+
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+
+  padding-left: 28rpx;
+  position: relative;
+}
+.bottom-line::after{
+  content: "";
+  position: absolute;
+  left: 27rpx;
+  right: 0;
+  bottom: 0;
+  height: 2rpx;
+  background:rgba(224,224,224,1);
+}
+.item-decoration{
+  position: relative;
+}
+.total-info-layout{
+  width:750rpx;
+  height:85rpx;
+  background:#ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end
+}
+.total-info-layout .type1{
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+}
+.total-info-layout .type2{
+  font-size:28rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(0,0,0,1);
+}
+.total-info-layout .type3{
+  font-size:30rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(0,0,0,1);
+}
+.total-info-layout .type4{
+  font-size:26rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+}
