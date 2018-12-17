@@ -1,12 +1,16 @@
 {
   "pages": [
+     "pages/index/index",
+    "pages/login/login",
+    "pages/test",
+    "pages/more/qaCenter",
+    "pages/more/feedback",
+    "pages/wallet/myWallet",
     "pages/order/orderDetail",
     "pages/order/orderList",
     "pages/message/message",
     "pages/userCenter/applyForBeautician",
-    "pages/test",
     "pages/product/productListWidthTab",
-    "pages/index/index",
     "pages/scan/scanResult",
     "pages/address/editAddress",
     "pages/address/addressListManagement",
@@ -21,10 +25,12 @@
     "pages/home/seasonTheme",
     "pages/home/productCenter",
     "pages/home/brandIntroduce",
-    "pages/login/login",
     "pages/login/forgetPassword",
     "pages/login/userInformation",
-    "pages/login/register"
+    "pages/login/register",
+    "pages/wallet/introduce",
+    "pages/score/myScore",
+    "pages/score/introduce"
   ],
   "window": {
     "backgroundTextStyle": "light",

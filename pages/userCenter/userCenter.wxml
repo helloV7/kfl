@@ -1,4 +1,5 @@
 <!--pages/userCenter/userCenter.wxml-->
+<view class='container'>
 <view class='line'></view>
 <view class='top-layout'>
   <image class='avatar'></image>
@@ -41,4 +42,5 @@
 </view>
 <view class='function-item'>
   排行榜<image src='/resource/image/ic_arrow_right_dark_brown@2x.png'></image>
+</view>
 </view>

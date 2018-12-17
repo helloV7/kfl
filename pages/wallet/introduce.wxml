@@ -1,0 +1,7 @@
+<!--pages/wallet/introduce.wxml-->
+<view class='container'>
+  <view class='line'></view>
+  <scroll-view class='scroll-y' scroll-y>
+  
+  </scroll-view>
+</view>

@@ -2,14 +2,14 @@
 <view class='input-layout'>
   <view class='input-item'>
     <label class='input-label' >手机号</label>
-    <input id='phonenumber' class='input' placeholder-class='input-placeholder' placeholder='请输入11位手机号' maxlength='11'></input>
+    <input id='phonenumber' class='input' placeholder-class='input-placeholder' placeholder='请输入11位手机号' maxlength='11' bindinput='onPhoneInput'></input>
   </view>
 
   <view class='line'></view>
 
   <view class='input-item' style='margin-top:63rpx;'>
     <text class='input-label' decode='true'>密&nbsp;&nbsp;&nbsp;码</text>
-    <input class='input' type='{{showPassword?"":"password"}}'  placeholder-class='input-placeholder' placeholder='请输入6-18位密码' maxlength='18'></input>
+    <input class='input' type='{{showPassword?"":"password"}}'  placeholder-class='input-placeholder' placeholder='请输入6-18位密码' maxlength='18' bindinput='onPasswordInput'></input>
     <image class='show-password-image' src='{{showPasswordImage}}' mode='widthFix' bindtap='onPasswordVisiableReverseClick'></image>
   </view>
 
@@ -19,10 +19,10 @@
 
 <label class='forget-psd' bindtap='toForgetPasswordClick'>忘记密码 ？</label>
 
-<view class='btn login'>登录</view>
+<view class='btn login {{(password.length==0||phone.length==0)?"disable":""}}' bindtap='onLoginClick'>登录</view>
 
 <view class='flex flex-center-vertical flex-center-horizontal' style='margin-top:49rpx' bindtap='toRegisterClick'>
-  <label class='to-register' >新用户注册</label>
+  <label class='to-register' bindtap='onNavToRegister' >新用户注册</label>
   <image style='width:11rpx;margin-left:18rpx;' src='/resource/image/ic_arrow_right_black.png' mode='widthFix'></image>
 </view>
 

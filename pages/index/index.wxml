@@ -10,6 +10,12 @@
     <view hidden='{{currentTab!=2}}' class='page-decoration'>
        <presents></presents>
     </view>
+      <view hidden='{{currentTab!=3}}' class='page-decoration'>
+       <self></self>
+    </view>
+    <view hidden='{{currentTab!=4}}' class='page-decoration'>
+       <more></more>
+    </view>
 </scroll-view> 
 <view class='toolbar'>
     <view class='flex flex-center-vertical flex-center-horizontal flex-space-around'>

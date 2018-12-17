@@ -1,0 +1,36 @@
+/* pages/more/feedback.wxss */
+page{
+  background: rgb(244, 244, 244);
+  width: 100%;
+  height: 100%;
+}
+.input{
+  margin-top: 20rpx;
+
+  padding: 33rpx;
+  height:calc(278rpx - 33rpx - 33rpx);
+  width: auto;
+  background:rgba(255,255,255,1);
+
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+
+}
+.input-number{
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(170,170,170,1);
+
+  position: absolute;
+  top: 244rpx;
+  right: 27rpx;
+
+}
+.btn{
+  position: absolute;
+  left: 63rpx;
+  bottom: 37rpx;
+  right: 63rpx;
+}
