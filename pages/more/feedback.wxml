@@ -1,0 +1,12 @@
+<!--pages/more/feedback.wxml-->
+<view class='line'></view>
+<textarea class='input' placeholder='请填写您的意见反馈'>
+
+</textarea>
+
+<label class='input-number'>0/200</label>
+
+
+<label class='btn'>
+  确定
+</label> 

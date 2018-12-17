@@ -2,7 +2,7 @@
 
 let showPasswordImage = "/resource/image/ic_show.png"
 let doNotShowPasswordImage = "/resource/image/ic_dont_show.png"
-
+import api from '../../utils/api.js'
 Page({
 
   /**
@@ -10,7 +10,9 @@ Page({
    */
   data: {
     showPassword:false,
-    showPasswordImage:doNotShowPasswordImage
+    showPasswordImage:doNotShowPasswordImage,
+    phone:"",
+    password:""
   },
 
   /**
@@ -86,5 +88,35 @@ Page({
       showPassword:this.data.showPassword,
       showPasswordImage: this.data.showPassword ? showPasswordImage:doNotShowPasswordImage
     })  
+  },
+  onPhoneInput(e){
+    this.setData({
+      phone: e.detail.value
+    })
+  },
+  onPasswordInput(e){
+    this.setData({
+      password: e.detail.value
+    })
+  },
+  //登陆
+  onLoginClick(e){
+    if (this.data.password.length == 0 || this.data.phone.length == 0){
+      return
+    }
+
+    api.request("LOGIN","POST",false,true,{
+      mobile:this.data.phone,
+      password:this.data.password
+    },(res)=>{
+      console.log("callback",res)
+    })
+
+    console.log("login click")
+  },
+  onNavToRegister(e){
+    wx.navigateTo({
+      url: '/pages/login/register',
+    })
   }
 })

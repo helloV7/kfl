@@ -1,3 +1,4 @@
+
 {
  "usingComponents": {
   "tab": "/component/tab",
@@ -7,6 +8,7 @@
   "alertDialog":"/component/alertDialog",
   "searchTabView":"/component/searchTabView",
   "presents":"/pages/presents/presents",
-  "userCenter":"/pages/userCenter/userCenter"
+  "userCenter":"/pages/userCenter/userCenter",
+  "more":"/pages/more/morePage"
 }
 }

@@ -1,0 +1,121 @@
+/* pages/wallet/myWallet.wxss */
+.icon-question{
+  width: 46rpx;
+  height: 46rpx;
+  float: right;
+    margin: 30rpx;
+
+}
+.balance-layout{
+  clear: both;
+  width: 700rpx;
+  height: 245rpx;
+  position: relative;
+  margin-left: 25rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.balance-layout .background-image{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+.balance-layout .balance{
+  font-size:48rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:bold;
+  color:rgba(255,255,255,1);
+  text-shadow:0rpx 2rpx 3rpx rgba(199,146,77,0.4);
+  margin-top: 56rpx;
+  line-height: 24rpx;
+  height: 37rpx;
+}
+.balance-layout .hint-layout{
+  margin-top: 32rpx;
+
+display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:32rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:bold;
+  color:rgba(255,255,255,1);
+  text-shadow:0rpx 2rpx 3rpx rgba(199,146,77,0.4);
+}
+.balance-layout .hint-layout .icon-money{
+  width: 39rpx;
+  height: 43rpx;
+  margin-right: 7rpx;
+}
+.normal-text{
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  line-height: 15rpx;
+
+}
+.normal-text.list-title{
+  margin-top: 38rpx;
+  margin-bottom: 33rpx;
+  margin-left: 28rpx;
+
+}
+.detail-list-item{
+  display: flex;
+  margin: 29rpx 28rpx 26rpx 26rpx;
+  position: relative;
+}
+.detail-list-item::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height:1px;
+  background:rgba(224,224,224,1);
+}
+.detail-list-item .left{
+  flex: 1;
+  flex-direction: column;
+  display: inline-flex;
+}
+.detail-list-item .left .title{
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  line-height: 30rpx;
+}
+.detail-list-item .left .date{
+  margin-top: 29rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(148,148,148,1);
+  line-height:24rpx;
+}
+.detail-list-item .right{
+  display: inline-flex;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  line-height:15rpx;
+  justify-content: center;
+  align-items: center;
+  height: 103rpx;
+}
+
+
+
+.container{
+  display: flex;
+  flex-direction: column;
+}
+.scroll-y{
+  flex: 1;
+}

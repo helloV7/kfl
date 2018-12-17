@@ -1,0 +1,32 @@
+<!--pages/score/myScore.wxml-->
+<view class='container'>
+<view class='line'></view>
+<image class='icon-question' src='/resource/image/ic_question_black@2x.png'></image>
+<view class='balance-layout'>
+  <image class='background-image' src='/resource/image/bg_integral@2x@2x.png'></image>
+  <label class='balance'>￥9980.00</label>
+  <view class='hint-layout'>
+    <image src='/resource/image/ic_integral_white@2x@2x.png' class='icon-money'></image>
+    <label>积分</label>
+  </view>
+</view>
+  <label class='normal-text list-title'>积分明细</label>
+  <view class='line'></view>
+  <scroll-view class='scroll-y' scrol-y>
+
+
+    <view class='detail-list-item' wx:for='1111111'>
+      <view class='left'>
+        <label class='title'>
+          购买商品 (单号: C545645646)
+        </label>
+        <label class='date'>2018-10-22 12:11:13</label>
+      </view>
+      <view class='right'>
+        <label class='price'>-1000</label>
+      </view>
+
+  
+    </view>
+  </scroll-view>
+</view>

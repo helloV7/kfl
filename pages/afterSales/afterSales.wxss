@@ -101,3 +101,7 @@ page{
   margin-top: 20rpx;
   padding: 32rpx 29rpx;
 }
+
+.hint{
+  
+}

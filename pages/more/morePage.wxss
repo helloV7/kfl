@@ -1,0 +1,73 @@
+/* pages/more/morePage.wxss */
+page{
+  background: rgb(244, 244, 244);
+}
+.container{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.line{
+  background:rgba(209,209,209,1);
+  height: 2rpx;
+}
+.top-group{
+  margin-top: 20rpx;
+
+}
+.item-layout{
+  width:750rpx;
+  height:95rpx;
+  background:rgba(255,255,255,1);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.item-layout:after{
+  content: "";
+  position: absolute;
+  left: 27rpx;
+  right: 0;
+  bottom: 0;
+  height:2rpx;
+  background:rgba(224,224,224,1);
+}
+.item-layout:last-of-type:after{
+  content: none;
+  height: 0;
+}
+.item-layout .left{
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  margin-left: 29rpx;
+  flex: 1;
+}
+.item-layout .right{
+  margin-right: 34rpx;
+}
+.item-layout .right.text{
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+}
+.item-layout .right.image{
+  width: 13rpx;
+  height: 23rpx;
+}
+.logout{
+  margin-top: 55rpx;
+  width:750rpx;
+  height:95rpx;
+  background:rgba(255,255,255,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,65,65,1);
+}

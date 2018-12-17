@@ -19,4 +19,8 @@
     
     </textarea>
   </scroll-view>
+
+  <view>
+    <label>您的申请原因即将发送给平台客服，申请客服将及时与您取得联系</label>
+  </view>
 </view>

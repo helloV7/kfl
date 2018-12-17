@@ -1,0 +1,34 @@
+<!--pages/more/morePage.wxml-->
+<view class='container'>
+<view class='top-group'>
+  <view class='item-layout'>
+    <label class='left'>
+    联系我们
+    </label>
+    <label class='right text'>
+    400-8888-666
+    </label>
+  </view>
+  <view class='item-layout'>
+    <label class='left'>
+    意见反馈
+    </label>
+    <image class='right image' src='/resource/image/ic_arrow_right_dark_brown@2x.png'></image>
+
+  </view>
+
+  <view class='item-layout'>
+    <label class='left'>
+    帮助手册
+    </label>
+    <image class='right image' src='/resource/image/ic_arrow_right_dark_brown@2x.png'></image>
+  </view>
+
+
+</view>
+
+
+  <view class='logout'>
+    退出登录
+  </view>
+  </view>
