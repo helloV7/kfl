@@ -1,5 +1,6 @@
 {
   "pages": [
+        "pages/afterSales/afterSales",
     "pages/order/orderDetail",
     "pages/order/orderList",
     "pages/message/message",

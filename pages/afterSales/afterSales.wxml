@@ -1,0 +1,22 @@
+<!--pages/afterSales/afterSales.wxml-->
+<view class='container'>
+  <scroll-view scroll-y class='scroll-y'>
+    <view class='order-number-layout text'>
+      订单号：C38903720340
+    </view>
+
+    <view class='item-decoration'>    
+      <item></item>
+      <label class='number'>共 1 件商品</label>
+    </view>
+
+    <view class='type-layout'>
+      <label class='type-hint'>申请类型</label>
+      <label class='type-value'>换货不退款</label>
+    </view>
+
+    <textarea class='reason' placeholder='请输入申请售后理由...'>
+    
+    </textarea>
+  </scroll-view>
+</view>

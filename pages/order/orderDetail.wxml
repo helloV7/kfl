@@ -1,5 +1,4 @@
 <!--pages/order/orderDetail.wxml-->
-<view class='line'></view>
 <view class='container'>
   <scroll-view class='scroll-y' scroll-y>
   
@@ -24,7 +23,14 @@
       <view class='item-list'>
         <item></item>
       </view>
-      
+      <view class='state-layout'>
+          <view class='state normal'>申请售后</view>
+          <view class='state red'>处理中</view>
+
+      </view>
+
+
+  <!--商品金额信息  -->
       <view class='order-price'>
         <view class='info'>
           <label>商品金额</label>
@@ -38,11 +44,34 @@
           <label>运费</label>
           <label>￥788</label>
         </view>
-        <view class='line'></view>
+        <view class='line' style='margin:32rpx 0;'></view>
         <view class='total-price'>
           <label class='total'>合计</label>
-          <label></label>
+          <label class='text' style='margin-left:18rpx;'>积分</label>
+          <label class='number'>2000</label>
+          <label class='text' style='margin-left:31rpx;'>价格</label>
+          <label class='number'>￥1486</label>
         </view>
       </view>
+<!-- 卖家留言 -->
+      <view class='message-layout'>
+        <label class='text'>买家留言（非必填）</label>
+        <label class='text'>无</label>
+      </view>
   </scroll-view>
+
+
+  <view class='bottom-control-layout'>
+    <view class='btn-group'>
+      <label class='action-btn normal'>
+        取消订单
+      </label>
+      <label class='action-btn normal'>
+        微信支付
+      </label>
+      <label class='action-btn light'>
+        确认收货
+      </label>
+    </view>
+  </view>
 </view>
