@@ -3,6 +3,8 @@
 let showPasswordImage = "/resource/image/ic_show.png"
 let doNotShowPasswordImage = "/resource/image/ic_dont_show.png"
 import api from '../../utils/api.js'
+
+var app = getApp()
 Page({
 
   /**
@@ -105,20 +107,53 @@ Page({
       return
     }
 
-    api.request({
-      url:"LOGIN",
-      method:"POST",
-      needToken:false,
-      showLoading:true,
-      param:{
-      mobile:this.data.phone,
-      password:this.data.password
+  wx.login({
+    success:(res)=>{
+      api.request({
+        url: "LOGIN",
+        method: "POST",
+        needToken: false,
+        showLoading: true,
+        param: {
+          mobile: this.data.phone,
+          password: this.data.password,
+          code:res.code
+        },
+        callback: (res) => {
+          console.log("callback", res)
+        }
+      })
     },
-    callback:(res)=>{
-      console.log("callback",res)
-      }})
+    faile:(res)=>{
+      app.showToast("网络错误")
+    }
+  })
+  
 
     console.log("login click")
+  },
+  wxChatLogin(e){
+
+    wx.login({
+      success:(res)=>{
+        res.code
+        api.request({
+          url:'WX_LOGIN',
+          method:"POST",
+          needToken:false,
+          showLoading:true,
+          param:{
+            wechatCode:res.code,
+            avatar: e.detail.userInfo.avatarUrl,
+            nickname: e.detail.userInfo.nickName
+          },
+          callback:(json)=>{
+            console.log("json")
+          }
+        })
+      }
+    })
+    
   },
   onNavToRegister(e){
     wx.navigateTo({

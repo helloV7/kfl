@@ -19,7 +19,7 @@
 
 <label class='forget-psd' bindtap='toForgetPasswordClick'>忘记密码 ？</label>
 
-<view class='btn login {{(password.length<=6||phone.length!=11)?"disable":""}}' bindtap='onLoginClick'>登录</view>
+<button class='btn login {{(password.length<=6||phone.length!=11)?"disable":""}}' bindtap='onLoginClick'>登录</button>
 
 <view class='flex flex-center-vertical flex-center-horizontal' style='margin-top:49rpx' bindtap='toRegisterClick'>
   <label class='to-register' bindtap='onNavToRegister' >新用户注册</label>
@@ -33,7 +33,7 @@
     <view class='line'></view>
   </view>
 
-  <button class='wechat-login'>
+  <button class='wechat-login' open-type='getUserInfo'  bindgetuserinfo='wxChatLogin'>
     <image src='/resource/image/ic_circle_wechat.png' mode='widthFix'></image>
   </button>
 </view>
