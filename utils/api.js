@@ -47,16 +47,34 @@ var _request = function ({url,method,needToken,showLoading,param,callback}){
 
     },
     complete:  (res)=> {
+      if(res.statusCode==200){
+        //code是3的时候是登陆失效，4的时候是要绑定手机号，1是正常，0是异常
+        if(res.data.code==1){
+          callback(true,res.data)
+        }else{
+          callback(false, res.data)
+          showToast(res.data.msg)
+        }
+      }else{
+        showToast("网络异常")
+      }
+
       console.log("url complete", _url, res)
 
       wx.hideLoading()
-
       _pull(currentDate + url)
     },
   })
-  _pull(currentDate+url, requestTask)
+  _push(currentDate+url, requestTask)
 
 }
+
+function showToast(message) {
+  wx.showToast({
+    title: message,
+  })
+}
+
 
 var _push = (key,value)=>{
   requestTaskList[key]=value

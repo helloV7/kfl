@@ -105,12 +105,18 @@ Page({
       return
     }
 
-    api.request("LOGIN","POST",false,true,{
+    api.request({
+      url:"LOGIN",
+      method:"POST",
+      needToken:false,
+      showLoading:true,
+      param:{
       mobile:this.data.phone,
       password:this.data.password
-    },(res)=>{
+    },
+    callback:(res)=>{
       console.log("callback",res)
-    })
+      }})
 
     console.log("login click")
   },
