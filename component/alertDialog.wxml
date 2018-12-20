@@ -8,7 +8,7 @@
     <view class='dialog-control-layout'>
       <label class='dialog-cancel' catchtap='_onCancelClick'>{{cancelText}}</label>
           <view class='dialog-line-ver'></view>
-      <label class='dialog-comfirm' catchtap='_onComfirmClick'>{{confirmText}}</label>
+      <label class='dialog-comfirm' catchtap='_onConfirmClick'>{{confirmText}}</label>
     </view>
   
 

@@ -1,15 +1,15 @@
 <!--pages/more/morePage.wxml-->
 <view class='container'>
 <view class='top-group'>
-  <view class='item-layout'>
+  <view class='item-layout' bindtap='showDialDialog'>
     <label class='left'>
     联系我们
     </label>
     <label class='right text'>
-    400-8888-666
+    {{phone}}
     </label>
   </view>
-  <view class='item-layout'>
+  <view class='item-layout' bindtap='toFeedback'>
     <label class='left'>
     意见反馈
     </label>
@@ -17,7 +17,7 @@
 
   </view>
 
-  <view class='item-layout'>
+  <view class='item-layout' bindtap='toQACenter'>
     <label class='left'>
     帮助手册
     </label>
@@ -28,7 +28,10 @@
 </view>
 
 
-  <view class='logout'>
+  <view class='logout' bindtap='showLogoutDialog'>
     退出登录
   </view>
   </view>
+
+  <alert show="{{showDialDialog}}" message="{{phone}}" bind:confirm="onDialConfirm" bind:cancel="hideDialDialog"></alert>
+  <alert show="{{showLogoutDialog}}" message="您确定要退出当前账号吗？" bind:confirm="onLogoutConfirm" bind:cancel="hideLogoutDialog"></alert>

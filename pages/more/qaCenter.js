@@ -1,18 +1,33 @@
 // pages/more/qaCenter.js
+import api from '../../utils/api.js'
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    text:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    api.request({
+      url:"SYSTEM_SETTING_INFO",
+      method:"GET",
+      param:{
+        name:"helpTip"
+      },
+      callback:(b,json)=>{
+        if(b){
+          this.setData({
+            text:json.data
+          })
+        }
+      }
+    })
   },
 
   /**

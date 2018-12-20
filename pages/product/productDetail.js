@@ -1,4 +1,6 @@
 // pages/product/productDetail.js
+import api from '../../utils/api.js'
+var app = getApp()
 Page({
 
   /**
@@ -7,13 +9,17 @@ Page({
   data: {
     windowHeight:0,
     count:0,
-    showModal:false
+    showModal:false,
+    currentSwipe:0,
+    id:0,
+    data:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.data.id = options.id
     wx.getSystemInfo({
       success: (res)=>{
           this.setData({
@@ -21,6 +27,7 @@ Page({
           })
       },
     })
+    this.getProductInfo()
   },
 
   /**
@@ -99,5 +106,62 @@ Page({
   }
   ,nothing(){
     
+  },
+  getProductInfo(){
+    api.request({
+      url:"PRODUCT_DETAIL",
+      method:"GET",
+      showLoading:true,
+      param:{
+        goodsId:this.data.id
+      },
+      callback:(b,json)=>{
+        this.setData({
+          data:json.data
+        })
+      }
+    })
+  },
+  onSwipeChange(e){
+    this.setData({
+      currentSwipe:e.detail.current
+    })
+  },
+  addToShoppingCar(){
+
+    api.request({
+      url:"SHOPPING_CAR_ADD",
+      method:"POST",
+      param:{
+        goodsId:this.data.id
+      },
+      callback:(b,json)=>{
+        if(b){
+          this.hideModal()
+          this.setData({
+            count:0
+          })
+          app.showToast(json.msg)
+        }
+      }
+    })
+  },
+  redictToHome(){
+
+    var pages = getCurrentPages()
+    if (pages[pages.length-2].route=="pages/index/index"){
+      wx.navigateBack({   
+      })
+    }else{
+      wx.redirectTo({
+        url: '/pages/index/index',
+      })
+    }
+   
+  },
+  openShoppingCar(){
+    wx.navigateTo({
+      url: '/pages/shoppingcar/shoppingcar',
+    })
   }
 })

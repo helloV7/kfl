@@ -19,7 +19,7 @@
 
 <label class='forget-psd' bindtap='toForgetPasswordClick'>忘记密码 ？</label>
 
-<button class='btn login {{(password.length<=6||phone.length!=11)?"disable":""}}' bindtap='onLoginClick'>登录</button>
+<button class='btn login {{(password.length<6||phone.length!=11)?"disable":""}}' bindtap='onLoginClick'>登录</button>
 
 <view class='flex flex-center-vertical flex-center-horizontal' style='margin-top:49rpx' bindtap='toRegisterClick'>
   <label class='to-register' bindtap='onNavToRegister' >新用户注册</label>

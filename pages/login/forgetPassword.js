@@ -1,6 +1,9 @@
 // pages/login/forgetPassword.js
 let showPasswordImage = "/resource/image/ic_show.png"
 let doNotShowPasswordImage = "/resource/image/ic_dont_show.png"
+import md5 from "../../utils/js-md5.js"
+import api from "../../utils/api.js"
+var app = getApp()
 Page({
 
   /**
@@ -8,7 +11,11 @@ Page({
    */
   data: {
     showPassword: false,
-    showPasswordImage: doNotShowPasswordImage
+    showPasswordImage: doNotShowPasswordImage,
+    phone: "",
+    captcha: "",
+    password:"",
+    intervalCount: 0,
   },
 
   /**
@@ -71,6 +78,87 @@ Page({
     this.setData({
       showPassword: this.data.showPassword,
       showPasswordImage: this.data.showPassword ? showPasswordImage : doNotShowPasswordImage
+    })
+  },
+  onPhoneInput(e){
+    this.setData({
+      phone:e.detail.value
+    })
+  },
+  onPasswordInput(e){
+    this.setData({
+      password:e.detail.value
+    })
+  },
+  onCaptchaInput(e){
+    this.setData({
+      captcha: e.detail.value
+    })
+  },
+  getCaptcha(){
+    if(this.data.phone<11){
+      return
+    }
+    if(this.data.intervalCount!=0){
+      return
+    }
+    this._getCaptcha()
+
+  }
+  ,_getCaptcha(){
+    api.request({
+      url:"GET_CAPTCHA",
+      method:"POST",
+      noToken:true,
+      showLoading: true,
+      param:{
+        mobile: this.data.phone,
+        event: "resetpwd"
+      },
+      callback:(b,json)=>{
+        if(b){
+          this.beginTimmer()
+        }
+      }
+    
+    })
+  },
+  beginTimmer() {
+    this.setData({ intervalCount: 60 })
+    var intervalID = setInterval(() => {
+      console.log(this.data.intervalCount)
+      this.setData({
+        intervalCount: --this.data.intervalCount
+      })
+      if (this.data.intervalCount == 0) {
+        clearInterval(intervalID)
+      }
+
+    }, 1000)
+  },
+  resetPwd(){
+    if (this.data.phone.length < 11 || this.data.captcha.length == 0 || this.data.password.length < 6){
+      return
+    }
+    api.request({
+      url:"RESET_PWD",
+      method:"POST",
+      noToken:true,
+      showLoading:true,
+      param:{
+        mobile	:this.data.phone,
+        newpassword	: md5(this.data.password),
+        captcha:this.data.captcha
+      },
+      callback:(b,json)=>{
+        if(b){
+          wx.navigateBack({
+            delta: 1,
+          })
+          app.showToast(json.msg)
+
+        }
+      }
     })
   }
 })

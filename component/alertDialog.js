@@ -42,8 +42,8 @@ Component({
     _onCancelClick(e){
         this.triggerEvent('cancel', {}, {})
     },
-    _onComfirmClick(e) {
-      this.triggerEvent('comfirm', {}, {})
+    _onConfirmClick(e) {
+      this.triggerEvent('confirm', {}, {})
     }
   }
 })

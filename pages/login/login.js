@@ -3,7 +3,7 @@
 let showPasswordImage = "/resource/image/ic_show.png"
 let doNotShowPasswordImage = "/resource/image/ic_dont_show.png"
 import api from '../../utils/api.js'
-
+import md5 from '../../utils/js-md5.js'
 var app = getApp()
 Page({
 
@@ -112,16 +112,19 @@ Page({
       api.request({
         url: "LOGIN",
         method: "POST",
-        needToken: false,
-        showLoading: true,
+        noToken: true,
         param: {
           mobile: this.data.phone,
-          password: this.data.password,
-          code:res.code
+          password: md5(this.data.password),
+          wechatCode:res.code
         },
-        callback: (res) => {
-          console.log("callback", res)
-        }
+        callback: (isSuccess,json) => {
+          wx.setStorageSync("userInfo", json.data.userinfo)
+
+          wx.redirectTo({
+            url: '/pages/index/index',
+          })       
+           }
       })
     },
     faile:(res)=>{
@@ -140,15 +143,55 @@ Page({
         api.request({
           url:'WX_LOGIN',
           method:"POST",
-          needToken:false,
-          showLoading:true,
+          noToken:true,
           param:{
             wechatCode:res.code,
             avatar: e.detail.userInfo.avatarUrl,
             nickname: e.detail.userInfo.nickName
           },
-          callback:(json)=>{
-            console.log("json")
+          callback: (isSuccess, json)=>{
+            
+            wx.setStorageSync("userInfo", json.data.userinfo)
+
+            wx.redirectTo({
+              url: '/pages/index/index',
+            })
+            // avatar
+            // :
+            // "https://wx.qlogo.cn/mmopen/vi_32/Nhr2By0AKpuau9focTzib5xfq3jPE93ccBb2hI6jWxKWGxKZqib8tV9Ttib6ks64KXuTytBqHP9hNLkVlbGToRMsg/132"
+            // balance
+            // :
+            // "0.00"
+            // createtime
+            // :
+            // 1545270970
+            // expires_in
+            // :
+            // 2592000
+            // expiretime
+            // :
+            // 1547862970
+            // id
+            // :
+            // 34
+            // mobile
+            // :
+            // ""
+            // nickname
+            // :
+            // "hello_v7"
+            // score
+            // :
+            // 0
+            // token
+            // :
+            // "fc326b86-d0c2-4808-a4a0-37cc8df0af0e"
+            // userType
+            // :
+            // "1"
+            // user_id
+            // :
+            // 34        
           }
         })
       }

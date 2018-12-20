@@ -8,6 +8,14 @@ page{
   height: 515rpx;
   position: relative;
 }
+.productBanner swiper{
+  width: 100%;
+  height: 100%;
+}
+.productBanner image{
+  width: 100%;
+  height: 100%;
+}
 .bannerIndicator{
   width:79rpx;
   /* height:42rpx; */

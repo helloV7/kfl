@@ -2,8 +2,7 @@
 //获取应用实例
 const app = getApp()
 let resourcePath = "/resource/image";
-
-
+import api from '../../utils/api.js'
 Page({
   data: {
     currentTab:0,
@@ -44,6 +43,31 @@ Page({
     
     this.setData({
       currentTab:tabIndex
+    })
+  },
+  _scan(){
+    // 只允许从相机扫码       onlyFromCamera: true,
+
+    wx.scanCode({
+      success(res) {
+        console.log(res)
+      }
+    })
+  },
+  _validateCode(code){
+    api.request({
+      url:"VALIDATE_QRCODE",
+      method:"GET",
+      param:{
+        code:code
+      },
+      callback:(b,json)=>{
+        if(b){
+          wx.navigateTo({
+            url: '/pages/scan/scanResult?data='+json.data,
+          })
+        }
+      }
     })
   }
 })

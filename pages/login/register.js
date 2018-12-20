@@ -2,7 +2,12 @@
 
 let showPasswordImage = "/resource/image/ic_show.png"
 let doNotShowPasswordImage = "/resource/image/ic_dont_show.png"
+import api from '../../utils/api.js'
+import md5 from '../../utils/js-md5.js'
 
+var app = getApp()
+var nickname;
+var avatar;
 Page({
 
   /**
@@ -11,7 +16,12 @@ Page({
   data: {
     showPassword: false,
     showPasswordImage: doNotShowPasswordImage,
-    displayType:1,//1普通用户  2美容师
+    displayType:1,//1普通用户  2美容师,
+    phone:"",
+    captcha:"",
+    password:"",
+    code:"",
+    intervalCount:0,
   },
 
   /**
@@ -89,5 +99,153 @@ Page({
     this.setData({
       displayType: this.data.displayType
     });
+  },
+  onPhoneInput(e){
+    this.setData({
+      phone: e.detail.value
+    })
+  },
+  onCaptchaInput(e){
+    this.setData({
+      captcha: e.detail.value
+    })
+  },
+  onPasswordInput(e){
+    this.setData({
+      password: e.detail.value
+    })
+  },
+  onCodeInput(e){
+    this.setData({
+      code: e.detail.value
+    })
+  }, 
+  getCaptcha(){
+    if(this.data.phone.length<11){
+      app.showToast("请输入11位手机号")
+      return 
+    }
+    if(this.data.intervalCount!=0){
+      return
+    }
+   this._getCaptcha()
+  }
+  ,register(e){
+    avatar = e.detail.userInfo.avatarUrl
+    nickname = e.detail.userInfo.nickName
+    if(this.data.phone.length==0){
+      // app.showToast("请输入手机号")
+      return
+    }
+    if(this.data.captcha.length==0){
+      // app.showToast("请输入验证码")
+      return
+    }
+    if(this.data.password.length==0){
+      // app.showToast("请输入密码")
+      return
+    }
+    if(this.data.displayType==2 && this.data.code.length==0){
+      // app.showToast("请输入审核码")
+      return
+    }
+
+    // var result = this._validateCaptcha().then(r => {
+    //   if (r) {
+    //     return this._register()
+    //   }else{
+    //     return false
+    //   }
+    // })
+    this._register().then(r=>{
+      if(r){
+        //注册成功(
+          this.toLoginClick()
+      }else{
+        //注册失败
+      }
+    })
+    // console.log("register", result)
+  }
+  ,_register(){
+
+    var param = {}
+    param['mobile']= this.data.phone
+    param['password'] = md5(this.data.password)
+    param['captcha'] = this.data.captcha
+    param['registerType'] = this.data.displayType
+    param['nickname'] = nickname
+    param['avatar'] = avatar
+    if (this.data.displayType==2)
+      param['code'] = this.data.code
+
+
+    var r = new Promise((resolve,reject)=>{
+      api.request({
+        url:"REGISTER",
+        method:"POST",
+        noToken:true,
+        param:param,
+        callback:(b,json)=>{
+          if(b){
+            app.showToast(json.msg)
+          }
+          resolve(b)
+        }
+      })
+    })
+    return r
+  },
+  _getCaptcha(){
+    api.request(
+      {
+        url:"GET_CAPTCHA",
+        method:"POST",
+        noToken:true,
+        param:{
+          mobile:this.data.phone,
+          event:"register"
+        },
+        callback:(b,json)=>{
+          if(b){
+            this.beginTimmer()
+          }
+        }
+      }
+    )
+  },
+  // _validateCaptcha(){
+  //   var r = new Promise((resolve,reject)=>{
+  //     api.request(
+  //       {
+  //         url: "VALIDATE_CAPTCHA",
+  //         method: "POST",
+  //         noToken: true,
+  //         param: {
+  //           mobile: this.data.phone,
+  //           event: "register",
+  //           captcha: this.data.captcha
+  //         },
+  //         callback:(b,json)=>{
+  //             resolve(b)
+  //         }
+
+  //       }
+  //     )
+  //   })
+  //  return r
+  // },
+  beginTimmer(){
+    this.setData({intervalCount : 60})
+    var intervalID = setInterval(()=>{
+      console.log(this.data.intervalCount)
+      this.setData({
+        intervalCount: --this.data.intervalCount
+      })
+      if(this.data.intervalCount==0){
+        clearInterval(intervalID)
+      }
+
+    },1000)
   }
 })

@@ -1,11 +1,19 @@
 <!--pages/message/message.wxml-->
+<wxs module="m1">
+  function format(ts) {
+    var d = getDate(ts)
+    return d.getMonth()+1+"月"+ d.getDate()+"日 "+d.getHours()+":"+d.getMinutes();
+  }
+  module.exports.format = format
+</wxs>
+
 <view class='line'></view>
 
-<view class='message-item'>
-  <label class='date'>11月07日 22:50</label>
+<view class='message-item' wx:for="{{data}}">
+<!-- 11月07日 22:50 -->
+  <label class='date'>{{m1.format(item.createtime)}}</label>
   <view class='message-body'>
-    <view class='message-title'>国庆放假</view>
-    <view class='message-content'>国庆放假通知，10月1日-7日休息，期间会延迟
-发货，造成不便请见谅</view>
+    <view class='message-title'>{{item.title}}</view>
+    <view class='message-content'>{{item.content}}</view>
   </view>
 </view>

@@ -1,11 +1,13 @@
 // pages/more/feedback.js
+import api from '../../utils/api.js'
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    content:""
   },
 
   /**
@@ -62,5 +64,29 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  onContentInput(e){
+    this.setData({
+      content:e.detail.value
+    })
+  },
+  onConfirmClick(){
+    if (this.data.content.length<0)return
+
+    api.request({
+      url:"FEEDBACK_SUBMIE",
+      method:"POST",
+      showLoading:true,
+      param:{content:this.data.content},
+      callback:(b,json)=>{
+        if(b){
+          wx.navigateBack({
+            
+          })
+          app.showToast(json.msg)
+        }
+      }
+
+    })
   }
 })

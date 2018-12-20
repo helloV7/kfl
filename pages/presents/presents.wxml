@@ -7,15 +7,14 @@
 
 
     <scroll-view class='scroll-view left' scroll-y>
-      <view class='type sel' >1</view>
-      <view class='type' wx:for="12123123132133">1</view>
+      <view class='type {{index==currentTypeIndex?"sel":""}}' wx:for="{{typeList}}" wx:key="{{item.id}}">{{item.name}}</view>
     </scroll-view>
 
     <scroll-view class='scroll-view right' scroll-y>
       <view class='content'>
-        <view class='item' wx:for='12123123121111133121231231211111331212312312111113312123123121111133'>
-          <image class='image' src='http://img.lanrentuku.com/img/allimg/1811/15433750601908.jpg'></image>
-          <label class='text'>123</label>
+        <view class='item' wx:for='{{productList}}' wx:key="{{item.goodsId}}" bindtap='_onItemClick' data-id="{{item.goodsId}}">
+          <image class='image' src='{{item.coverImg}}'></image>
+          <label class='text'>{{item.goodsName}}</label>
         </view>
       </view>
     </scroll-view>

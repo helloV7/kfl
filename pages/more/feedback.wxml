@@ -1,12 +1,12 @@
 <!--pages/more/feedback.wxml-->
 <view class='line'></view>
-<textarea class='input' placeholder='请填写您的意见反馈'>
+<textarea class='input' placeholder='请填写您的意见反馈' bindinput='onContentInput' maxlength='200'>
 
 </textarea>
 
-<label class='input-number'>0/200</label>
+<label class='input-number'>{{content.length}}/200</label>
 
 
-<label class='btn'>
+<label class='btn {{content.length>0?"":"disable"}}' bindtap='onConfirmClick'>
   确定
 </label> 

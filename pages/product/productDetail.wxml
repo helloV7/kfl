@@ -1,49 +1,49 @@
 <!--pages/product/productDetail.wxml-->
-<scroll-view style='height:calc({{windowHeight}}px - 100rpx);'>
+<scroll-view style='height:calc({{windowHeight}}px - 100rpx);' scroll-y class='scroll-y'>
   <view class='productBanner'>
-    <swiper>
-      <swiper-item>
-        <image></image>
+        <swiper current='{{currentSwipe}}' bindchange="onSwipeChange">
+      <swiper-item wx:for="{{data.slidesImg}}">
+        <image src='{{item}}' mode='aspectFill'></image>
       </swiper-item>
     </swiper>
 
     <view class='bannerIndicator'>
-      <label>1</label><label>/3</label>
+      <label>{{currentSwipe+1}}</label><label>/{{data.slidesImg.length}}</label>
     </view>
   </view>
 
   <view class="info-layout">
-    <label class='title'>裹海之谜 精华 让年轻活在基因里 解读肌肤年龄</label>
+    <label class='title'>{{data.goodsName}}</label>
     <label class='description'>精华 250ml</label>
 
     <view class='value-layout'>
       <image class='icon' src='/resource/image/ic_price_small_golden@2x.png' ></image>
-      <label class='value'>880.00</label>
+      <label class='value'>{{data.price}}</label>
     </view>
 
     <view class='value-layout'>
       <image class='icon' src='/resource/image/ic_integral_small_golden@2x.png'></image>
-      <label class='value'>88</label>
+      <label class='value'>{{data.score}}</label>
     </view>
     <view class='line'></view>
 
-    <label class='score'>扫描积分：550分</label>
+    <label class='score'>扫描积分：{{data.scanScore}}分</label>
     <label class='description2'>规格：180ml 编号：LA.1301H</label>
 
 
   </view>
 
-  <rich-text>
+  <rich-text nodes="{{data.goodsDesc}}">
   </rich-text>
 </scroll-view>
 
 <view class='bottom-layout'>
   <view class='left'>
-    <view class='item'>
+    <view class='item' bindtap='redictToHome'>
       <image src='/resource/image/ic_home_black@2x.png' style='width:45rpx;' mode='widthFix'></image>
       <label>首页</label>
     </view>
-     <view  class='item'>
+     <view  class='item' bindtap='openShoppingCar'>
       <image src='/resource/image/ic_shopping_black@2x.png' style='width:44rpx;' mode='widthFix'></image>
       <label>购物车</label>
     </view>
@@ -64,7 +64,7 @@
       <image class='action-image' src='/resource/image/ic_circle_add_middle_gray@2x.png' catchtap='add'></image>
    </view>
 
-    <view class='buyBtn' catchtap='hideModal'>确定</view>
+    <view class='buyBtn' catchtap='addToShoppingCar'>确定</view>
   </view>
  
 </view>

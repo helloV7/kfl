@@ -8,22 +8,22 @@
 <view class='input-layout'>
   <view class='input-item'>
     <label class='input-label' >手机号</label>
-    <input id='phonenumber' class='input' placeholder-class='input-placeholder' placeholder='请输入11位手机号' maxlength='11'></input>
+    <input id='phonenumber' class='input' placeholder-class='input-placeholder' placeholder='请输入11位手机号' maxlength='11' bindinput='onPhoneInput' value='{{phone}}'></input>
   </view>
 
   <view class='line'></view>
 
   <view class='input-item' style='margin-top:48rpx;'>
     <label class='input-label' >验证码</label>
-      <input class='input' placeholder-class='input-placeholder' placeholder='请输入验证码' maxlength='8'></input>
-      <label class='get-captcha'>获取验证码</label>
+      <input class='input' placeholder-class='input-placeholder' placeholder='请输入验证码' maxlength='8' value='{{captcha}}' bindinput='onCaptchaInput'></input>
+      <label class='get-captcha {{intervalCount==0?"":"loading"}}' bindtap='getCaptcha'>{{intervalCount==0?"获取验证码":(intervalCount+' s')}}</label>
   </view>
   <view class='line'></view>
 
 
   <view class='input-item' style='margin-top:63rpx;'>
       <text class='input-label' decode='true'>密&nbsp;&nbsp;&nbsp;码</text>
-      <input class='input' type='{{showPassword?"":"password"}}'  placeholder-class='input-placeholder' placeholder='请输入6-18位密码' maxlength='18'></input>
+      <input class='input' type='{{showPassword?"":"password"}}'  placeholder-class='input-placeholder' placeholder='请输入6-18位密码' maxlength='18' bindinput='onPasswordInput' value='{{password}}'></input>
       <image class='show-password-image' src='{{showPasswordImage}}' mode='widthFix' bindtap='onPasswordVisiableReverseClick'></image>
     </view>
 
@@ -31,7 +31,7 @@
 
   <view class='input-item' style='margin-top:63rpx;' hidden='{{displayType!=2}}'>
       <label class='input-label'>审核码</label>
-      <input class='input' type='{{showPassword?"":"password"}}'  placeholder-class='input-placeholder' placeholder='请输入6-18位密码' maxlength='18'></input>
+      <input class='input' type='{{showPassword?"":"password"}}'  placeholder-class='input-placeholder' placeholder='请输入审核 码' maxlength='18' bindinput='onCodeInput' value='{{code}}'></input>
       <image class='audit-code-image' src='/resource/image/ic_circle_question_login.png ' mode='widthFix' bindtap='onPasswordVisiableReverseClick'></image>
     </view>
 
@@ -40,9 +40,9 @@
 
 </view>
 
-<label class='btn register'>
+<button class='btn register {{(password.length<6 ||  phone.length<11 || captcha.length<0 || ((displayType==2&&code.length==0)?true:false))?"disable":""}}' open-type='getUserInfo'  bindgetuserinfo='register'>
   立即注册
-</label>
+</button>
 
 <view class='flex flex-center-vertical flex-center-horizontal' style='margin-top:49rpx'>
   <label class='to-login' bindtap='toLoginClick'>跳转登录</label>
