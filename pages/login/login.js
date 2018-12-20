@@ -118,12 +118,15 @@ Page({
           password: md5(this.data.password),
           wechatCode:res.code
         },
-        callback: (isSuccess,json) => {
-          wx.setStorageSync("userInfo", json.data.userinfo)
+        callback: (b,json) => {
+          if(b){
+            wx.setStorageSync("userInfo", json.data.userinfo)
 
-          wx.redirectTo({
-            url: '/pages/index/index',
-          })       
+            wx.redirectTo({
+              url: '/pages/index/index',
+            }) 
+          }
+             
            }
       })
     },

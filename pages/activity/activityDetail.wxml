@@ -1,13 +1,14 @@
 <!--pages/activity/activityDetail.wxml-->
 <scroll-view scroll-y style='white-space:nowrap;overflow:scroll;height:100%;'>
-  <rich-text style='background:white;'>
+  <image class='image' src='{{data.activitionImg}}'></image>
+  <rich-text style='background:white;' nodes="{{data.content}}">
   </rich-text>
 
   <view style='margin-top:25rpx;'></view>
 
-  <view class='item-decorator' wx:for="productList" wx:key="1" style='background:white;'>
+  <view class='item-decorator' wx:for="{{data.goodsList}}" wx:key="{{item.goodsOd}}" style='background:white;'>
               
-        <item type="action" showIcon="true"></item>
+        <item type="action" showIcon="true" cover="{{item.coverImg}}" title="{{item.goodsName}}" description="规格{{item.capacity.showName}} 编号{{item.goodsCode}}" value1="{{item.score}}" value2="{{item.price}}" bind:itemClick="onItemClick" extra="{{item}}"></item>
 
     </view>
 

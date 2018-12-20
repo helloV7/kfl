@@ -34,6 +34,7 @@ Page({
 
     if(tabIndex==1){
       //二维码扫描
+      this._scan()
       return;
     }
 
@@ -50,7 +51,8 @@ Page({
 
     wx.scanCode({
       success(res) {
-        console.log(res)
+        // console.log(res)
+        _validateCode(res)
       }
     })
   },
@@ -64,7 +66,7 @@ Page({
       callback:(b,json)=>{
         if(b){
           wx.navigateTo({
-            url: '/pages/scan/scanResult?data='+json.data,
+            url: '/pages/scan/scanResult?data='+JSON.stringify(json.data)+"&code="+code,
           })
         }
       }

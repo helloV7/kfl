@@ -63,7 +63,7 @@ Component({
       let id = e.currentTarget.dataset.id
 
       wx.navigateTo({
-        url: '/pages/product/productDetail?id=' + id,
+        url: '/pages/activity/activityDetail?id=' + id,
       })
     },
     onBannerClick(e) {

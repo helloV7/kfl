@@ -1,18 +1,23 @@
 // pages/activity/activityDetail.js
+import api from '../../utils/api.js'
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    id:0,
+    data:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.data.id = options.id
 
+    this.getActivityDetail()
   },
 
   /**
@@ -62,5 +67,25 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getActivityDetail(){
+    api.request({
+      url:"ACTIVITY_DETAIL",
+      method:"GET",
+      showLoading:true,
+      param:{
+        activitionId:this.data.id
+      },
+      callback:(b,json)=>{
+        if(b){
+          this.setData({
+            data:json.data
+          })
+        }
+      }
+    })
+  },
+  onItemClick(e){
+    console.log(e)
   }
 })

@@ -1,14 +1,14 @@
 <!--pages/scan/scanResult.wxml-->
 <view class='top-tag'>
   <image src='/resource/image/bg_prize_winning@2x.png'></image>
-  <label class='message'>恭喜你通过【高圆圆】获得</label>
-  <view class='score'>
-    <label class='number'>100</label>
+  <label class='message'>恭喜你通过【{{data.goodsName}}】获得</label>
+  <view class='score' >
+    <label class='number'>{{data.score}}</label>
     <label class='text'>积分</label>
 
   </view>
-  <view class='cash'>
-    <label class='number'>100</label>
+  <view class='cash' wx:if='{{userType=="2"}}'>
+    <label class='number'>{{data.balance}}</label>
     <label class='text'>现金</label>
   </view>
 </view>
@@ -18,7 +18,7 @@
 </view>
 
 <view class='btn-layout'>
-  <label class='btn'>累计到本人账号</label>
-  <label class='btn'>累计到其他账号</label>
+  <label class='btn' bindtap='submit'>累计到本人账号</label>
+  <label class='btn' bindtap='toLogin'>累计到其他账号</label>
 
 </view>
