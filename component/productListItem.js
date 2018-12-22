@@ -1,4 +1,6 @@
 // component/productListItem.js
+import api from '../utils/api.js'
+var app = getApp()
 Component({
   /**
    * 组件的属性列表
@@ -11,9 +13,22 @@ Component({
     },
     cover: String,
     title:String,
-    description:String,
-    showIcon:Boolean,
+    // description:String,
+    specification:String,//规格
+    number:String,//编号
+    showIcon:{
+      type:Boolean,
+      value:'false'
+      },
+    showValue1:{
+      type:String,
+      value:'true'
+    },
     value1:String,
+    showValue2:{
+      type: String,
+      value: 'true'
+    },
     value2:String,
     extra:Object
 
@@ -36,14 +51,21 @@ Component({
       })
     },
     _sub(){
-      
       this.setData({
         count: this.data.count - 1
       })
+
+     
     },
     _itemClick(e){
       console.log(e);
       this.triggerEvent('itemClick',this.data.extra,{})
+    },
+    _addToRemote(){
+
+    },
+    _subToRemote(){
+
     }
 
   }

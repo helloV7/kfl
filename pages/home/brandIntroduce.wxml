@@ -1,7 +1,11 @@
 <!--pages/home/brandIntroduce.wxml-->
-<view class='line'></view>
-<tab tabs="{{tabs}}"></tab>
-<view class='line'></view>
-<web-view>
-</web-view>
+<view class='container v'>
+  <view class='line'></view>
+  <tab tabs="{{data}}" tabNameKey="brandName" bind:tabClick="onTabClick"></tab>
+  <view class='line'></view>
+  <scroll-view scroll-y class='scroll-y'>
+  <rich-text wx:for="{{data}}" hidden='{{index!=currentTab}}' nodes="{{item.content}}"></rich-text>
+
+  </scroll-view>
+</view>
 

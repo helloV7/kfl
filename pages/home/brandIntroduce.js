@@ -1,20 +1,33 @@
 // pages/home/brandIntroduce.js
+import api from '../../utils/api.js'
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tabs: ["品牌故事", "品牌故事", "品牌故事", "品牌故事", "品牌故事", "品牌故事"],
-    tabs2: ["品牌故事", "品牌故事"]
-
+    // tabs: ["品牌故事", "品牌故事", "品牌故事", "品牌故事", "品牌故事", "品牌故事"],
+    data:[],
+    currentTab:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    api.request({
+      url:"BRAND_INTRODUCE",
+      method:"GET",
+      showLoading:true,
+      callback:(b,json)=>{
+        if(b){
+          this.setData({
+            data:json.data
+          })
+        }
+      }
+    })
   },
 
   /**
@@ -64,5 +77,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  onTabClick(e){
+    var index = e.detail.index
+    this.setData({
+      currentTab:index
+    })
   }
 })

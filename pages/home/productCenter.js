@@ -1,27 +1,27 @@
 // pages/home/productCenter.js
+import api from '../../utils/api.js'
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tabs:["家居护理","专业疗程"],
-    productList:[{},{},{}],
-    windowHeight:0
+    tabs:[],
+    currentTab:0,
+    productList:[],
+    page:1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    wx.getSystemInfo({
-      success: function(res) {
-        that.setData({
-          windowHeight:res.windowHeight
-        })
-      },
-    })
+    this._getProductType().then(
+      (b)=>{
+        this._getProductList(true)
+      }
+    )
   },
 
   /**
@@ -71,5 +71,83 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  _getProductType(){
+   return new Promise((resolve,reject)=>{
+      api.request({
+        url:"PRODUCT_TYPE",
+        method:"GET",
+        showLoading:true,
+        callback:(b,json)=>{
+          if(b){
+            this.data.tabs = json.data
+            this.setData({
+              tabs: this.data.tabs
+            })
+          }
+          resolve(b)
+          return b
+        }
+      })
+    })
+  },
+  _getProductList(isRefresh){
+    return new Promise((resolve,reject) =>{
+      var page
+      if (isRefresh) {
+        page = 1
+      } else {
+        page = this.data.page + 1
+      }
+      if (this.data.tabs.length == 0) {
+        return
+      }
+      let cuTab = this.data.tabs[this.data.currentTab]
+
+      console.log(this.data.tabs)
+      console.log(this.data.currentTab)
+      api.request({
+        url: "PRODUCT_LIST_OF_TYPE",
+        method: "GET",
+        param: {
+          cId: cuTab.id,
+          page: page
+        },
+        callback: (b, json) => {
+          if (b) {
+            var productList
+            if (isRefresh) {
+              productList = []
+            } else {
+              productList = this.data.productList
+
+            }
+            productList = productList.concat(json.data)
+            this.setData({
+              productList: productList,
+              page: page
+            })
+            resolve(b)
+            return b
+          }
+        }
+      })
+    })
+    
+  },
+  onTabClick(e){
+    var index = e.detail.index
+    this.setData({
+      currentTab:index
+    })
+    this._getProductList(true)
+  },
+  toDetail(e){
+    console.log(e)
+    let id = e.detail.goodsId;
+    wx.navigateTo({
+      url: '/pages/product/productDetail?id='+id,
+    })
   }
 })

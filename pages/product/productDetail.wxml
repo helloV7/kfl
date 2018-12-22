@@ -28,7 +28,7 @@
     <view class='line'></view>
 
     <label class='score'>扫描积分：{{data.scanScore}}分</label>
-    <label class='description2'>规格：180ml 编号：LA.1301H</label>
+    <label class='description2'>规格：{{data.capacity.showName}} 编号：{{data.goodsCode}}</label>
 
 
   </view>

@@ -12,6 +12,10 @@ Component({
     type:{
       type:String,
       value:"scroll"
+    },
+    tabNameKey:{
+      type:String,
+      value:""
     }
   },
 

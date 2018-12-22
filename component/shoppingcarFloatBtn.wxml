@@ -1,5 +1,5 @@
 <!--component/shoppingcarFloatBtn.wxml-->
 <view class='layout'>
-  <image mode='widthFix' src='/resource/image/ic_circle_shopping_brown@2x.png' style='width:115rpx;'>
+  <image mode='widthFix' src='/resource/image/ic_circle_shopping_brown@2x.png' style='width:115rpx;' bindtap='_toShoppingCar'>
   </image>
 </view>

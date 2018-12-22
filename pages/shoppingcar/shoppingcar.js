@@ -1,4 +1,6 @@
 // pages/shoppingcar/shoppingcar.js
+import api from '../../utils/api.js'
+var app = getApp()
 let mockData = {
   sel:false
 }

@@ -1,22 +1,22 @@
 <!--component/productListItem.wxml-->
 <view class='layout' bindtap='_itemClick'>
-
-  <image class='image' src='https://cdn.pixabay.com/photo/2018/11/23/14/19/forest-3833973__340.jpg'>
+<!-- https://cdn.pixabay.com/photo/2018/11/23/14/19/forest-3833973__340.jpg -->
+  <image class='image' src='{{cover}}'>
   
   </image>
 <!-- 全效焕颜按摩精华 -->
 <label class='title'>{{title}}</label>
 <!-- 规格250ml 编号LA.0125R -->
-<label class='description'>{{description}}</label>
+<label class='description'>规格{{specification}} 编号{{number}}
+</label>
 
-<view class='value1-layout'>
-  <image class='image-icon' src='/resource/image/ic_price_small_golden@2x.png' mode="widthFix" wx:if="{{showIcon}}"></image>
+<view class='value1-layout' wx:if="{{showValue1=='true'}}">
+  <image class='image-icon' src='/resource/image/ic_price_small_golden@2x.png' mode="widthFix" wx:if="{{showIcon=='true'}}"></image>
   <!-- 积分 1000 -->
   <label class='value1'>积分 {{value1}}</label>
 </view>
-
-<view class='value2-layout'>
-  <image class='image-icon' src='/resource/image/ic_integral_small_golden@2x.png' mode="widthFix" wx:if="{{showIcon}}"></image>
+<view class='value2-layout' wx:if="{{showValue2=='true'}}">
+  <image class='image-icon' src='/resource/image/ic_integral_small_golden@2x.png' mode="widthFix" wx:if="{{showIcon=='true'}}"></image>
   <!-- ￥1000 -->
   <label class='value2'>￥{{value2}}</label>
 </view>

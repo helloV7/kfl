@@ -1,4 +1,3 @@
-
 const _domain = "http://119.23.66.37/kalianfu_backend/public/";
 var isShowLoading  = false
 const _urlList = {
@@ -19,7 +18,7 @@ const _urlList = {
   //尊享
   FREE_ENJOY:_domain + "do_free_score",
   //商品详情
-  PRODUCT_DETAIL: _domain + "api/product/detail",
+  PRODUCT_DETAIL: _domain + "api/goods/detail",
   //购物车列表
   SHOPPING_CAR_LIST: _domain + "api/shop_car/index",
   //添加购物车
@@ -48,7 +47,12 @@ const _urlList = {
   SYSTEM_SETTING_INFO: _domain + "api/index/text",
   //意见反馈提交
   FEEDBACK_SUBMIE: _domain + "api/opinion/add",
-  //
+  //品牌介绍
+  BRAND_INTRODUCE: _domain + "api/brand/index",
+  //产品中心 分类
+  PRODUCT_TYPE: _domain + "api/product/category",
+  //产品列表 
+  PRODUCT_LIST_OF_TYPE: _domain + "api/product/index"
 }
 
 const requestTaskList = {}
@@ -120,6 +124,7 @@ var _request = function ({url,method,noToken,showLoading,param,callback,header})
 }
 
 function showToast(message) {
+  // app.showToast(message)
   wx.showToast({
     title: message,
     icon:'none'
