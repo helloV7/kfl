@@ -101,9 +101,8 @@ Page({
   _calcPrice(){
 
     let goodsList=[]
-    console.log(this.data.productList)
     this.data.productList.forEach(item=>{
-      let copy = item
+      let copy = JSON.parse(JSON.stringify(item))
       delete copy.goods
        goodsList.push(copy)
     })
@@ -140,13 +139,76 @@ Page({
   },
   selAddress(){
     wx.navigateTo({
-      url: '/pages/address/addressList',
+      url: '/pages/address/addressList?key=person_address',
     })
   },
   createOrder(){
+    if (this.data.addressCheck == 0
+      || this.data.person_address == null && this.data.store_address == null) {
+      app.showToast("请选择收货地址")
+      return
+    }
+    let addressId
+    let sendStore
+    let goodsList = []
+    let trackType
+    this.data.productList.forEach(item => {
+      goodsList.push({
+        buyNum: item.buyNum,
+        goodsId: item.goods.id,
+        shopcarId: item.shopcarId
+      })
+    })
+
+    if (this.data.addressCheck == 1) {//美容院
+      addressId = this.data.store_address.addressId
+      sendStore = "1"
+    } else {
+      addressId = this.data.person_address.addressId
+      sendStore = "0"
+    }
+
+    wx.showActionSheet({
+      itemList: ["现付","到付"],
+      success(res){
+        switch (res.tapIndex){
+          case 0:
+            trackType="1"
+            break;
+            case 1:
+            trackType = "0"
+            break;
+        }
+        api.request({
+          url: "CREATE_ORDER",
+          method: "POST",
+          param: {
+            addressId: addressId,
+            sendStore: sendStore,
+            goodsList: JSON.stringify(goodsList),
+            trackType: trackType
+          },
+          callback:(b,json)=>{
+            if(b){
+
+            }
+          }
+        })
+
+      }
+    })
     
+  
+ 
+    // addressId	string	是	地址id，如果是店铺则给店铺id
+    // sendStore	string	是	是否寄到美容院，1代表是，0代表不是
+    // goodsList	dict	否	商品列表，也可以是json字符串，有购物车id则给，没有则不给，内容为：[{ buyNum: xxx, goodsId: xxx, shopcarId: 1 }]
+    // trackType	string	否	运费计算类型：1代表现付，0代表到付
+ 
+
   },
   addressCheck(e){
+    let type = e.currentTarget.dataset.type
 
   }
 })

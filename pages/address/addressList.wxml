@@ -2,12 +2,13 @@
 <view class='main-layout'>
   <scroll-view class='scroll-y' scroll-y>
     
-    <view class='address-item-layout' wx:for='1111111111' bindtap='itemClick'>
-      <view class='address-name'>蓝盈盈</view>
-      <view class='address-phone'>18699551060</view>
+    <view class='address-item-layout' wx:for='{{data}}' bindtap='itemClick' wx:key="{{item.addressId}}" data-index="{{index}}">
+      <view class='address-name'>{{item.contactPerson}}</view>
+      <view class='address-phone'>{{item.contactMobile}}</view>
       <view class='address-address'>      
-        <view class='address-isdefaule'>[默认地址]</view>
-广东省广州市海珠区丽影广场A座505</view>
+        <view class='address-isdefaule' hidden='{{item.isdefault=="0"}}'>[默认地址]</view>
+        {{item.province}}{{item.city}}{{item.district}}{{item.address}}
+      </view>
     </view>
   </scroll-view>
 

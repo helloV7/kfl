@@ -2,24 +2,24 @@
 <view class='main-layout'>
   <scroll-view class='scroll-y' scroll-y>
     
-    <view class='address-item-layout' wx:for='1111111111'>
-      <view class='address-name'>蓝盈盈</view>
-      <view class='address-phone'>18699551060</view>
+    <view class='address-item-layout' wx:for='{{data}}'>
+      <view class='address-name'>{{item.contactPerson}}</view>
+      <view class='address-phone'>{{item.contactMobile}}</view>
       <view class='address-address'>      
-        <view class='address-isdefaule'>[默认地址]</view>
-广东省广州市海珠区丽影广场A座505
+        <view class='address-isdefaule' hidden='{{item.isdefault=="0"}}'>[默认地址]</view>
+        {{item.province}}{{item.city}}{{item.district}}{{item.address}}
       </view>
 
       <view class='control-layout'>
-        <view class='set-layout'>
-          <image class='sel-image' src='{{sel_icon}}'></image>
+        <view class='set-layout' catchtap='setToDefault' data-index="{{index}}">
+          <image class='sel-image' src='{{item.isdefault=="1"?sel_icon:unsel_icon}}'></image>
           <label class='set-default-text'>设为默认</label>
         </view>
-        <view class='edit-layout'>
+        <view class='edit-layout' catchtap='navToEditAddress' data-index="{{index}}">
         <image class='edit-image' src='/resource/image/ic_edit_gray@2x.png'></image>
         <label class='edit-text'>编辑</label>
         </view>
-        <view class='del-layout' bindtap='onItemDelClick'>
+        <view class='del-layout' bindtap='onItemDelClick' data-index="{{index}}">
          <image class='del-image' src='/resource/image/ic_delete_gray@2x.png'> </image>
         <label class='del-text'>删除</label>
         </view>>
@@ -32,4 +32,4 @@
   </view>
 </view>
 
-<alertDialog show="{{showDialog}}" message="确定要删除该地址吗？" bind:cancel='onDelCancel' bind:comfirm='onDelComfirm'></alertDialog>
+<alertDialog show="{{showDialog}}" message="确定要删除该地址吗？" bind:cancel='onDelCancel' bind:confirm='onDelComfirm'></alertDialog>

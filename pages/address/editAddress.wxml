@@ -2,11 +2,11 @@
 <view class='line'></view>
 <view class='input-layout'>
   <label class='label'>收货人</label>
-  <input placeholder='请输入收货人姓名' class='input' placeholder-class='input-placeholder'></input>
+  <input placeholder='请输入收货人姓名' class='input' placeholder-class='input-placeholder' bindinput='_bindInput' data-key="contactPerson" value='{{address.contactPerson}}'></input>
 </view>
 <view class='input-layout'>
   <label class='label'>联系方式</label>
-  <input placeholder='请输入收货人联系方式' class='input' placeholder-class='input-placeholder'></input>
+  <input placeholder='请输入收货人联系方式' class='input' placeholder-class='input-placeholder' bindinput='_bindInput' data-key="contactMobile" value='{{address.contactMobile}}'></input>
 </view>
 <view class='input-layout'>
   <label class='label'>所在地区</label>
@@ -23,13 +23,13 @@
 </view>
 <view class='input-layout address'>
   <label class='label'>详细地址</label>
-  <textarea placeholder='街道、楼排号等' class='input' placeholder-class='input-placeholder'></textarea>
+  <textarea placeholder='街道、楼排号等' class='input' placeholder-class='input-placeholder' bindinput='_bindInput' data-key="address" value='{{address.address}}'></textarea>
 </view>
-<view class='set-default-layout'>
-  <image src='{{unsel_icon}}'></image>
+<view class='set-default-layout' bindtap='checked'>
+  <image src='{{address.isdefault=="1"?sel_icon:unsel_icon}}'></image>
   <label >设为默认</label>
 </view>
 
-<view class='save'>
+<view class='save' bindtap='_save'>
   保存
 </view>

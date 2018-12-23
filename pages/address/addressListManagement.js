@@ -13,19 +13,20 @@ Page({
     sel_icon: sel_icon,
     unsel_icon: unsel_icon,
     showDialog:false,
-    data:[]
+    data:[],
+    delAddressIndex:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.getStorage({
-      key: 'addressList',
-      success: function(res) {
-        console.log(res)
-      },
-    })
+    // wx.getStorage({
+    //   key: 'addressList',
+    //   success: function(res) {
+    //     console.log(res)
+    //   },
+    // })
   },
 
   /**
@@ -39,6 +40,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this._getAddressList()
 
   },
 
@@ -77,14 +79,34 @@ Page({
 
   },
   onItemDelClick(e){
+    let index = e.currentTarget.dataset.index
+
+    this.data.delAddressIndex = index
       this.setData({
         showDialog:true
       })
   },
   onDelComfirm(e){
-    this.setData({
-      showDialog: false
+    console.log(1)
+    api.request({
+      url:"DEL_ADDRESS",
+      method:"POST",
+      showLoading:true,
+      param:{
+        addressId:this.data.data[this.data.delAddressIndex].addressId
+      },
+      callback:(b,json)=>{
+        if(b){
+          this.data.data.splice(this.data.delAddressIndex,1)
+        }
+
+        this.setData({
+          showDialog: false,
+          data:this.data.data
+        })
+      }
     })
+   
   },
   onDelCancel(e){
     this.setData({
@@ -116,28 +138,40 @@ Page({
     })
   },
   navToEditAddress(e){
-    let index = e.currentTarget.dateset.index
+    let index = e.currentTarget.dataset.index
     let address = this.data.data[index]
     wx.navigateTo({
       url: '/pages/address/editAddress?data='+JSON.stringify(address),
     })
   },
   setToDefault(e){
-    let index = e.currentTarget.dateset.index
-
+    let index = e.currentTarget.dataset.index
+    let item = this.data.data[index]
     api.request({
       url:"SET_DEFAULT_ADDRESS",
       method:"POST",
       showLoading:true,
       param:{
-        
+        addressId: item.addressId
       },
       callback:(b,json)=>{
         if(b){
-          this.data.data.forEach(item =>{
+          this.data.data.forEach((item ,i)=>{
+            if(index==i){
+              item.isdefault = "1"
+            }else{
+              item.isdefault = "0"
+            }
+          })
+          this.setData({
+            data: this.data.data
           })
         }
       }
     })
+  },
+  _delAddress(e){
+    let index = e.currentTarget.dataset.index
+
   }
 })

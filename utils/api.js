@@ -65,8 +65,12 @@ const _urlList = {
   SET_DEFAULT_ADDRESS: _domain + "api/address/setDefault",
   //地址列表
   ADDRESS_LIST: _domain +"api/address/index",
-  //
+  //计算订单价格
   CALC_ORDER_PRICE: _domain + "api/order/get_track_price_score",
+  //创建订单
+  CREATE_ORDER: _domain + "api/order/create",
+  //
+  
 
   
 }

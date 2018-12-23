@@ -19,6 +19,8 @@ Page({
    */
   onLoad: function (options) {
     frontPageParamKey = options.key
+
+    this._getAddressList()
   },
 
   /**
@@ -98,7 +100,15 @@ Page({
       url: '/pages/address/addressListManagement',
     })
   },
-  itemClick(){
-
+  itemClick(e){
+    let index = e.currentTarget.dataset.index
+    let pages = getCurrentPages()
+    
+    pages[pages.length - 2].setData({
+      [frontPageParamKey] : this.data.data[index]
+    })
+    wx.navigateBack({
+      
+    })
   }
 })
