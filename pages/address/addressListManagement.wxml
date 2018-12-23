@@ -27,7 +27,7 @@
     </view>
   </scroll-view>
 
-  <view class='bottom-layout'>
+  <view class='bottom-layout' bindtap='navToNewAddress'>
     新增地址
   </view>
 </view>

@@ -117,9 +117,9 @@ Page({
       },
       callback:(b,json)=>{
         if(b){
-          let totalScore= json.data.totalScore
-          let totalFee = json.data.totalFee
-          let trackPrice= json.data.trackPrice
+          let totalScore = Number.parseFloat(json.data.totalScore)
+          let totalFee = Number.parseFloat(json.data.totalFee)
+          let trackPrice = Number.parseFloat(json.data.trackPrice)
           this.setData({
             productTotalPrice: trackPrice,
             productTotalScore: totalScore,

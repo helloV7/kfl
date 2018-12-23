@@ -1,6 +1,8 @@
 // pages/address/addressListManagement.js
 const sel_icon = "/resource/image/ic_circle_brown_selected@2x.png"
 const unsel_icon = "/resource/image/ic_circle_gray_no_choose@2x.png"
+import api from '../../utils/api.js'
+var app = getApp()
 
 Page({
 
@@ -10,14 +12,20 @@ Page({
   data: {
     sel_icon: sel_icon,
     unsel_icon: unsel_icon,
-    showDialog:false
+    showDialog:false,
+    data:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.getStorage({
+      key: 'addressList',
+      success: function(res) {
+        console.log(res)
+      },
+    })
   },
 
   /**
@@ -81,6 +89,55 @@ Page({
   onDelCancel(e){
     this.setData({
       showDialog:false
+    })
+  } ,
+   _getAddressList() {
+    api.request({
+      url: "ADDRESS_LIST",
+      method: "GET",
+      showLoading: true,
+      callback: (b, json) => {
+        if (b) {
+          let data = json.data
+          if (data == null) {
+            data = []
+          }
+          this.setData({
+            data: data
+          })
+          wx.stopPullDownRefresh()
+        }
+      }
+    })
+  },
+  navToNewAddress(){
+    wx.navigateTo({
+      url: '/pages/address/editAddress',
+    })
+  },
+  navToEditAddress(e){
+    let index = e.currentTarget.dateset.index
+    let address = this.data.data[index]
+    wx.navigateTo({
+      url: '/pages/address/editAddress?data='+JSON.stringify(address),
+    })
+  },
+  setToDefault(e){
+    let index = e.currentTarget.dateset.index
+
+    api.request({
+      url:"SET_DEFAULT_ADDRESS",
+      method:"POST",
+      showLoading:true,
+      param:{
+        
+      },
+      callback:(b,json)=>{
+        if(b){
+          this.data.data.forEach(item =>{
+          })
+        }
+      }
     })
   }
 })

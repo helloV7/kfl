@@ -63,6 +63,8 @@ const _urlList = {
   DEL_ADDRESS: _domain +"api/address/delete",
   //设置默认地址
   SET_DEFAULT_ADDRESS: _domain + "api/address/setDefault",
+  //地址列表
+  ADDRESS_LIST: _domain +"api/address/index",
   //
   CALC_ORDER_PRICE: _domain + "api/order/get_track_price_score",
 

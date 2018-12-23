@@ -263,6 +263,9 @@ Page({
         selProduct=selProduct.concat(item)
       }
     })
+    if(selProduct.length==0){
+       return 
+    }
 
     wx.navigateTo({
       url: '/pages/order/orderConfirm?data=' + JSON.stringify(selProduct),

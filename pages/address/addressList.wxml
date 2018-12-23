@@ -2,7 +2,7 @@
 <view class='main-layout'>
   <scroll-view class='scroll-y' scroll-y>
     
-    <view class='address-item-layout' wx:for='1111111111'>
+    <view class='address-item-layout' wx:for='1111111111' bindtap='itemClick'>
       <view class='address-name'>蓝盈盈</view>
       <view class='address-phone'>18699551060</view>
       <view class='address-address'>      
@@ -11,7 +11,7 @@
     </view>
   </scroll-view>
 
-  <view class='bottom-layout'>
+  <view class='bottom-layout' bindtap='navToManager'>
     管理地址
   </view>
 </view>

@@ -49,7 +49,7 @@
       <view class='left'>
         <label class='total-hint'>合计：</label>
         <view class='total-value-layout'>
-          <label class='total-value'>积分 {{totalScroe}}</label>
+          <label class='total-value'>积分 {{totalScore}}</label>
           <label class='total-value'>价格 ￥{{totalPrice}}</label>
 
         </view>

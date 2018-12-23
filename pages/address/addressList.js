@@ -1,18 +1,24 @@
 // pages/address/addressList.js
+import api from '../../utils/api.js'
+var app = getApp()
+
+
+let frontPageParamKey
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    data:[],
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    frontPageParamKey = options.key
   },
 
   /**
@@ -61,6 +67,38 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+
+  },
+  _getAddressList(){
+    api.request({
+      url:"ADDRESS_LIST",
+      method:"GET",
+      showLoading:true,
+      callback:(b,json)=>{
+        if(b){
+          let data =json.data
+          if(data==null){
+            data=[]
+          }
+          this.setData({
+            data: data
+          })
+          wx.stopPullDownRefresh()
+        }
+      }
+    })
+  },
+  navToManager(){
+    wx.setStorage({
+      key: 'addressList',
+      data: JSON.stringify(this.data.data),
+    })
+
+    wx.navigateTo({
+      url: '/pages/address/addressListManagement',
+    })
+  },
+  itemClick(){
 
   }
 })
