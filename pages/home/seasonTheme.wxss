@@ -1,1 +1,17 @@
 /* pages/home/seasonTheme.wxss */
+page{
+  background: rgb(244, 244, 244)
+}
+.decoration{
+  background: white;
+}
+.decoration::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 70rpx;
+  right: 0;
+  height: 2rpx;
+  background-color: #E0E0E0;
+
+}

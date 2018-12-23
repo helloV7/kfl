@@ -14,7 +14,7 @@
 
   <view class="info-layout">
     <label class='title'>{{data.goodsName}}</label>
-    <label class='description'>精华 250ml</label>
+    <label class='description'>{{data.form.name}}</label>
 
     <view class='value-layout'>
       <image class='icon' src='/resource/image/ic_price_small_golden@2x.png' ></image>

@@ -1,16 +1,15 @@
 <!--pages/home/seasonTheme.wxml-->
-<scroll-view scroll-y style='white-space:nowrap;overflow:scroll;height:{{windowHeight}}px;'>
+<scroll-view scroll-y style='white-space:nowrap;overflow:scroll;height:{{windowHeight}}px;' bindscrolltolower="loadmore">
 
-    <view class='item-decorator' wx:for="productList" wx:key="1">
+    <view class='decoration' wx:for="{{data}}" wx:key="{{item.goodsId}}">
              
-        <item type="action" showIcon="true"></item>
-
+        <item type="action" show-icon="true" cover="{{item.coverImg}}" title="{{item.goodsName}}" specification="{{item.capacity.showName}}" number="{{item.goodsCode}}" value1="{{item.score}}" value2="{{item.price}}" sc-id="{{item.shopCar.shopcarId}}" count="{{item.shopCar.buyNum}}" p-id="{{item.goodsId}}" extra="{{item}}" bind:itemClick="itemClick"></item>
     </view>
 
-
+<!-- 
     <label class='listView-bottom-hint'>
         已经到底啦~
-    </label>
+    </label> -->
   </scroll-view>
 
   <shoppingcar></shoppingcar>

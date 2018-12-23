@@ -86,6 +86,9 @@ Page({
     })
   },
   onItemClick(e){
-    console.log(e)
+    var item = e.detail
+    wx.navigateTo({
+      url: '/pages/product/productDetail?id='+item.goodsId,
+    })
   }
 })

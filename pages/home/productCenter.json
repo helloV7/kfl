@@ -4,5 +4,6 @@
     "tab":"/component/tab",
     "item":"/component/productListItem",
     "shoppingcar":"/component/shoppingcarFloatBtn"
-  }
+  },
+  "enablePullDownRefresh":true
 }

@@ -21,7 +21,10 @@ Page({
     productList:[
       mockData, mockData,mockData
     ],
-    isSelAll:false
+    isSelAll:false,
+    page:1,
+    totalPrice:0,
+    totalScore:0
   },
 
   /**
@@ -33,6 +36,8 @@ Page({
         delBtnWidth = 170/750 * res.windowWidth;
       },
     })
+    this._getShoppingCarList(true)
+
   },
 
   /**
@@ -67,7 +72,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this._getShoppingCarList(true)
   },
 
   /**
@@ -85,11 +90,29 @@ Page({
   },
   onSelClick(e){
     let index = e.currentTarget.dataset.index
-    let sel = !this.data.productList[index].sel
+    var item = this.data.productList[index]
+    let sel = !item.sel
     let keyName = "productList[" + index + "].sel"
+
+    var totalPrice 
+    var totalScore 
+    var singlePrice = Number.parseFloat(item.goods.price) * Number.parseInt(item.buyNum)
+    var singleScore = Number.parseFloat(item.goods.score) * Number.parseInt(item.buyNum)
+    if (sel){
+      totalPrice = this.data.totalScore + singleScore
+      totalScore = this.data.totalPrice + singlePrice
+    }else{
+      totalPrice = this.data.totalScore - singleScore
+      totalScore = this.data.totalPrice - singlePrice
+    }
+
+
     this.setData({
-      [keyName]: sel
+      [keyName]: sel,
+      totalPrice: totalPrice,
+      totalScore: totalScore
     })
+
   },
   onItemTouchStart(e){
     let index = e.currentTarget.dataset.index;
@@ -98,12 +121,11 @@ Page({
     this.data.productList.forEach((v,i)=>{
       if (v.touchMove && index != i){
         v.touchMove = false;
-        return ;
+        let key = "productList[" + i + "]"+".touchMove"
+        this.setData({
+          [key]: false
+        })
       }
-    })
-
-    this.setData({
-      productList: this.data.productList
     })
   },
   onItemTouchMove(e) {
@@ -132,7 +154,6 @@ Page({
 
   },
   onItemTouchEnd(e) {
-    console.log(e)
     let index = e.currentTarget.dataset.index;
     let start = { X: oldX, Y: oldY }
     let end = { X: e.changedTouches[0].pageX, Y: e.changedTouches[0].pageY }
@@ -151,7 +172,6 @@ Page({
         
       }
     }
-    console.log(distance, delBtnWidth)
    
 
     let key = "productList[" + index + "].distance"
@@ -175,7 +195,81 @@ Page({
       v.sel=this.data.isSelAll
     })
     this.setData({
-      productList:this.data.productList
+      productList:this.data.productList,
+      isSelAll:this.data.isSelAll
+    })
+    this._calcTotalPriceAndScore()
+  },
+  _getShoppingCarList(isRefresh){
+    let page = isRefresh?1:++this.data.page
+    api.request({
+      url:"SHOPPING_CAR_LIST",
+      method:"GET",
+      param:{
+        page:page
+      },
+      callback:(b,json)=>{
+        if(b){
+          var productList = [] 
+          if(isRefresh){
+            wx.stopPullDownRefresh()
+          }else{
+            productList = this.data.productList
+          }
+          productList=productList.concat(json.data)
+        
+
+          this.setData({
+            productList: productList
+          })
+        }
+      }
+    })
+  },
+  _calcTotalPriceAndScore() {
+    var totalPrice=0
+    var totalScore=0
+    this.data.productList.forEach(item =>{
+      if(item.sel){
+        totalPrice += Number.parseFloat(item.goods.price) * Number.parseInt(item.buyNum)
+        totalScore += Number.parseFloat(item.goods.score) * Number.parseInt(item.buyNum)
+      }
+    })
+
+    this.setData({
+      totalScore: totalScore,
+      totalPrice: totalPrice
     })
   }
+  ,
+  itemDel(e){
+    console.log(e)
+    var index = e.currentTarget.dataset.index
+    this.data.productList.splice(index,1)
+    this.setData({
+      productList: this.data.productList
+    })
+
+    this._calcTotalPriceAndScore();
+  },
+  toOrder(){
+    if(this.data.productList.length==0){
+      return
+    }
+    var selProduct=[]
+
+    this.data.productList.forEach(item =>{
+      if(item.sel){
+        selProduct=selProduct.concat(item)
+      }
+    })
+
+    wx.navigateTo({
+      url: '/pages/order/orderConfirm?data=' + JSON.stringify(selProduct),
+    })
+  },
+  itemCountUpdate(e){
+    console.log(e)
+  }
+
 })

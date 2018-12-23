@@ -52,7 +52,21 @@ const _urlList = {
   //产品中心 分类
   PRODUCT_TYPE: _domain + "api/product/category",
   //产品列表 
-  PRODUCT_LIST_OF_TYPE: _domain + "api/product/index"
+  PRODUCT_LIST_OF_TYPE: _domain + "api/product/index",
+  //应季主题
+  SEASON_PRODUCT_LIST: _domain + 'api/season/index',
+  //获取默认地址
+  GET_DEFAULT_ADDRESS: _domain + "api/address/get_default",
+  //添加 修改地址
+  SAVE_ADDRESS: _domain +"api/address/handle",
+  //删除地址
+  DEL_ADDRESS: _domain +"api/address/delete",
+  //设置默认地址
+  SET_DEFAULT_ADDRESS: _domain + "api/address/setDefault",
+  //
+  CALC_ORDER_PRICE: _domain + "api/order/get_track_price_score",
+
+  
 }
 
 const requestTaskList = {}
@@ -98,6 +112,9 @@ var _request = function ({url,method,noToken,showLoading,param,callback,header})
 
     },
     complete:  (res)=> {
+      if (showLoading) {
+        wx.hideLoading()
+      }
       if(res.statusCode==200){
         //code是3的时候是登陆失效，4的时候是要绑定手机号，1是正常，0是异常
         if(res.data.code==1){
@@ -113,9 +130,7 @@ var _request = function ({url,method,noToken,showLoading,param,callback,header})
       console.log("url complete", _url, res)
 
       // isShowLoading = false
-      if (showLoading){
-         wx.hideLoading()
-      }
+     
       _pull(currentDate + url)
     },
   })

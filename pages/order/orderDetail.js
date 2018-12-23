@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    productList:[],
+    orderType:0, // 生成订单  1代付款 2待发货 3待收货 4已完成
   },
 
   /**

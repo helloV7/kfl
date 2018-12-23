@@ -50,7 +50,7 @@ page{
 }
 .product-info{
   padding-left: 15rpx;
-  width: 750rpx;
+  width: calc(750rpx - 15rpx);
   height: 226rpx;
   display: inline-flex;
   justify-content: center;

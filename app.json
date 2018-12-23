@@ -17,7 +17,7 @@
     "pages/scan/scanResult",
     "pages/address/editAddress",
     "pages/address/addressListManagement",
-    "pages/order/orderComfirm",
+    "pages/order/orderConfirm",
     "pages/address/addressList",
     "pages/order/PayResult",
     "pages/shoppingcar/shoppingcar",

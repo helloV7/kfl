@@ -56,7 +56,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this._getProductList(true)
   },
 
   /**
@@ -119,6 +119,7 @@ Page({
             var productList
             if (isRefresh) {
               productList = []
+              wx.stopPullDownRefresh()
             } else {
               productList = this.data.productList
 
@@ -149,5 +150,8 @@ Page({
     wx.navigateTo({
       url: '/pages/product/productDetail?id='+id,
     })
+  },
+  next(){
+    this._getProductList(false)
   }
 })

@@ -211,3 +211,12 @@ page{
   font-weight:400;
   color:rgba(170,170,170,1);
 }
+.num{
+  position: absolute;
+  right: 21rpx;
+  bottom: 28rpx;
+  font-size:32rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+}

@@ -1,16 +1,16 @@
 <!--pages/shoppingcar/shoppingcar.wxml-->
 <view class='shopping-car-page'>
-  <scroll-view scroll-y class='list scroll-y' scroll-y>
+  <scroll-view scroll-y class='list scroll-y' scroll-y bindscrolltolower='_getShoppingCarList'>
 
-  <view wx:for='{{productList}}' class='decoration'>
+  <view wx:for='{{productList}}' class='decoration' wx:key="{{index}}">
     <view class='item {{item.touchMove?"move":""}}'   data-index="{{index}}">
-      <view class='product-info' bindtouchstart='onItemTouchStart' bindtouchmove='onItemTouchMove' bindtouchend='onItemTouchEnd' data-index='{{index}}'>
+      <view class='product-info' bindtouchstart='onItemTouchStart'  bindtouchmove='onItemTouchMove'  bindtouchend='onItemTouchEnd' data-index='{{index}}'>
         <image class='sel-icon' src='{{item.sel?sel_icon:unsel_icon}}' catchtap='onSelClick' data-index='{{index}}'></image>
         <view class='item-decoration' >
-          <item type='action'></item>
+          <item type='action' cover="{{item.goods.coverImg}}" value1="{{item.goods.score}}" value2="{{item.goods.price}}" specification="{{item.capacity.showName}}" number="{{item.goods.goodsCode}}" count="{{item.buyNum}}" title="{{item.goods.goodsName}}"   sc-id="{{item.shopcarId}}" p-id="{{item.goods.id}}" bind:updateCount="itemCountUpdate" extra="{{item}}"></item>
         </view>
       </view>
-      <view class='del'>删除</view>
+      <view class='del' catchtap='itemDel' data-index="{{index}}">删除</view>
     </view>
     </view>
   </scroll-view>
@@ -24,11 +24,11 @@
       </view>
       <label class='total-hint'>合计：</label>
       <view class='total-value-layout'>
-        <label class='total-value'>积分 1000</label>
-        <label class='total-value'>价格 ￥668</label>
+        <label class='total-value'>积分 {{totalScore}}</label>
+        <label class='total-value'>价格 ￥{{totalPrice}}</label>
 
       </view>
     </view>
-    <label class='right'>结算</label>
+    <label class='right' catchtap='toOrder'>结算</label>
   </view>
 </view>

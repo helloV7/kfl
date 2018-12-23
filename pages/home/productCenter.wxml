@@ -3,12 +3,12 @@
   <view class='line'></view>
   <tab class="tab" tabs="{{tabs}}" type="fixed" tabNameKey="name" bind:tabClick="onTabClick"></tab>
   <view class='line'></view>
-  <scroll-view scroll-y style='white-space:nowrap;overflow:scroll;flex :1'>
+  <scroll-view scroll-y style='white-space:nowrap;overflow:scroll;flex :1' bindscrolltolower="next">
     <view style='margin-top:21rpx;'></view>
 
     <view class='item-decorator' wx:for="{{productList}}" wx:key="{{item.goodsId}}">
              
-        <item cover="{{item.coverImg}}" title="{{item.goodsName}}" specification="{{item.capacity.showName}}" number="{{item.goodsCode}}" show-value1="false" show-value2="false" type="action" bind:itemClick="toDetail" extra="{{item}}"></item>
+        <item cover="{{item.coverImg}}" title="{{item.goodsName}}" specification="{{item.capacity.showName}}" number="{{item.goodsCode}}" show-value1="false" show-value2="false" type="action" bind:itemClick="toDetail" extra="{{item}}" pId="{{item.goodsId}}" scId="{{item.shopCar.shopcarId}}" count="{{item.shopCar.buyNum}}"></item>
 
     </view>
 

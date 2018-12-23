@@ -132,8 +132,10 @@ Page({
     api.request({
       url:"SHOPPING_CAR_ADD",
       method:"POST",
+      showLoading:true,
       param:{
-        goodsId:this.data.id
+        goodsId:this.data.id,
+        buyNum:this.data.count,
       },
       callback:(b,json)=>{
         if(b){
@@ -163,5 +165,6 @@ Page({
     wx.navigateTo({
       url: '/pages/shoppingcar/shoppingcar',
     })
-  }
+  },
+  
 })

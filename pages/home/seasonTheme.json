@@ -3,5 +3,6 @@
   "usingComponents":{
     "shoppingcar":"/component/shoppingcarFloatBtn",
     "item":"/component/productListItem"
-  }
+  },
+  "enablePullDownRefresh":true
 }

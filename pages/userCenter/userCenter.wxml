@@ -14,20 +14,20 @@
     我的订单 <image src='/resource/image/ic_arrow_right_dark_brown@2x.png'></image>
   </label>
 
-  <view class='item-group'>
+  <view class='item-group' bindtap='navToUnpay'>
     <view class='item'>
       <image src='/resource/image/ic_to_paying@2x.png'></image>
       <label>待付款</label>
     </view>
-     <view class='item'>
+     <view class='item' bindtap='navToUnSend'>
       <image src='/resource/image/ic_to_send_the_goods@2x.png'></image>
       <label>待发货</label>
     </view>
-     <view class='item'>
+     <view class='item' bindtap='navToUnReceive'>
       <image src='/resource/image/ic_to_take_delivery_of_goods@2x.png'></image>
       <label>待收货</label>
     </view>
-     <view class='item'>
+     <view class='item' bindtap='navToFinish'>
       <image src='/resource/image/ic_completed@2x.png'></image>
       <label>已完成</label>
     </view>

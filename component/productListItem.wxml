@@ -1,5 +1,5 @@
 <!--component/productListItem.wxml-->
-<view class='layout' bindtap='_itemClick'>
+<view class='layout' catchtap='_itemClick'>
 <!-- https://cdn.pixabay.com/photo/2018/11/23/14/19/forest-3833973__340.jpg -->
   <image class='image' src='{{cover}}'>
   
@@ -25,9 +25,9 @@
 
 
 <view class='action-layout' wx:if="{{type=='action'}}">
-  <image class='action-image' src='/resource/image/ic_circle_reduce_middle_gray@2x.png' bindtap='_sub' hidden='{{count==0}}'></image>
+  <image class='action-image' src='/resource/image/ic_circle_reduce_middle_gray@2x.png' catchtap='_sub' hidden='{{count==0}}'></image>
   <label class='action-count' hidden='{{count==0}}'>{{count}}</label>
-  <image class='action-image' src='/resource/image/ic_circle_add_middle_gray@2x.png' bindtap='_add'></image>
+  <image class='action-image' src='/resource/image/ic_circle_add_middle_gray@2x.png' catchtap='_add'></image>
 </view>
 
 </view>

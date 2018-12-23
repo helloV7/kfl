@@ -1,0 +1,59 @@
+<!--pages/order/orderComfirm.wxml-->
+
+<view class='layout'>
+
+  <scroll-view class='scroll-y' scroll-y>
+    <label class='address-hint'>配送地址</label>
+    <view class='address-layout'>
+      <image class='sel-icon' src='{{unsel_icon}}' catchtap='addressCheck'></image>
+      <view class='right'>
+        <label class='title'>寄到美容院</label>
+        <label class='address'>广州市天河区华夏路28号富力盈信3811</label>
+      </view>
+    </view>
+
+    <view class='line'></view>
+    
+    <view class='address-layout' bindtap='selAddress'>
+      <image class='sel-icon' src='{{sel_icon}}' catchtap='addressCheck'></image>
+      <view class='right'>
+        <label class='title'>寄到个人地址</label>
+        <label class='address'>{{(person_address==null||person_address.length==0)?"完善收货地址":""}}</label>
+      </view>
+    </view>
+
+    <view class='item-list'>
+      <view class='item-decoration' wx:for='{{productList}}' wx:key="{{index}}">
+          <item  cover="{{item.goods.coverImg}}" title="{{item.goods.goodsName}}" specification="{{item.goods.capacity.showName}}" number="{{item.goods.goodsCode}}" value1="{{item.goods.score}}" value2="{{item.goods.price}}" ></item>
+          <label class='num'>x{{item.buyNum}}</label>
+      </view>
+    </view>
+
+    <view class='price-layout'>
+      <label class='price-label'>商品金额</label>
+      <label class='score-label'>积分</label>
+      <label class='freight-label'>运费</label>
+      <label class='price-value'>￥{{productTotalPrice}}</label>
+      <label class='score-value'>{{productTotalScore}}</label>
+      <label class='freight-value'>￥{{freight}}</label>
+    </view>
+
+    <view class='message-layout'>
+      <label class='title'>买家留言：</label>
+      <input class='message-input' placeholder='填写内容已与卖家协商确认' placeholder-class='message-placeholder' value='{{message}}' bindinput='onMessageInput'></input>
+    </view>
+
+  </scroll-view>
+
+  <view class='bottom-layout'>
+      <view class='left'>
+        <label class='total-hint'>合计：</label>
+        <view class='total-value-layout'>
+          <label class='total-value'>积分 {{totalScroe}}</label>
+          <label class='total-value'>价格 ￥{{totalPrice}}</label>
+
+        </view>
+      </view>
+      <label class='right' bindtap='createOrder'>结算</label>
+    </view>
+  </view>
