@@ -69,7 +69,21 @@ const _urlList = {
   CALC_ORDER_PRICE: _domain + "api/order/get_track_price_score",
   //创建订单
   CREATE_ORDER: _domain + "api/order/create",
-  //
+  //设置审核码
+  VALIDATE_CODE: _domain + "api/user/set_code",
+  //完善用户信息
+  FINISH_USER_INFO: _domain + "api/user/fix_profile",
+  //钱包流水
+  WALLET_DETAIL: _domain + "api/balance/index",
+  //积分流水
+  SCORE_DETAIL: _domain + "api/score/index",
+  //促销活动
+  PROMOTION_ACTIVITY: _domain + "api/activition/index",
+  //订单详情
+  ORDER_DETAIL: _domain + "api/order/detail",
+  //订单列表
+  ORDER_LIST: _domain + "api/order/index"
+
   
 
   

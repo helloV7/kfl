@@ -1,7 +1,7 @@
 <!--component/searchview.wxml-->
+<view class='container' hidden='{{!showPage}}'>
 <view  class='search-view' >
-
-  <view class='search-input-layout'>
+  <view class='search-input-layout' >
     <image src='/resource/image/ic_search_gray@2x.png' class='icon-search' ></image>
     <input class='input' placeholder-class='input-placeholder' placeholder='请输入搜索内容' bindinput='_input' bindconfirm='_onConfirmClick' value='{{inputString}}'></input>
     <image src='/resource/image/ic_close_black@2x.png' class='icon-close' bindtap='_clearInputClick'></image>
@@ -9,7 +9,8 @@
 
   <label class='cancel-text'>取消</label>
 </view>
-<scroll-view scroll-y style='height:calc({{windowHeight}}px - 100rpx);overflow-y: scroll;white-space: nowrap;' >
+<scroll-view scroll-y style='flex: 1;overflow-y: scroll;white-space: nowrap;' >
 
-  <view class='search-item' wx:for="123123112312312312312312323" wx:key="{{index}}">123123</view>
+  <view class='search-item' wx:for="{{history}}" wx:key="{{index}}" data-index="{{index}}" bindtap='_itemClick'>{{item}}</view>
 </scroll-view>
+</view>

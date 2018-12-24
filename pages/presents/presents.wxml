@@ -1,7 +1,7 @@
 <!--pages/presents/presents.wxml-->
 <view class='page'>
 
-  <searchTabView></searchTabView>
+  <searchTabView bindtap="searchViewClick"></searchTabView>
   <view class='line'></view>
   <view class='content'>
 
@@ -21,3 +21,5 @@
 
   </view>
 </view>
+
+<searchPage showPage="{{showSearchPage}}" bind:inputConfirm="searchConfirm"></searchPage>

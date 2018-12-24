@@ -1,24 +1,58 @@
 <!--pages/order/orderList.wxml-->
+<wxs module="m1">
+  function format(ts) {
+    var d = getDate(ts)
+    return d.getFullYear()+"-"+d.getMonth()+1+"-"+ d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+  }
+  function parseOrderStatus(os){
+       // <!-- orderStatus	integer	是	订单状态：1代表待付款，2代表待发货，3代表待收货，4代表已完成 -->
+    switch(os){
+        case "1":
+          return "待付款";
+        case "2":
+          return "待发货";
+        case "3":
+          return "待收货";
+        case "4":
+          return "已完成";
+
+    }
+  }
+  function parseRtStatus(ts){
+    switch(ts){
+      case "1":
+        return "处理中"
+      case "2":
+        return "申请成功"
+      case "3":
+        return "申请失败"
+    }
+  }
+  module.exports.format = format
+  module.exports.parseOS = parseOrderStatus
+  module.exports.parseTS = parseRtStatus
+
+</wxs>
 <view class='container'>
   <view class='line'></view>
   <view class='tab-decoration'>
-    <tab tabs="{{tabs}}" type='fixed'></tab>
+    <tab tabs="{{tabs}}" type='fixed' bind:tabClick="onTabClick" current-index="{{currentTab}}"></tab>
   </view>
   <scroll-view class='scroll-y' scroll-y>
 
-    <view class='order-block'>
+    <view class='order-block' wx:for="{{data}}" wx:key="{{item.ogId}}" catchtap='navToDetail' data-index="{{index}}">
       <view class='type bottom-line'>
-        待发货
+        {{m1.parseOS(item.orderStatus)}}
       </view>
-      <view class='item-decoration bottom-line' wx:for='123123'>
-        <item></item>
+      <view class='item-decoration bottom-line' wx:for='{{item.goods_list}}' wx:for-item="good">
+        <item cover="{{good.goods.coverImg}}" title="{{good.goods.goodsName}}" value1="{{good.goods.score}}" value2="{{good.goods.price}}"></item>
       </view>
       <view class='total-info-layout'>
-          <label class='type1'>共2件商品 实付：</label>
+          <label class='type1'>共{{item.productCount}}件商品 实付：</label>
           <label class='type2'>积分</label>
-          <label class='type3'>2000 </label>
-          <label class='type3'> ￥1486</label>
-          <label class='type4'>（含运费￥10） </label>
+          <label class='type3'>{{item.payScore}} </label>
+          <label class='type3'> ￥{{item.totalPrice}}</label>
+          <label class='type4'>（含运费￥{{item.payFee}}） </label>
       </view>
     </view>
   </scroll-view>

@@ -1,18 +1,22 @@
 // pages/userCenter/applyForBeautician.js
+let autoToUserInfo = false
+import api from '../../utils/api.js'
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    code:"",
+    showError:false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    autoToUserInfo = options.jump
   },
 
   /**
@@ -62,5 +66,42 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  onCodeInput(e){
+    this.setData({
+      showError:false,
+      code:e.detail.value
+    })
+  },
+  validateCode(e){
+    if(this.data.code.length==0){
+      return
+    }
+    api.request({
+      url:"VALIDATE_CODE",
+      method:"POST",
+      showLoading:true,
+      param:{
+        code:this.data.code
+      },
+      callback:(b,json)=>{
+        if(b){
+          if (autoToUserInfo){
+            wx.navigateBack({
+
+            })
+            wx.navigateTo({
+              url: '/pages/login/userInformation?fill=true&userType=2',
+            })
+          }
+         
+        }else{
+          this.setData({
+            showError:true
+          })
+        }
+      }
+
+    })
   }
 })

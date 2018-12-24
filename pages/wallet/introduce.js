@@ -1,18 +1,20 @@
 // pages/wallet/introduce.js
+import api from '../../utils/api.js'
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    data:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this._getData()
   },
 
   /**
@@ -62,5 +64,20 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  _getData(){
+    api.request({
+      url:"SYSTEM_SETTING_INFO",
+      method:"GET",
+      showLoading:true,
+      param:{
+        name:"balanceTip"
+      },
+      callback:(b,json)=>{
+        this.setData({
+          data:json.data
+        })
+      }
+    })
   }
 })

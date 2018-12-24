@@ -1,4 +1,7 @@
 // pages/order/orderDetail.js
+import api from '../../utils/api.js'
+var app = getApp()
+let orderNo
 Page({
 
   /**
@@ -7,13 +10,15 @@ Page({
   data: {
     productList:[],
     orderType:0, // 生成订单  1代付款 2待发货 3待收货 4已完成
+    data:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    orderNo = options.orderNo
+    this._getData()
   },
 
   /**
@@ -63,5 +68,25 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  _getData(){
+    api.request({
+      url:"ORDER_DETAIL",
+      method:"GET",
+      showLoading:true,
+      param:{
+        orderNo:orderNo
+      },
+      callback:(b,json)=>{
+        if(b){
+          let productPrice = Number.parseFloat(json.data.payFee) - Number.parseFloat(json.data.trackPrice)
+          json.data.productPrice = productPrice
+          json.data.price = price
+          this.setData({
+            data:json.data
+          })
+        }
+      }
+    })
   }
 })

@@ -25,7 +25,7 @@ const topGridList = [
     image: "/resource/image/ic_circle_home_register_login@2x.png",
   },
   {
-    url: "",
+    url: "/pages/home/promotionActivity",
     name: "会员福利",
     image: "/resource/image/ic_circle_home_membership_benefits@2x.png",
   },

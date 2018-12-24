@@ -18,9 +18,7 @@ Page({
   data: {
     sel_icon: sel_icon,
     unsel_icon: unsel_icon,
-    productList:[
-      mockData, mockData,mockData
-    ],
+    productList:[],
     isSelAll:false,
     page:1,
     totalPrice:0,
@@ -36,7 +34,6 @@ Page({
         delBtnWidth = 170/750 * res.windowWidth;
       },
     })
-    this._getShoppingCarList(true)
 
   },
 
@@ -51,6 +48,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this._getShoppingCarList(true)
 
   },
 
@@ -243,14 +241,27 @@ Page({
   }
   ,
   itemDel(e){
-    console.log(e)
     var index = e.currentTarget.dataset.index
-    this.data.productList.splice(index,1)
-    this.setData({
-      productList: this.data.productList
+   
+    api.request({
+      url:"SHOPPING_CAR_DEL",
+      method:"POST",
+      showLoading:true,
+      param:{
+        shopcarId: this.data.productList[index].shopcarId
+      },
+      callback:(b,json)=>{
+        if(b){
+          this.data.productList.splice(index,1)
+          this.setData({
+            productList: this.data.productList
+          })
+          this._calcTotalPriceAndScore();
+
+        }
+      }
     })
 
-    this._calcTotalPriceAndScore();
   },
   toOrder(){
     if(this.data.productList.length==0){

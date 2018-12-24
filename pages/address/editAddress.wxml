@@ -6,7 +6,7 @@
 </view>
 <view class='input-layout'>
   <label class='label'>联系方式</label>
-  <input placeholder='请输入收货人联系方式' class='input' placeholder-class='input-placeholder' bindinput='_bindInput' data-key="contactMobile" value='{{address.contactMobile}}'></input>
+  <input placeholder='请输入收货人联系方式' class='input' placeholder-class='input-placeholder' bindinput='_bindInput' data-key="contactMobile" value='{{address.contactMobile}}' maxlength='11' type='number'></input>
 </view>
 <view class='input-layout'>
   <label class='label'>所在地区</label>

@@ -1,14 +1,14 @@
 <!--pages/home/promotionActivity.wxml-->
-<view>
+<!-- <view> -->
 
-    <view class='activity' wx:key="1" wx:for="123">
-      <image src='https://cdn.pixabay.com/photo/2018/11/23/14/19/forest-3833973__340.jpg' class="image"></image>
-      <label class="title">7重植物干细胞精粹臻享奢华美肌盛宴</label>
+    <view class='activity' wx:key="{{item.activitionId}}" wx:for="{{data}}" bindtap='navToDetail' data-id="{{item.activitionId}}">
+      <image src='{{item.activitionImg}}' class="image"></image>
+      <label class="title">{{item.title}}</label>
     </view>
 
 
 
-    <label class='listView-bottom-hint'>
+    <!-- <label class='listView-bottom-hint'>
         已经到底啦~
-    </label>
-</view>
+    </label> -->
+<!-- </view> -->

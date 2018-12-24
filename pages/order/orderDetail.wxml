@@ -1,12 +1,48 @@
 <!--pages/order/orderDetail.wxml-->
+<wxs module="m1">
+  function format(ts) {
+    var d = getDate(ts)
+    return d.getFullYear()+"-"+d.getMonth()+1+"-"+ d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+  }
+  function parseOrderStatus(os){
+       // <!-- orderStatus	integer	是	订单状态：1代表待付款，2代表待发货，3代表待收货，4代表已完成 -->
+    switch(os){
+        case "1":
+          return "待付款";
+        case "2":
+          return "待发货";
+        case "3":
+          return "待收货";
+        case "4":
+          return "已完成";
+
+    }
+  }
+  function parseRtStatus(ts){
+    switch(ts){
+      case "1":
+        return "处理中"
+      case "2":
+        return "申请成功"
+      case "3":
+        return "申请失败"
+    }
+  }
+  module.exports.format = format
+  module.exports.parseOS = parseOrderStatus
+  module.exports.parseTS = parseRtStatus
+
+</wxs>
 <view class='container'>
   <scroll-view class='scroll-y' scroll-y>
   
   <!-- 订单基本信息 -->
       <view class='order-state'>
-        <label class='state'>代付款</label>
-        <label class='info'>交易单号：C38903720340</label>
-        <label class='info'>下单时间：2018-11-10 18:21:09</label>
+        <label class='state'>{{m1.parseOS(data.orderStatus)}}</label>
+        <!-- C38903720340 -->
+        <label class='info'>交易单号：{{data.orderNo}}</label>
+        <!-- 2018-11-10 18:21:09 -->
+        <label class='info'>下单时间：{{m1.format(data.createtime)}}</label>
         <label class='info'>支付方式：微信支付</label>
       </view>
 
@@ -14,18 +50,22 @@
       <view class='address-layout'>
         <image class='image' src='/resource/image/ic_address_black@2x.png'></image>
         <view >
-          <label class='name'>蓝盈盈 <label class='phone'>18699551060</label></label>
-          <label class='address'>广东省广州市海珠区丽影广场A座505</label>
+          <label class='name'>{{data.order_address.contactPerson}} <label class='phone'>{{data.order_address.contactMobile}}</label></label>
+          <label class='address'>{{data.order_address.address}}</label>
         </view>
       </view>
 
 <!-- 商品列表 -->
       <view class='item-list'>
-        <item></item>
+      <view class='item-decoration' wx:for='{{data.goods_list}}' wx:key="{{index}}" >
+            <item  cover="{{item.goods.coverImg}}" title="{{item.goods.goodsName}}" specification="{{item.goods.capacity.showName}}" number="{{item.goods.goodsCode}}" value1="{{item.goods.score}}" value2="{{item.goods.price}}" ></item>
+            <label class='num'>x{{item.buyNum}}</label>
+        </view>     
       </view>
-      <view class='state-layout'>
-          <view class='state normal'>申请售后</view>
-          <view class='state red'>处理中</view>
+      <view class='state-layout' wx:if="{{data.orderStatus==4}}">
+      <!-- returnStatus：0代表未申请退货，1代表申请中，2申请成功，3申请不成功 -->
+          <view class='state normal' wx:if="{{data.returnStatus=='0'}}">申请售后</view>
+          <view class='state red'>{{m1.parseTS(data.returnStatus)}}</view>
 
       </view>
 
@@ -34,42 +74,42 @@
       <view class='order-price'>
         <view class='info'>
           <label>商品金额</label>
-          <label>￥788</label>
+          <label>￥{{data.productPrice}}</label>
         </view>
         <view class='info'>
           <label>积分</label>
-          <label>1000</label>
+          <label>{{data.payScore}}</label>
         </view>
         <view class='info'>
           <label>运费</label>
-          <label>￥788</label>
+          <label>￥{{data.trackPrice}}</label>
         </view>
         <view class='line' style='margin:32rpx 0;'></view>
         <view class='total-price'>
           <label class='total'>合计</label>
           <label class='text' style='margin-left:18rpx;'>积分</label>
-          <label class='number'>2000</label>
+          <label class='number'>{{data.payScore}}</label>
           <label class='text' style='margin-left:31rpx;'>价格</label>
-          <label class='number'>￥1486</label>
+          <label class='number'>￥{{data.payFee}}</label>
         </view>
       </view>
 <!-- 卖家留言 -->
       <view class='message-layout'>
         <label class='text'>买家留言（非必填）</label>
-        <label class='text'>无</label>
+        <label class='text'>{{data.remarks}}</label>
       </view>
   </scroll-view>
 
 
-  <view class='bottom-control-layout'>
+  <view class='bottom-control-layout' wx:if="{{data.orderStatus!=4}}">
     <view class='btn-group'>
-      <label class='action-btn normal'>
+      <label class='action-btn normal' wx:if="{{data.orderStatus=='1' || data.orderStatus=='2'}}">
         取消订单
       </label>
-      <label class='action-btn normal'>
+      <label class='action-btn normal' wx:if="{{data.orderStatus=='1'}}">
         微信支付
       </label>
-      <label class='action-btn light'>
+      <label class='action-btn light' wx:if="{{data.orderStatus=='4'}}">
         确认收货
       </label>
     </view>

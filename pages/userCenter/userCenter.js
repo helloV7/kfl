@@ -8,14 +8,12 @@ Component({
    */
   properties: {
     refresh:{
-      type:Boolean,
-      value:true,
+      type:String,
+      value:"1",
       observer: function (newVal, oldVal, changedPath){
-        if(newVal){
+        if(newVal=="1"){
+          console.log(this)
           this.refresh()
-          this.setData({
-            refresh:false
-          })
         }
       }
     }
@@ -44,7 +42,13 @@ Component({
         callback: (b, json) => {
           if (b) {
             this.setData({
-              userInfo: json.data
+              userInfo: json.data,
+              refresh: "0"
+            
+            })
+            wx.setStorage({
+              key: 'userInfo',
+              data: json.data
             })
           }
         }
@@ -67,11 +71,48 @@ Component({
           }
         }
       })
+    },
+    navToApplay() {
+      if (this.data.userInfo.userType == "1"){
+        wx.navigateTo({
+          url: '/pages/userCenter/applyForBeautician?jump=true',
+        })
+      }
+    },
+    navToUserInfo(){
+    
+      wx.navigateTo({
+        url: '/pages/login/userInformation?fill=true&userType=' + this.data.userInfo.userType,
+      })
+    },
+    navToMyWallet(){
+      wx.navigateTo({
+        url: '/pages/wallet/myWallet',
+      })
+    },
+    navToMyScore(){
+      wx.navigateTo({
+        url: '/pages/score/myScore',
+      })
+    },
+    navToResetCode(){
+      wx.navigateTo({
+        url: '/pages/userCenter/applyForBeautician',
+      })
+    },
+    navToOrderList(e){
+      let type = e.currentTarget.dataset.type
+
+      wx.navigateTo({
+        url: '/pages/order/orderList?type='+ type,
+      })
     }
+
+
    
   },
   attached(){
     this.refresh()
-  },
-  
+  }
+
 })

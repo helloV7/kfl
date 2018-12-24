@@ -1,4 +1,6 @@
 // pages/login/userInformation.js
+import api from '../../utils/api.js'
+var app = getApp()
 Page({
 
   /**
@@ -8,23 +10,48 @@ Page({
     form:{
       name:"",
       nickname:"",
-      phone:"",
-      province:"",
+      mobile:"",
+      // province:"",
       city:"",
-      area:"",
+      // district:"",
       email:"",
-      wechatAccount:"",
+      wechat:"",
       bankName:"",
-      bankCard:""
+      bankNo:"",
     }
     ,region:[]
+    ,fill: false
+    ,userType:"1"
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
+    if(options.fill){
+      wx.getStorage({
+        key: 'userInfo',
+        success: res => {
+          if(res.data==null){
+            return
+          }
+          Object.keys(this.data.form).forEach(key=>{
+            this.data.form[key] = res.data[key]
+          })
+          let region = this.data.form.city.split("/")
+ 
 
+          this.setData({
+            form: this.data.form,
+            fill:options.fill,
+            userType: options.userType,
+            region:region
+          })
+        },
+      })
+    }
   },
 
   /**
@@ -76,16 +103,66 @@ Page({
   }
   ,
   bindRegionChange: function (e) {
-    this.data.form.province = e.detail.value[0]
-    this.data.form.city = e.detail.value[1]
-    this.data.form.area = e.detail.value[2]
+    // this.data.form.province = e.detail.value[0]
+    // this.data.form.city = e.detail.value[1]
+    // this.data.form.district = e.detail.value[2]
 
     this.setData({
       region: e.detail.value
     })
-  }
-  ,
+  },
   onFinishClick(){
-    console.log(this.data.form)
+    if (this.data.form.name.length==0){
+      return
+    }
+    if (this.data.form.nickname.length == 0) {
+      return
+    }
+    if (this.data.form.email.length == 0) {
+      return
+    }
+    if (this.data.form.mobile.length == 0 && this.data.fill) {
+      return
+    }
+    if (this.data.region.length == 0) {
+      return
+    }
+
+    if (userType != "1"){
+      if (this.data.form.wechat.length == 0) {
+        return
+      }
+      if (this.data.form.bankName.length == 0) {
+        return
+      }
+      if (this.data.form.bankNo.length == 0) {
+        return
+      }
+    }
+  
+    // let param = JSON.parse(JSON.stringify(this.data.form))
+    this.data.form.city = this.data.region[0] + "/" + this.data.region[1] + "/" + this.data.region[2]
+    delete this.data.form.mobile
+    api.request({
+      url:"FINISH_USER_INFO",
+      method:"POST",
+      showLoading:true,
+      param: this.data.form,
+      callback:(b,json)=>{
+        if(b){
+          wx.navigateBack({
+            
+          })
+          app.showToast(json.msg)
+
+        }
+      }
+    })
+  },
+  bindInput(e){
+    let key = e.currentTarget.dataset.key
+    this.setData({
+      ["form."+key]:e.detail.value
+    })
   }
 })

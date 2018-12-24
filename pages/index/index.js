@@ -16,7 +16,8 @@ Page({
      iconUserCenterPressed : resourcePath + "/ic_main_tab_user_center_pressed.png",
      iconMoreNormal : resourcePath + "/ic_main_tab_more_normal.png",
      iconMorePressed : resourcePath + "/ic_main_tab_more_pressed.png",
-     windowHeight:0
+     windowHeight:0,
+    refreshUserCenter:"1"
   },
   onLoad: function () {
     var that = this;
@@ -29,6 +30,13 @@ Page({
       },
     })
   },
+  onShow(){
+    if (this.data.currentTab == 3) {
+      this.setData({
+        refreshUserCenter: "1"
+      })
+    }
+  },
   onTabClick(e){
     var tabIndex = e.currentTarget.dataset.tabIndex;
 
@@ -38,8 +46,14 @@ Page({
       return;
     }
 
+  
     if(this.data.currentTab==tabIndex){
       return;
+    }
+    if (tabIndex == 3) {
+      this.setData({
+        refreshUserCenter: "1"
+      })
     }
     
     this.setData({

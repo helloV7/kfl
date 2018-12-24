@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "促销活动"
+  "navigationBarTitleText": "促销活动",
+  "enablePullDownRefresh":true
 }

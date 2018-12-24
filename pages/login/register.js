@@ -161,6 +161,15 @@ Page({
       if(r){
         //注册成功(
           this.toLoginClick()
+        if (this.data.displayType=="1"){
+          wx.navigateTo({
+            url: '/pages/login/userInformation?fill=false&userType=1',
+          })
+        }else{
+          wx.navigateTo({
+            url: '/pages/login/userInformation?fill=false&userType=2',
+          })
+        }
       }else{
         //注册失败
       }

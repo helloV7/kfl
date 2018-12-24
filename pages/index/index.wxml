@@ -11,7 +11,7 @@
        <presents></presents>
     </view>
       <view hidden='{{currentTab!=3}}' class='page-decoration'>
-       <self></self>
+       <self refresh="{{refreshUserCenter}}"></self>
     </view>
     <view hidden='{{currentTab!=4}}' class='page-decoration'>
        <more></more>

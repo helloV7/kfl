@@ -120,7 +120,7 @@ Component({
               count: count
             })
           
-            this.triggerEvent("updateCount", { extra: extra, count: count},{})
+            this.triggerEvent("updateCount", { extra: this.data.extra, count: count},{})
           
           }
           loading = false

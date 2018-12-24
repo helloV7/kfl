@@ -15,7 +15,8 @@ Component({
   data: {
     typeList:[],
     currentTypeIndex:0,
-    productList:[]
+    productList:[],
+    showSearchPage:false
   },
 
   /**
@@ -68,6 +69,21 @@ Component({
       wx.navigateTo({
         url: '/pages/product/productDetail?id='+id,
       })
+    },
+    searchViewClick(e){
+      this.setData({
+        showSearchPage:true
+      })
+    },
+    searchConfirm(e){
+      let key = e.detail.key
+      this.setData({
+        showSearchPage:false
+      })
+      wx.navigateTo({
+        url: '/pages/product',
+      })
+
     }
   },
   attached(){

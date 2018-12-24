@@ -1,10 +1,10 @@
 <!--pages/wallet/myWallet.wxml-->
 <view class='container'>
 <view class='line'></view>
-<image class='icon-question' src='/resource/image/ic_question_black@2x.png'></image>
+<image class='icon-question' src='/resource/image/ic_question_black@2x.png' bindtap='navToIntroduce'></image>
 <view class='balance-layout'>
   <image class='background-image' src='/resource/image/bg_wallet@2x.png'></image>
-  <label class='balance'>￥9980.00</label>
+  <label class='balance'>￥{{balance}}</label>
   <view class='hint-layout'>
     <image src='/resource/image/ic_balance_white@2x.png' class='icon-money'></image>
     <label>余额</label>
@@ -15,7 +15,7 @@
   <scroll-view class='scroll-y' scrol-y>
 
 
-    <view class='detail-list-item' wx:for='1111111'>
+    <view class='detail-list-item' wx:for='{{data}}'>
       <view class='left'>
         <label class='title'>
           扫码领取余额

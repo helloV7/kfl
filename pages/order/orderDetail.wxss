@@ -216,3 +216,29 @@ page{
 background:rgba(212,38,43,1);
 color:rgba(255,255,255,1);
 }
+.item-decoration{
+  position: relative;
+  background: white;
+  display: block;
+}
+.item-decoration::after{
+  content: "";
+  position: absolute;
+  background: #E0E0E0;
+  height: 2rpx;
+  left: 27rpx;
+  right: 0;
+  bottom: 0;
+}
+.item-decoration:last-of-type::after{
+  content: none;
+}
+.num{
+  position: absolute;
+  right: 21rpx;
+  bottom: 28rpx;
+  font-size:32rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+}

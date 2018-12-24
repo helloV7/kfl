@@ -201,9 +201,11 @@ page{
 }
 .message-input{
   display: inline-block;
-    font-size:30rpx;
+  font-size:30rpx;
   font-family:PingFangSC-Regular;
   font-weight:400;
+  flex: 1;
+  margin-right: 30rpx;
 }
 .message-placeholder{
   font-size:30rpx;

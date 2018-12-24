@@ -125,6 +125,7 @@ Page({
             freight: totalFee,
             totalPrice: trackPrice + totalFee,
             totalScore: totalScore,
+            
           })
 
         }
@@ -152,6 +153,10 @@ Page({
     let sendStore
     let goodsList = []
     let trackType
+    let remarks
+
+    remarks = this.data.message
+  
     this.data.productList.forEach(item => {
       goodsList.push({
         buyNum: item.buyNum,
@@ -160,7 +165,7 @@ Page({
       })
     })
 
-    if (this.data.addressCheck == 1) {//美容院
+    if (this.data.useAddress == 1) {//美容院
       addressId = this.data.store_address.addressId
       sendStore = "1"
     } else {
@@ -170,7 +175,7 @@ Page({
 
     wx.showActionSheet({
       itemList: ["现付","到付"],
-      success(res){
+      success:(res)=>{
         switch (res.tapIndex){
           case 0:
             trackType="1"
@@ -186,11 +191,20 @@ Page({
             addressId: addressId,
             sendStore: sendStore,
             goodsList: JSON.stringify(goodsList),
-            trackType: trackType
-          },
+            trackType: trackType,
+            remarks:remarks
+            },
           callback:(b,json)=>{
             if(b){
-
+              if (trackType=="1"){
+                //现付
+              }else{
+                //到付
+                app.showToast(json.msg)
+                wx.navigateBack({
+                  delta: 1,
+                })
+              }
             }
           }
         })
@@ -209,6 +223,8 @@ Page({
   },
   addressCheck(e){
     let type = e.currentTarget.dataset.type
-
+    this.setData({
+      useAddress:type
+    })
   }
 })
