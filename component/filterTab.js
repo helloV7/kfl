@@ -2,7 +2,8 @@
 const icon_normal = "/resource/image/ic_sorting@2x.png";
 const icon_desc = "/resource/image/ic_sorting_arrow_down@2x.png";
 const icon_asc = "/resource/image/ic_sorting_arrow_upward@2x.png";
-
+import api from '../utils/api.js'
+var app = getApp()
 class Filter{
   constructor(){
     this.currentType=0;
@@ -101,12 +102,23 @@ Component({
       this.setData({
         showModal: false
       })
-    }
+    },
+   _getFilterData() {
+      api.request({
+        url: "SEARCH_FILTER_ITEM",
+        methos: "GET",
+        showLoading: true,
+        callback: (b, json) => {
+          if(b){
 
+          }
+        }
+      })
+    }
     
   },
-  attached(){
-
+  attached:function(){
+    this._getFilterData()
  
   }
 })

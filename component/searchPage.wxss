@@ -7,6 +7,7 @@
   align-items: center;
   padding-left: 30rpx;
   padding-right: 30rpx; 
+  z-index: 999;
 }
 .search-view::after{
   content: '';

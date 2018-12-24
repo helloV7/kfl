@@ -1,15 +1,20 @@
 <!--pages/product/productListWidthTab.wxml-->
 <view class='page'>
-  <searchView></searchView>
+  <searchView bindtap=""></searchView>
   <view class='line'></view>
-  <tab type='scroll' tabs="{{tab}}" ></tab>
+  <tab type='scroll' tabs="{{typeList}}" tabNameKey="name"></tab>
 
   <view class='filterTab-decoration'>
-    <filterTab></filterTab>
+    <filterTab style="z-index=999"></filterTab>
   </view>
   <scroll-view class='product-list' scroll-y>
-    <productItem wx:for='123123'></productItem>
+    <view wx:for='{{productList}}' class='item-decorator' data-index="{{index}}">
+        <productItem  cover="{{item.coverImg}}" title="{{item.goodsName}}" specification="{{item.capacity.showName}}" number="{{item.goodsCode}}" value1="{{item.score}}" value2="{{item.price}}"></productItem>
+
+    </view>
   </scroll-view>
 </view>
 
 <shoppingcar></shoppingcar>
+
+<searchPage></searchPage>

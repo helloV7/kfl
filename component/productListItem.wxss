@@ -3,6 +3,7 @@
 .layout{
   position: relative;
   padding: 28rpx;
+  z-index: 0;
 }
 .image{
   width:250rpx;

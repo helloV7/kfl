@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -60,7 +60,13 @@
 				{
 					"id": -1,
 					"name": "添加地址",
-					"pathName": "pages/address/editAddress"
+					"pathName": "pages/address/editAddress",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "分类商品",
+					"pathName": "pages/product/productListWidthTab"
 				}
 			]
 		}

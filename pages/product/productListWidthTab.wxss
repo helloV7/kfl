@@ -13,6 +13,7 @@ page{
 .filterTab-decoration{
   margin-top: 20rpx;
   background: white;
+  z-index: 999;
 }
 .product-list{
   white-space: nowrap;

@@ -82,7 +82,9 @@ const _urlList = {
   //订单详情
   ORDER_DETAIL: _domain + "api/order/detail",
   //订单列表
-  ORDER_LIST: _domain + "api/order/index"
+  ORDER_LIST: _domain + "api/order/index",
+  //礼品 筛选
+  SEARCH_FILTER_ITEM: _domain + "api/gift/get_search_items"
 
   
 

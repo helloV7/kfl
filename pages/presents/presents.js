@@ -81,7 +81,7 @@ Component({
         showSearchPage:false
       })
       wx.navigateTo({
-        url: '/pages/product',
+        url: '/pages/product/productListWidthTab?key='+key,
       })
 
     }

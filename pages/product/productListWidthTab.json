@@ -3,7 +3,7 @@
   "usingComponents":{
     "searchView":"/component/searchTabView",
     "tab":"/component/tab",
-    "searchViewPage":"/component/searchview",
+    "searchPage":"/component/searchPage",
     "productItem":"/component/productListItem",
     "filterTab":"/component/filterTab",
     "shoppingcar":"/component/shoppingcarFloatBtn"
