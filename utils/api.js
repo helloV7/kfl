@@ -92,8 +92,11 @@ const _urlList = {
   //微信支付
   WECHAT_PAY: _domain + "api/pay/wechat",
   //确认收货
-  ORDER_RECEIVE_CONFIRM: _domain + "api/order/comfirm"
-
+  ORDER_RECEIVE_CONFIRM: _domain + "api/order/comfirm",
+  //排行榜
+  RANK_LIST: _domain + "api/rank/index",
+  //区域列表
+  RANK_AREA_LIST: _domain + "api/index/get_area"
   
 
   

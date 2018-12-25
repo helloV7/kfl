@@ -1,0 +1,167 @@
+/* pages/userCenter/rank.wxss */
+page{
+  font-size: 0;
+  background:rgba(31,26,21,1);
+
+}
+.top{
+  width: 750rpx;
+  height: 270rpx;
+  position: relative;
+}
+.top .image{
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+}
+.top .rank-title{
+  position: absolute;
+  left: 56rpx;
+  top: 65rpx;
+  width: 295rpx;
+  height: 82rpx;
+}
+.top .rank-icon{
+  position: absolute;
+  left: 58rpx;
+  top: 172rpx;
+  width: 37rpx;
+  height: 28rpx;
+}
+.top .rank{
+  position: absolute;
+  left: 114rpx;
+  top: 176rpx;
+  height:25rpx;
+  font-size:26rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  line-height: 26rpx;
+}
+.tab{
+  width:750rpx;
+  height:93rpx;
+  background:rgba(40,35,30,1);
+  display: flex;
+}
+.tab .item{
+  flex: 1;
+  position: relative;
+  font-size:32rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  opacity:0.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+.tab .item.sel{
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  opacity: 1
+}
+.tab .image{
+  width:41rpx;
+  height:12rpx;
+  position: absolute;
+  left: calc(50% - 19.5rpx);
+  bottom:0;
+}
+.sel-area{
+  margin-top: 25rpx;
+  margin-left: 58rpx;
+  width:635rpx;
+  height:60rpx;
+  background:rgba(0,0,0,1);
+  border-radius:30px;
+
+  font-size:26rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(245,209,123,1);
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sel-area .image{
+  width: 13rpx;
+  height: 23rpx;
+  position: absolute;
+  right: 31rpx;
+  bottom: 18rpx;
+} 
+.rank-layout{
+  margin-top: 25rpx;
+  margin-left: 40rpx;
+  width:670rpx;
+  /* height:720rpx; */
+  background:rgba(0,0,0,1);
+  border:3rpx solid rgba(252, 254, 208, 1);
+  border-radius:10rpx;
+  overflow: hidden
+}
+
+.rank-layout .item{
+  width:670rpx;
+  height:119rpx;
+  background:rgba(31,26,21,1);
+  position: relative;
+}
+.rank-layout .item:nth-child(2n){
+  background:rgba(16,13,7,1);
+}
+.rank-layout .top3{
+  width: 52rpx;
+  height: 54rpx;
+  position: absolute;
+  left: 28rpx;
+  top: 32rpx;
+}
+.rank-layout .normal{
+  position: absolute;
+  left: 46rpx;
+  top: 48rpx;
+  width: 17rpx;
+  height: 24rpx;
+
+}
+.rank-layout .avatar{
+  width:75rpx;
+  height:74rpx;
+  border-radius:50%;
+  position: absolute;
+  left: 107rpx;
+  top: 22rpx;
+}
+.rank-layout .name{
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  position: absolute;
+  left: 211rpx;
+  top: 47rpx;
+  line-height: 28rpx;
+  height: 26rpx;
+}
+.rank-layout .score{
+  height:24rpx;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(245,209,123,1);
+  line-height:30rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 47rpx;
+}

@@ -1,0 +1,38 @@
+<!--pages/userCenter/rank.wxml-->
+<view class='top'>
+  <image class='image' src='/resource/image/bg_ranking_list@2x.png'></image>
+  <image class='rank-title' src='/resource/image/ic_ranking_list@2x.png'></image>
+  <image class='rank-icon' src='/resource/image/ic_prize@2x.png'></image>
+  <label class='rank'>当前排名 第10 名</label>
+</view>
+<view class='tab'>
+  <view class='item {{currentTab==0?"sel":""}}' bindtap='onTabClick' data-index="0">
+      全国
+    <image class='image' src='/resource/image/ic_arrow_brown@2x.png' mode='widthFix'></image>
+  </view>
+   <view class='item {{currentTab==1?"sel":""}}' bindtap='onTabClick' data-index="1">
+      区域
+    <image class='image' src='/resource/image/ic_arrow_brown@2x.png' mode='widthFix'></image>
+  </view>
+</view>
+<picker mode="selector" range="{{area}}" bindchange="onAreaChanged" hidden='{{currentTab!=1}}' >
+  <view class='sel-area' hidden='{{currentTab!=1}}'>
+    {{currentArea.length==0?"请选择地区":("区域 ："+currentArea)}}
+    <image class='image' src='/resource/image/ic_arrow_right_brown@2x.png'></image>
+  </view>
+</picker>
+
+<view class='rank-layout'>
+  <view class='item' wx:for="{{data}}">
+    <image class='top3'wx:if="{{index==0}}" src='/resource/image/ic_first@2x.png'></image>
+    <image class='top3'wx:if="{{index==1}}" src='/resource/image/ic_second@2x.png'></image>
+    <image class='top3'wx:if="{{index==2}}" src='/resource/image/ic_third@2x.png'></image>
+    <image class='normal' wx:if="{{index==3}}" src='/resource/image/ic_fourth@2x.png'></image>
+    <image class='normal' wx:if="{{index==4}}" src='/resource/image/ic_ffifth@2x.png'></image>
+    <image class='normal' wx:if="{{index==5}}" src='/resource/image/ic_sixth@2x.png'></image>
+    
+    <image class='avatar'></image>
+    <label class='name'>{{item.nickname}}</label>
+    <label class='score'>{{item.countScore}}</label>
+  </view>
+</view>

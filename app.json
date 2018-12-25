@@ -1,6 +1,7 @@
 {
   "pages": [
-        
+    
+    "pages/userCenter/rank",
     "pages/index/index",
     "pages/afterSales/afterSales",
     "pages/login/login",
