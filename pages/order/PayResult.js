@@ -1,18 +1,18 @@
 // pages/order/PayResult.js
+let orderNo
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    orderNo = options.orderNo
   },
 
   /**
@@ -62,5 +62,15 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  navToOrderDetail(){
+    wx.navigateTo({
+      url: '/pages/order/orderDetail?orderNo=' + orderNo,
+    })
+  },
+  navToHome(){
+    wx.reLaunch({
+      url: '/pages/index/index',
+    })
   }
 })

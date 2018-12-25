@@ -38,11 +38,11 @@ Page({
         break;
     }
 
+    if(type!=null)
     this.setData({
       currentTab: type
     })
 
-    this._getOrderList(true)
   },
 
   /**
@@ -56,6 +56,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this._getOrderList(true)
 
   },
 

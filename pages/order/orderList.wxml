@@ -1,8 +1,8 @@
 <!--pages/order/orderList.wxml-->
 <wxs module="m1">
   function format(ts) {
-    var d = getDate(ts)
-    return d.getFullYear()+"-"+d.getMonth()+1+"-"+ d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+    var d = getDate(ts*1000)
+    return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+ d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
   }
   function parseOrderStatus(os){
        // <!-- orderStatus	integer	是	订单状态：1代表待付款，2代表待发货，3代表待收货，4代表已完成 -->
@@ -15,6 +15,8 @@
           return "待收货";
         case "4":
           return "已完成";
+        case "5":
+          return "已取消"
 
     }
   }
@@ -44,7 +46,7 @@
       <view class='type bottom-line'>
         {{m1.parseOS(item.orderStatus)}}
       </view>
-      <view class='item-decoration bottom-line' wx:for='{{item.goods_list}}' wx:for-item="good">
+      <view class='item-decoration bottom-line' wx:for='{{item.goods_list}}' wx:for-item="good" wx:key="{{index}}">
         <item cover="{{good.goods.coverImg}}" title="{{good.goods.goodsName}}" value1="{{good.goods.score}}" value2="{{good.goods.price}}"></item>
       </view>
       <view class='total-info-layout'>

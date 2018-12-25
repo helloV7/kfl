@@ -1,4 +1,7 @@
 // pages/afterSales/afterSales.js
+import api from '../../utils/api.js'
+var app = getApp()
+let orderNo
 Page({
 
   /**
@@ -12,7 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    orderNo = options.orderNo
   },
 
   /**

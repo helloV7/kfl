@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "订单详情",
   "usingComponents": {
-    "item": "/component/productListItem"
+    "item": "/component/productListItem",
+    "alertDialog":"/component/alertDialog"
   }
 }

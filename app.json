@@ -1,10 +1,9 @@
 {
   "pages": [
-        "pages/index/index",
         
-        "pages/login/login",
-        
+    "pages/index/index",
     "pages/afterSales/afterSales",
+    "pages/login/login",
     "pages/test",
     "pages/more/qaCenter",
     "pages/more/feedback",
@@ -33,7 +32,8 @@
     "pages/login/register",
     "pages/wallet/introduce",
     "pages/score/myScore",
-    "pages/score/introduce"
+    "pages/score/introduce",
+    "pages/login/bindPhone"
   ],
   "window": {
     "backgroundTextStyle": "light",

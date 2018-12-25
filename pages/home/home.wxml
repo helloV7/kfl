@@ -10,7 +10,7 @@
   <image src='/resource/image/banner_mask.png' class="banner-mask" mode='widthFix'></image>
   </view>
   <view class='topGrid'>
-    <view class='item' wx:for="{{topGridList}}" bindtap='_onTopGridItemClick' data-url="{{item.url}}">
+    <view class='item' wx:for="{{topGridList}}" wx:key="{{index}}" bindtap='_onTopGridItemClick' data-url="{{item.url}}">
       <image src='{{item.image}}'></image>
       <label>{{item.name}}</label>
     </view>

@@ -2,7 +2,7 @@
 const mockTab = {name:"1"}
 import api from '../../utils/api.js'
 var app = getApp()
-
+let filterData={}
 Page({
 
   /**
@@ -12,7 +12,9 @@ Page({
     typeList: [mockTab,mockTab, mockTab],
     currentTypeIndex:0,
     productList:[],
-    searchKey:""
+    searchKey:"",
+    page:1,
+    showSearchPage:false
   },
 
   /**
@@ -61,7 +63,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this._getTypeProduct(true)
   },
 
   /**
@@ -92,7 +94,8 @@ Page({
     })
 
   },
-  _getTypeProduct() {
+  _getTypeProduct(isRefresh) {
+    let page = isRefresh?1:(this.data.page+1)
     let type = this.data.typeList[this.data.currentTypeIndex]
     // cId	string	是	分类id
     // scoreSort	string	否	积分排序：1代表从高到低，2代表从低到高
@@ -100,22 +103,72 @@ Page({
     // screenData	string	否	items格式：[{ itemId: [1, 2, 3], searchId: 1 }]
     // count	string	否	查询数量，默认20条
     // page	string	否	页码，从1开始
+    let param = Object.assign({
+      cId: type.id,
+      keyWord: this.data.searchKey
+    },
+    filterData)
+
+    console.log(param)
     api.request({
       url: "PRESENT_PRODUCT_LIST",
       method: "GET",
       showLoading: true,
-      param: { 
-        cId: type.id,
-        keyWord: this.data.searchKey
-        },
+      param:param,
       callback: (b, json) => {
         if (b) {
+          let data =[]
+          if(isRefresh){
+            wx.stopPullDownRefresh()
+          }else{
+            data = this.data.productList
+          }
+          data = data.concat(json.data)
           this.setData({
-            productList: json.data
+            productList: json.data,
+            page:page
           })
         }
       }
 
+    })
+  }, filterTabConfirm(e){
+    console.log(e)
+    filterData = e.detail
+    this._getTypeProduct(true)
+    this.setData({
+      showSearchPage: false
+    })
+  },
+  openSearchPage(e){
+    console.log(e)
+    this.setData({
+      showSearchPage: true
+
+    })
+  },
+  searchPageConfirm(e){
+    console.log(e)
+    let key = e.detail.key
+    this.setData({
+      searchKey:key,
+      showSearchPage:false
+    })
+    this._getTypeProduct(true)
+  },
+  searchPageCancel(){
+    this.setData({
+      showSearchPage: false
+    })
+  },
+  loadMore(){
+    this._getTypeProduct(false)
+  },
+  productItemClick(e){
+    let index = e.currentTarget.dataset.index
+    let id = this.data.productList[index].goodsId
+    wx.navigateTo({
+      url: '/pages/product/productDetail?id='+id,
     })
   }
 })

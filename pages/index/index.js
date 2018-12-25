@@ -23,7 +23,6 @@ Page({
     var that = this;
     wx.getSystemInfo({
       success: function(res) {
-        console.log(res.windowHeight)
         that.setData({
           windowHeight:res.windowHeight
         })
@@ -61,6 +60,22 @@ Page({
     })
   },
   _scan(){
+    let userInfo = wx.getStorageSync("userInfo")
+    if(userInfo==null){
+      wx.redirectTo({
+        url: '/pages/login/login',
+      })
+      app.showToast("请先登录")
+      return
+    }
+    if (userInfo.isfix!="1") {
+      wx.navigateTo({
+        url: '/pages/login/userInformation?fill=true&userType='+userInfo.userType,
+      })
+      app.showToast("请先完善个人信息")
+      return
+    }
+
     // 只允许从相机扫码       onlyFromCamera: true,
 
     wx.scanCode({

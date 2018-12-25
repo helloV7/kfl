@@ -174,7 +174,7 @@ Page({
     }
 
     wx.showActionSheet({
-      itemList: ["现付","到付"],
+      itemList: ["运费现付","运费到付"],
       success:(res)=>{
         switch (res.tapIndex){
           case 0:
@@ -196,15 +196,16 @@ Page({
             },
           callback:(b,json)=>{
             if(b){
-              if (trackType=="1"){
-                //现付
-              }else{
-                //到付
-                app.showToast(json.msg)
-                wx.navigateBack({
-                  delta: 1,
-                })
-              }
+              // if (trackType=="1"){
+              //   //现付
+              // }else{
+              //   //到付
+              //   app.showToast(json.msg)
+              //   wx.navigateBack({
+              //     delta: 1,
+              //   })
+              // }
+              
             }
           }
         })

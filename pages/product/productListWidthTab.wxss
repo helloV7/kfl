@@ -13,10 +13,19 @@ page{
 .filterTab-decoration{
   margin-top: 20rpx;
   background: white;
-  z-index: 999;
+  z-index: 2;
 }
 .product-list{
   white-space: nowrap;
   overflow-y: scroll;
   flex: 1;
+}
+.search-page-decoration{
+  z-index: 999;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  /* background: white; */
 }

@@ -8,7 +8,7 @@ page{
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: c olumn;
+  flex-direction: column;
   position: relative;
 }
 .container::after{
@@ -101,7 +101,52 @@ page{
   margin-top: 20rpx;
   padding: 32rpx 29rpx;
 }
+.bottom-layout{
 
+}
 .hint{
-  
+  width:555rpx;
+  height:63rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+  margin-left: 97rpx;
+  display: block;
+  margin-bottom: 34rpx;
+  margin-top: 34rpx;
+}
+.bottom-btn-layout{
+  width:100%;
+  height:110rpx;
+  background:rgba(255,255,255,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn{
+  width: 380rpx;
+  height:76rpx;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn.doing{
+  border:2rpx solid rgba(215, 35, 35, 1);
+  border-radius:38rpx;
+  color:rgba(215,35,35,1);
+}
+.btn.done{
+  border:2px solid rgba(221, 221, 221, 1);
+  border-radius:38rpx;
+  color:rgba(0,0,0,1);
+}
+.btn.ok{
+  border:1px solid rgba(200, 150, 68, 1);
+  border-radius:38rpx;
+  color:rgba(200,150,68,1);
 }

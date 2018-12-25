@@ -84,7 +84,15 @@ const _urlList = {
   //订单列表
   ORDER_LIST: _domain + "api/order/index",
   //礼品 筛选
-  SEARCH_FILTER_ITEM: _domain + "api/gift/get_search_items"
+  SEARCH_FILTER_ITEM: _domain + "api/gift/get_search_items",
+  //绑定手机号
+  BIND_PHONE: _domain + "api/user/changemobile",
+  //取消订单
+  ORDER_CANCEL: _domain + "api/order/cancel",
+  //微信支付
+  WECHAT_PAY: _domain + "api/pay/wechat",
+  //确认收货
+  ORDER_RECEIVE_CONFIRM: _domain + "api/order/comfirm"
 
   
 

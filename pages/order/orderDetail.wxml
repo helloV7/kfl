@@ -1,8 +1,8 @@
 <!--pages/order/orderDetail.wxml-->
 <wxs module="m1">
   function format(ts) {
-    var d = getDate(ts)
-    return d.getFullYear()+"-"+d.getMonth()+1+"-"+ d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+    var d = getDate(ts*1000)
+    return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+ d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
   }
   function parseOrderStatus(os){
        // <!-- orderStatus	integer	是	订单状态：1代表待付款，2代表待发货，3代表待收货，4代表已完成 -->
@@ -15,6 +15,8 @@
           return "待收货";
         case "4":
           return "已完成";
+        case "5":
+          return "已取消"
 
     }
   }
@@ -64,8 +66,8 @@
       </view>
       <view class='state-layout' wx:if="{{data.orderStatus==4}}">
       <!-- returnStatus：0代表未申请退货，1代表申请中，2申请成功，3申请不成功 -->
-          <view class='state normal' wx:if="{{data.returnStatus=='0'}}">申请售后</view>
-          <view class='state red'>{{m1.parseTS(data.returnStatus)}}</view>
+          <view class='state normal' wx:if="{{data.returnStatus=='0'}}" bindtap='navToAFSale'>申请售后</view>
+          <view class='state red' wx:if="{{data.returnStatus!='0'}}">{{m1.parseTS(data.returnStatus)}}</view>
 
       </view>
 
@@ -101,17 +103,22 @@
   </scroll-view>
 
 
-  <view class='bottom-control-layout' wx:if="{{data.orderStatus!=4}}">
+  <view class='bottom-control-layout' wx:if="{{data.orderStatus<4}}">
     <view class='btn-group'>
-      <label class='action-btn normal' wx:if="{{data.orderStatus=='1' || data.orderStatus=='2'}}">
+    <!-- 待付款  待发货 -->
+      <label class='action-btn normal' wx:if="{{data.orderStatus=='1' || data.orderStatus=='2'}}" bindtap='cancelBtnClick'>
         取消订单
       </label>
-      <label class='action-btn normal' wx:if="{{data.orderStatus=='1'}}">
+      <label class='action-btn normal' wx:if="{{data.orderStatus=='1'}}" bindtap='repay'>
         微信支付
       </label>
-      <label class='action-btn light' wx:if="{{data.orderStatus=='4'}}">
+      <label class='action-btn light' wx:if="{{data.orderStatus=='3'}}" bindtap='confirmReceive'>
         确认收货
       </label>
     </view>
   </view>
 </view>
+
+<alertDialog bind:cancel="cancelCancelClick" bind:confirm="cancelConfirmClick" show="{{showCancelOrderDialog}}" message="确认取消订单"></alertDialog>
+
+<alertDialog bind:cancel="confirmReceiveCancelClick" bind:confirm="confirmReceiveConfirmClick" show="{{showConfirmReceiveOrderDialog}}" message="确定确认收货？"></alertDialog>
