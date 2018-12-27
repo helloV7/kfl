@@ -106,6 +106,16 @@ Component({
       wx.navigateTo({
         url: '/pages/order/orderList?type='+ type,
       })
+    },
+    navToAddressList(e){
+      wx.navigateTo({
+        url: '/pages/address/addressListManagement',
+      })
+    },
+    navToRank(){
+      wx.navigateTo({
+        url: '/pages/userCenter/rank',
+      })
     }
 
 

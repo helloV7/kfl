@@ -1,7 +1,6 @@
 {
   "pages": [
     
-    "pages/userCenter/rank",
     "pages/index/index",
     "pages/afterSales/afterSales",
     "pages/login/login",
@@ -34,7 +33,9 @@
     "pages/wallet/introduce",
     "pages/score/myScore",
     "pages/score/introduce",
-    "pages/login/bindPhone"
+    "pages/login/bindPhone",
+    "pages/userCenter/rank"
+        
   ],
   "window": {
     "backgroundTextStyle": "light",

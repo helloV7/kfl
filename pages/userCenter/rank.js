@@ -13,7 +13,8 @@ Page({
     currentTab:0,
     currentArea:"",
     dataAll:[],
-    dataSub:[]
+    dataSub:[],
+    selfRank:0
   },
 
   /**
@@ -22,7 +23,7 @@ Page({
   onLoad: function (options) {
     this._getAreaList()
     this._getRank()
-
+    this._getSelfRank()
   },
 
   /**
@@ -137,5 +138,18 @@ Page({
       })
     }
     
+  },
+  _getSelfRank(){
+    api.request({
+      url:"GET_SELF_RANK",
+      method:"GET",
+      callback:(b,json)=>{
+        if(b){
+          this.setData({
+            selfRank:json.data.myRank
+          })
+        }
+      }
+    })
   }
 })

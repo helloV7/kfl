@@ -96,7 +96,11 @@ const _urlList = {
   //排行榜
   RANK_LIST: _domain + "api/rank/index",
   //区域列表
-  RANK_AREA_LIST: _domain + "api/index/get_area"
+  RANK_AREA_LIST: _domain + "api/index/get_area",
+  //获取个人排名
+  GET_SELF_RANK: _domain + "api/rank/get_my_rank",
+  //申请售后
+  APPLY_REFUND: _domain +"api/order/refund"
   
 
   

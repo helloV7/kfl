@@ -67,7 +67,7 @@
       <view class='state-layout' wx:if="{{data.orderStatus==4}}">
       <!-- returnStatus：0代表未申请退货，1代表申请中，2申请成功，3申请不成功 -->
           <view class='state normal' wx:if="{{data.returnStatus=='0'}}" bindtap='navToAFSale'>申请售后</view>
-          <view class='state red' wx:if="{{data.returnStatus!='0'}}">{{m1.parseTS(data.returnStatus)}}</view>
+          <view class='state red' wx:if="{{data.returnStatus!='0'}}" bindtap='navToAFSale'>{{m1.parseTS(data.returnStatus)}}</view>
 
       </view>
 

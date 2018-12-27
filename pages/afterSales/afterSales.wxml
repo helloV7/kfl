@@ -2,12 +2,12 @@
 <view class='container'>
   <scroll-view scroll-y class='scroll-y'>
     <view class='order-number-layout text'>
-      订单号：C38903720340
+      订单号：{{data.orderNo}}
     </view>
 
-    <view class='item-decoration'>    
-      <item></item>
-      <label class='number'>共 1 件商品</label>
+    <view class='item-decoration' wx:for="{{data.goods_list}}" wx:key="{{index}}">    
+      <item cover="{{item.goods.coverImg}}" title="{{item.goods.goodsName}}" value1="{{item.goods.score}}" value2="{{item.goods.price}}" specification="{{item.goods.capacity.showName}}" number="{{item.goods.goodsCode}}"></item>
+      <label class='number'>共 {{item.buyNum}} 件商品</label>
     </view>
 
     <view class='type-layout'>
@@ -15,15 +15,29 @@
       <label class='type-value'>换货不退款</label>
     </view>
 
-    <textarea class='reason' placeholder='请输入申请售后理由...'>
+    <textarea class='reason' placeholder='请输入申请售后理由...' disabled='{{data.returnStatus!="0"}}' value='{{data.returnReason}}' bindinput='reasonInput'>
     
     </textarea>
   </scroll-view>
 
   <view class='bottom-layout'>
-    <label class='hint'>您的申请原因即将发送给平台客服，申请客服将及时与您取得联系</label>
+    <label class='hint' wx:if="{{data.returnStatus=='0'}}">温馨提示: 积分换购礼品非质量问题不退不换，若有问题您的
+
+
+申请原因即将发送到平台客服，我们收到后将会第一时间与您
+
+
+取得联系</label>
+<label class='hint' wx:if="{{data.returnStatus=='1'}}">您的服务单已申请成功，待售后处理中</label>
+<label class='hint' wx:if="{{data.returnStatus=='2'}}">您的服务单已处理</label>
+<label class='hint' wx:if="{{data.returnStatus=='3'}}">您的服务单已审核赔付钱包</label>
+
     <view class='bottom-btn-layout'>
-      <view class='btn'>发送申请</view>
+      <view class='btn' bindtap='sendApply' wx:if="{{data.returnStatus=='0'}}">发送申请</view>
+      <view class='btn doing'  wx:if="{{data.returnStatus=='1'}}">处理中</view>
+      <view class='btn done'  wx:if="{{data.returnStatus=='2'}}">已处理</view>
+      <view class='btn ok'  wx:if="{{data.returnStatus=='3'}}">款项已退回我的钱包</view>
+
     </view>
   </view>
 </view>

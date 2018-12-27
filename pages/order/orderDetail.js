@@ -20,7 +20,6 @@ Page({
    */
   onLoad: function (options) {
     orderNo = options.orderNo
-    this._getData()
   },
 
   /**
@@ -34,6 +33,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this._getData()
 
   },
 
@@ -188,8 +188,14 @@ Page({
     })
   }, 
   navToAFSale(){
+
+    wx.setStorage({
+      key: 'orderDetail',
+      data: this.data.data,
+    })
+
     wx.navigateTo({
-      url: '/pages/afterSales/afterDales?orderNo='+this.data.data.orderNo,
+      url: '/pages/afterSales/afterSales?orderNo='+this.data.data.orderNo,
     })
   }
   

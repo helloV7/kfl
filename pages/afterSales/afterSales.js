@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    data:"",
   },
 
   /**
@@ -16,6 +16,7 @@ Page({
    */
   onLoad: function (options) {
     orderNo = options.orderNo
+    this._getData()
   },
 
   /**
@@ -65,5 +66,46 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  _getData(){
+    wx.getStorage({
+      key: 'orderDetail',
+      success: (res)=>{
+        this.setData({
+          data:res.data
+        })
+      },
+    })
+  },
+  sendApply(){
+    if (this.data.data.returnReason.length==0){
+      app.showToast("请填写原因")
+      return 
+    }
+    //orderNo	string	是	订单号
+    // returnReason	string	是	申请理由
+    api.request({
+      url:"APPLY_REFUND",
+      method:"POST",
+      param:{
+        orderNo:this.data.data.orderNo,
+        returnReason: this.data.data.returnReason
+      },
+      showLoading:true,
+      callback:(b,json)=>{
+        if(b){
+          wx.navigateBack({
+            
+          })
+          app.showToast(json.msg)
+        }
+      }
+    })
+  },
+  reasonInput(e){
+    let key = "data.returnReason"
+    this.setData({
+      [key]:e.detail.value
+    })
   }
 })

@@ -106,7 +106,6 @@ page{
 }
 .hint{
   width:555rpx;
-  height:63rpx;
   font-size:24rpx;
   font-family:PingFangSC-Regular;
   font-weight:400;
@@ -139,14 +138,19 @@ page{
   border:2rpx solid rgba(215, 35, 35, 1);
   border-radius:38rpx;
   color:rgba(215,35,35,1);
+  background: white;
 }
 .btn.done{
   border:2px solid rgba(221, 221, 221, 1);
   border-radius:38rpx;
   color:rgba(0,0,0,1);
+    background: white;
+
 }
 .btn.ok{
   border:1px solid rgba(200, 150, 68, 1);
   border-radius:38rpx;
   color:rgba(200,150,68,1);
+    background: white;
+
 }

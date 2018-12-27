@@ -34,13 +34,16 @@
   </view>
 </view>
 
+<view class='function-item' bindtap='navToAddressList'>
+  收货地址<image src='/resource/image/ic_arrow_right_dark_brown@2x.png'></image>
+</view>
 <view class='function-item' bindtap='navToMyWallet'>
   我的钱包<image src='/resource/image/ic_arrow_right_dark_brown@2x.png'></image>
 </view>
 <view class='function-item' bindtap='navToMyScore'> 
   我的积分<image src='/resource/image/ic_arrow_right_dark_brown@2x.png'></image>
 </view>
-<view class='function-item'>
+<view class='function-item' bindtap='navToRank'>
   排行榜<image src='/resource/image/ic_arrow_right_dark_brown@2x.png'></image>
 </view>
 <view class='function-item' hidden='{{userInfo.userType=="1"}}' bindtap='navToResetCode'>
