@@ -1,0 +1,22 @@
+<!--pages/presents/presentsCenter.wxml-->
+<view class='page'>
+  <searchView bindtap="openSearchPage" key="{{searchKey}}"></searchView>
+  <view class='line'></view>
+  <tab type='scroll' tabs="{{typeList}}" tabNameKey="name"></tab>
+
+  <view class='filterTab-decoration'>
+    <filterTab style="z-index=999" bind:confirm="filterTabConfirm"></filterTab>
+  </view>
+  <scroll-view class='product-list' scroll-y bindscrolltolower="loadMore">
+    <view wx:for='{{productList}}' class='item-decorator' data-index="{{index}}" bindtap='productItemClick'>
+        <productItem  cover="{{item.coverImg}}" title="{{item.goodsName}}" specification="{{item.capacity.showName}}" number="{{item.goodsCode}}" value1="{{item.score}}" value2="{{item.price}}" type="action" show-icon="true" sc-id="{{item.shopCar.shopcarId}}" count="{{item.shopCar.buyNum}}" p-id="{{item.goodsId}}"></productItem>
+
+    </view>
+  </scroll-view>
+</view>
+
+<shoppingcar></shoppingcar>
+
+<view class='search-page-decoration' wx:if='{{showSearchPage}}'>
+  <searchPage showPage="{{showSearchPage}}" bind:inputConfirm="searchPageConfirm" bind:cancel="searchPageCancel"></searchPage>
+</view>

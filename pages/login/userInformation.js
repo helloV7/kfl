@@ -41,8 +41,6 @@ Page({
             this.data.form[key] = res.data[key]
           })
           let region = this.data.form.city.split("/")
- 
-
           this.setData({
             form: this.data.form,
             fill:options.fill,

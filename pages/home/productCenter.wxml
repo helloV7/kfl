@@ -1,5 +1,5 @@
 <!--pages/home/productCenter.wxml-->
-<view class='container v' >
+<!-- <view class='container v' >
   <view class='line'></view>
   <tab class="tab" tabs="{{tabs}}" type="fixed" tabNameKey="name" bind:tabClick="onTabClick"></tab>
   <view class='line'></view>
@@ -11,12 +11,37 @@
         <item cover="{{item.coverImg}}" title="{{item.goodsName}}" specification="{{item.capacity.showName}}" number="{{item.goodsCode}}" show-value1="false" show-value2="false" type="action" bind:itemClick="toDetail" extra="{{item}}" pId="{{item.goodsId}}" scId="{{item.shopCar.shopcarId}}" count="{{item.shopCar.buyNum}}"></item>
 
     </view>
-
+-->
 
     <!-- <label class='listView-bottom-hint'>
         已经到底啦~
     </label> -->
-  </scroll-view>
+  <!-- </scroll-view>
 
   <shoppingcar></shoppingcar>
+</view> -->
+
+<view class='page'>
+
+  <searchView bindtap="searchViewClick"></searchView>
+  <view class='line'></view>
+  <view class='content'>
+
+
+    <scroll-view class='scroll-view left' scroll-y>
+      <view class='type {{index==currentTypeIndex?"sel":""}}' wx:for="{{tabs}}" wx:key="{{item.id}}" bindtap='onTabClick' data-index="{{index}}">{{item.name}}</view>
+    </scroll-view>
+
+    <scroll-view class='scroll-view right' scroll-y bindscrolltolower="loadmore">
+      <view class='content'>
+        <view class='item' wx:for='{{productList}}' wx:key="{{item.goodsId}}" bindtap='_onItemClick' data-id="{{item.goodsId}}">
+          <image class='image' src='{{item.coverImg}}'></image>
+          <label class='text'>{{item.goodsName}}</label>
+        </view>
+      </view>
+    </scroll-view>
+
+  </view>
 </view>
+
+<searchPage showPage="{{showSearchPage}}" bind:inputConfirm="searchConfirm"></searchPage>

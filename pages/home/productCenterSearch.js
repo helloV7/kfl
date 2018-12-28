@@ -1,4 +1,4 @@
-// pages/home/productCenter.js
+// pages/home/productCenterSearch.js
 import api from '../../utils/api.js'
 var app = getApp()
 Page({
@@ -7,18 +7,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabs:[],
-    currentTypeIndex:0,
-    productList:[],
-    page:1,
-    showSearchPage:false
+    productList: [],
+    page: 1,
+    showSearchPage: false,
+    keyword:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
- 
+    // this._getProductList(true)
   },
 
   /**
@@ -32,11 +31,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this._getProductType().then(
-      (b) => {
-        this._getProductList(true)
-      }
-    )
+    // this._getProductList()
   },
 
   /**
@@ -73,45 +68,22 @@ Page({
   onShareAppMessage: function () {
 
   },
-
-  _getProductType(){
-   return new Promise((resolve,reject)=>{
-      api.request({
-        url:"PRODUCT_TYPE",
-        method:"GET",
-        showLoading:true,
-        callback:(b,json)=>{
-          if(b){
-            this.data.tabs = json.data
-            this.setData({
-              tabs: this.data.tabs
-            })
-          }
-          resolve(b)
-          return b
-        }
-      })
-    })
-  },
-  _getProductList(isRefresh){
-    return new Promise((resolve,reject) =>{
+  _getProductList(isRefresh) {
+    return new Promise((resolve, reject) => {
       var page
       if (isRefresh) {
         page = 1
       } else {
         page = this.data.page + 1
       }
-      if (this.data.tabs.length == 0) {
-        return
-      }
-      let cuTab = this.data.tabs[this.data.currentTypeIndex]
+     
 
 
       api.request({
         url: "PRODUCT_LIST_OF_TYPE",
         method: "GET",
         param: {
-          cId: cuTab.id,
+          keyWord: this.data.keyword,
           page: page
         },
         callback: (b, json) => {
@@ -135,29 +107,29 @@ Page({
         }
       })
     })
-    
-  },
-  onTabClick(e){
-    var index = e.currentTarget.dataset.index
-    this.setData({
-      currentTypeIndex:index
-    })
-    this._getProductList(true)
-  },
-  toDetail(e){
+
+  },toDetail(e) {
     console.log(e)
     let id = e.detail.goodsId;
     wx.navigateTo({
-      url: '/pages/product/productDetail?id='+id,
+      url: '/pages/product/productDetail?id=' + id,
     })
   },
-  loadmore(){
+  loadmore() {
     this._getProductList(false)
-  }, 
+  },
   searchViewClick(e) {
-    wx.navigateTo({
-      url: '/pages/home/productCenterSearch',
+    this.setData({
+      showSearchPage:true
     })
   },
-  
+  searchConfirm(e) {
+    let key = e.detail.key
+    this.setData({
+      showSearchPage: false,
+      keyword:key
+    })
+    this._getProductList(true)
+
+  }
 })

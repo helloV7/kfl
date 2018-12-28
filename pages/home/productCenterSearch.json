@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "搜索",
+  "usingComponents": {
+        "item": "/component/productListItem",
+        "searchView": "/component/searchTabView",
+        "searchPage": "/component/searchPage"
+  },
+  "enablePullDownRefresh": true
+}

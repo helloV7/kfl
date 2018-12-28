@@ -3,7 +3,7 @@
 
 <view class='main' >
 
-<scroll-view style='height:calc({{windowHeight}}px - 98rpx);' scroll-y>
+<scroll-view style='height:calc({{windowHeight}}px - 98rpx);z-index:999;' scroll-y>
     <view hidden='{{currentTab!=0}}' class='page-decoration'>
       <home></home>
     </view>

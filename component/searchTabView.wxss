@@ -14,6 +14,10 @@
   justify-content: center;
   align-items: center;
 }
+.stv-layout .background.have{
+  justify-content: flex-start;
+  padding-left: 26rpx;
+}
 .stv-layout .image{
   width: 31rpx;
   height: 31rpx;
@@ -24,4 +28,7 @@
   font-family:PingFangSC-Regular;
   font-weight:400;
   color:rgba(153,153,153,1);
+}
+.stv-layout .text.have{
+  color: #000;
 }

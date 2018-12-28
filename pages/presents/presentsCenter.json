@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "searchView": "/component/searchTabView",
+    "tab": "/component/tab",
+    "searchPage": "/component/searchPage",
+    "productItem": "/component/productListItem",
+    "filterTab": "/component/filterTab",
+    "shoppingcar": "/component/shoppingcarFloatBtn"
+  }
+}

@@ -1,6 +1,6 @@
 <!--pages/shoppingcar/shoppingcar.wxml-->
 <view class='shopping-car-page'>
-  <scroll-view scroll-y class='list scroll-y' scroll-y bindscrolltolower='_getShoppingCarList'>
+  <scroll-view scroll-y class='list scroll-y' scroll-y bindscrolltolower='loadmore'>
 
   <view wx:for='{{productList}}' class='decoration' wx:key="{{index}}">
     <view class='item {{item.touchMove?"move":""}}'   data-index="{{index}}">

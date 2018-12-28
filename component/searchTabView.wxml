@@ -1,7 +1,7 @@
 <!--component/searchTabView.wxml-->
 <view class='stv-layout'>
-  <view class='background'>
+  <view class='background {{(key!=null && key.length!=0)?"have":""}}'>
     <image src='/resource/image/ic_search_gray@2x.png' class='image'></image>
-    <label class='text'>{{(key!=null && key.length!=0)?key:"商品名称"}}</label>
+    <label class='text {{(key!=null && key.length!=0)?"have":""}}'>{{(key!=null && key.length!=0)?key:"商品名称"}}</label>
   </view>
 </view>

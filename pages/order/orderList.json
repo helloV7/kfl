@@ -3,5 +3,6 @@
   "usingComponents":{
     "tab":"/component/tab",
     "item":"/component/productListItem"
-  }
+  },
+  "enablePullDownRefresh": true
 }

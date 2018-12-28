@@ -24,7 +24,8 @@
 </scroll-view>
 
 <view class='floatBtn' hidden='{{!isShowFloatBtn || floatBtnData==null}}'>
-  <image src='/resource/image/ic_circle_member@2x.png' class="float-image" bindtap=''></image>
+  <image src='/resource/image/ic_circle_member@2x.png' class="float-image" bindtap='onFloatBtnClick'></image>
   <image src='/resource/image/ic_circle_close_white@2x.png' class='close' bindtap='onCloseFloatBtnClick'></image>
 </view>
 
+<scoreDialog show="{{showScoreDialog}}" score="{{floatBtnScore}}"></scoreDialog>

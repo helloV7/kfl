@@ -3,7 +3,9 @@
   "usingComponents":{
     "tab":"/component/tab",
     "item":"/component/productListItem",
-    "shoppingcar":"/component/shoppingcarFloatBtn"
+    "shoppingcar":"/component/shoppingcarFloatBtn",
+    "searchView": "/component/searchTabView",
+    "searchPage": "/component/searchPage"
   },
   "enablePullDownRefresh":true
 }

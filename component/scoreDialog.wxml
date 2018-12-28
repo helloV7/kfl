@@ -1,0 +1,9 @@
+<!--component/scoreDialog.wxml-->
+<view class='sd-modal' bindtap='hide' hidden='{{!show}}' >
+  <image class='sd-center' src='/resource/image/bg_popup_gift@2x.png' catchtap='{{true}}'></image>
+  <view class='sd-line left'></view>
+  <view class='sd-line right'></view>
+  <label class='sd-score-text'>{{score}}积分</label>
+
+  <image class='sd-close' src='/resource/image/ic_close_white@2x.png'></image>
+</view>

@@ -284,6 +284,9 @@ Page({
   },
   itemCountUpdate(e){
     console.log(e)
+  },
+  loadmore(){
+    this._getShoppingCarList(false)
   }
 
 })

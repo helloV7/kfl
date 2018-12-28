@@ -40,7 +40,7 @@
   <view class='tab-decoration'>
     <tab tabs="{{tabs}}" type='fixed' bind:tabClick="onTabClick" current-index="{{currentTab}}"></tab>
   </view>
-  <scroll-view class='scroll-y' scroll-y>
+  <scroll-view class='scroll-y' scroll-y bindscrolltolower="loadmore">
 
     <view class='order-block' wx:for="{{data}}" wx:key="{{item.ogId}}" catchtap='navToDetail' data-index="{{index}}">
       <view class='type bottom-line'>

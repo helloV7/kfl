@@ -6,14 +6,16 @@
   }
   module.exports.format = format
 </wxs>
-
+<view class='container'>
 <view class='line'></view>
-
-<view class='message-item' wx:for="{{data}}">
-<!-- 11月07日 22:50 -->
-  <label class='date'>{{m1.format(item.createtime)}}</label>
-  <view class='message-body'>
-    <view class='message-title'>{{item.title}}</view>
-    <view class='message-content'>{{item.content}}</view>
+<scroll-view scroll-y class='scroll-y' bindscrolltolower="loadmore">
+  <view class='message-item' wx:for="{{data}}">
+  <!-- 11月07日 22:50 -->
+    <label class='date'>{{m1.format(item.createtime)}}</label>
+    <view class='message-body'>
+      <view class='message-title'>{{item.title}}</view>
+      <view class='message-content'>{{item.content}}</view>
+    </view>
   </view>
+</scroll-view>
 </view>

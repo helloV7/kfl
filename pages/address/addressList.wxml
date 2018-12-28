@@ -1,6 +1,6 @@
 <!--pages/address/addressList.wxml-->
 <view class='main-layout'>
-  <scroll-view class='scroll-y' scroll-y>
+  <scroll-view class='scroll-y' scroll-y >
     
     <view class='address-item-layout' wx:for='{{data}}' bindtap='itemClick' wx:key="{{item.addressId}}" data-index="{{index}}">
       <view class='address-name'>{{item.contactPerson}}</view>

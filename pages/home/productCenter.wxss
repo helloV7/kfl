@@ -1,5 +1,5 @@
 /* pages/home/productCenter.wxss */
-page{
+/* page{
   background: #F4F4F4;
   width: 100%;
   height: 100%;
@@ -10,4 +10,98 @@ page{
   width: calc(100% - 129rpx -129rpx);
   padding-left: 129rpx;
   padding-right: 129rpx;
+} */
+.page{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.line{
+  height: 2rpx;
+  background: #E0E0E0;
+}
+.content{
+  flex: 1;
+  display: flex;
+  justify-content: space-between
+
+}
+.scroll-view{
+  white-space: nowrap;
+  height: 100%;
+  overflow-y: scroll; 
+}
+.scroll-view.left{
+  width: 180rpx;
+}
+ .scroll-view.right{
+     width: 570rpx;
+   /* padding: 20rpx;  */
+} 
+.scroll-view.right .content{
+  width: 531rpx;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0rpx 2rpx 12rpx 0rpx rgba(102,102,102,0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.scroll-view.right .content .item{
+  width: 177rpx;
+  height: 223rpx;
+}
+.scroll-view.right .content .item .image{
+  width: 150rpx;
+  height: 135rpx;
+  margin-left: 14rpx;
+  margin-top: 13rpx;
+}
+.scroll-view.right .content .item .text{
+  width:177rpx;
+  height:75rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.type{
+  width:180rpx;
+  height:105rpx;
+  background:rgba(244,244,244,1);
+
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.type.sel{
+  width:180rpx;
+  height:105rpx;
+  background:rgba(255,255,255,1);
+  font-size:32rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(0,0,0,1);
+  position: relative;
+
+}
+.type.sel::after{
+  content: "";
+  position: absolute;
+  width: 13rpx;
+  height: 40rpx;
+  left: 0;
+  top: 33rpx;
+  background: rgb(207, 163, 88);
 }

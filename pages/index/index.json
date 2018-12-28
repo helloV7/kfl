@@ -2,7 +2,7 @@
   "usingComponents": {
     "custom-image": "/component/customImage",
     "home":"/pages/home/home",
-    "presents":"/pages/presents/presents",
+    "presents":"/pages/presents/presentsCenter",
     "self":"/pages/userCenter/userCenter",
     "more":"/pages/more/morePage"
   },

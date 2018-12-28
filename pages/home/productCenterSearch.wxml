@@ -1,0 +1,17 @@
+<!--pages/home/productCenterSearch.wxml-->
+<searchView bindtap="searchViewClick" key="{{keyword}}"></searchView>
+<view class='line'></view>
+<scroll-view scroll-y style='white-space:nowrap;overflow:scroll;flex :1' bindscrolltolower="loadmore">
+    <view style='margin-top:21rpx;'></view>
+
+    <view class='item-decorator' wx:for="{{productList}}" wx:key="{{item.goodsId}}">
+             <!-- show-value1="false" show-value2="false" type="action"  extra="{{item}}" pId="{{item.goodsId}}" scId="{{item.shopCar.shopcarId}}" count="{{item.shopCar.buyNum}}" -->
+        <item cover="{{item.coverImg}}" title="{{item.goodsName}}" specification="{{item.capacity.showName}}" number="{{item.goodsCode}}" bind:itemClick="toDetail" show-value1="false" show-value2="false"></item>
+
+    </view>
+
+    <!-- <label class='listView-bottom-hint'>
+        已经到底啦~
+    </label> -->
+  </scroll-view>
+  <searchPage showPage="{{showSearchPage}}" bind:inputConfirm="searchConfirm"></searchPage>

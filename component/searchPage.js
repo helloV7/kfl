@@ -61,17 +61,29 @@ Component({
       let key = e.detail.value
       wx.getStorage({
         key: 'searchKeys',
-        success: function(res) {
+        complete: function(res) {
           let keys = res.data
           if (keys==null){
             keys = []
           }
-          keys.push(key)
+          for(let i=0;i<keys.length;++i){
+            if(keys[i]==key){
+              keys.splice(index,1)
+              break
+            }
+          }
+          keys.splice(0, 0, key)
+          if(keys.length>20){
+            keys.splice(keys.length-1,1)
+          }
+
+          console.log(key,keys)
           wx.setStorage({
             key: 'searchKeys',
             data: keys
           })
         },
+        
       })
       oldKey = key
    
@@ -89,7 +101,7 @@ Component({
     _loadHistory(){
       wx.getStorage({
         key: 'searchKeys',
-        success: function (res) {
+        success:  (res) =>{
           let keys = res.data
           if (keys == null) {
             keys = []

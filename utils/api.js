@@ -16,7 +16,7 @@ const _urlList = {
   //首页
   HOME_INDEX:_domain + "api/home/index",
   //尊享
-  FREE_ENJOY:_domain + "do_free_score",
+  FREE_ENJOY: _domain + "api/home/do_free_score",
   //商品详情
   PRODUCT_DETAIL: _domain + "api/goods/detail",
   //购物车列表

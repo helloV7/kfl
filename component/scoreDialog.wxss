@@ -1,0 +1,56 @@
+/* component/scoreDialog.wxss */
+.sd-modal{
+  width:100%;
+  height:calc(100%);
+  background: rgba(0, 0, 0, 0.45);
+  position:  absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+.sd-center{
+  position: absolute;
+  left: 53rpx;
+  width: 640rpx;
+  height: 630rpx;
+  bottom: calc(349rpx - 98rpx);
+}
+.sd-score-text{
+  font-size:36rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(179,100,23,1);
+  height: 34rpx;
+  line-height: 34rpx;
+  position: absolute;
+  bottom: calc(747rpx - 98rpx);
+  margin: auto;
+  text-align: center;
+  left: 0;
+  right: 0;
+}
+.sd-close{
+  width:80rpx;
+  height: 80rpx;
+  position: absolute;
+  bottom:calc(249rpx - 98rpx);
+  left: 335rpx;
+}
+.sd-line{
+  width:55rpx;
+  height:2rpx;
+  background:rgba(179,100,23,1);
+  opacity:0.5;
+  position: absolute;
+  bottom: calc(764rpx - 98rpx);
+}
+.sd-line.left{
+  left: 220rpx;
+  right: 475rpx;
+}
+.sd-line.right{
+  left: 475rpx;
+  right: 220rpx;
+}

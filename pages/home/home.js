@@ -45,7 +45,9 @@ Component({
     topGridList: topGridList,
     productList: [],
     isShowFloatBtn:true,
-    floatBtnData:null
+    floatBtnData:null,
+    showScoreDialog:false,
+    floatBtnScore:"0"
   },
   methods:{
     _onTopGridItemClick(e){
@@ -87,6 +89,14 @@ Component({
       if(userInfo==null){
         return
       }
+      if(userInfo.isfix!="1"){
+        wx.navigateTo({
+          url: '/pages/login/userInformation?fill=true&userType='+userInfo.userType,
+        })
+        app.showToast("请完善资料")
+       
+        return 
+      }
       if(userInfo.mobile.length==0){
         wx.navigateTo({
           url: '/pages/login/bindPhone',
@@ -104,8 +114,12 @@ Component({
         callback: (b, res) => {
           if (b) {
             this.setData({
-              isShowFloatBtn: false
+              isShowFloatBtn: false,
+              showScoreDialog:true,
+              floatBtnScore:res.data.score
+
             })
+
             app.showToast(res.msg)
           }
         }
