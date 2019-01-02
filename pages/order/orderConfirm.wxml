@@ -4,8 +4,8 @@
 
   <scroll-view class='scroll-y' scroll-y>
     <label class='address-hint'>配送地址</label>
-    <view class='address-layout' hidden='{{store_address==null}}' data-type="1">
-      <image class='sel-icon' src='{{useAddress=="1"?sel_icon:unsel_icon}}' catchtap='addressCheck'></image>
+    <view class='address-layout' hidden='{{store_address==null}}' >
+      <image class='sel-icon' src='{{useAddress=="1"?sel_icon:unsel_icon}}'data-type="1" catchtap='addressCheck'></image>
       <view class='right'>
         <label class='title'>寄到美容院</label>
         <label class='address'>{{store_address.province+store_address.city+store_address.district+store_address.address}}</label>
@@ -14,8 +14,8 @@
 
     <view class='line'></view>
     
-    <view class='address-layout' bindtap='selAddress' data-type="2">
-      <image class='sel-icon' src='{{useAddress=="2"?sel_icon:unsel_icon}}' catchtap='addressCheck'></image>
+    <view class='address-layout' bindtap='selAddress'>
+      <image class='sel-icon' src='{{useAddress=="2"?sel_icon:unsel_icon}}'  data-type="2" catchtap='addressCheck'></image>
       <view class='right'>
         <label class='title'>寄到个人地址</label>
         <label class='address'>{{(person_address==null||person_address.length==0)?"完善收货地址":(person_address.province+person_address.city+person_address.district+person_address.address)}}</label>

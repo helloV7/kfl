@@ -144,6 +144,12 @@ Page({
     })
     this._getProductList(true)
   },
+  navToDetail(e){
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/product/productDetail?id=' + id,
+    })
+  },
   toDetail(e){
     console.log(e)
     let id = e.detail.goodsId;

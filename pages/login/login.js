@@ -75,7 +75,6 @@ Page({
   ,toRegisterClick(){
     wx.navigateTo({
       url: '/pages/login/register',
-  
     })
   }
   ,toForgetPasswordClick(){

@@ -16,6 +16,7 @@ Page({
     captcha: "",
     password:"",
     intervalCount: 0,
+    canGetCaptcha:true
   },
 
   /**
@@ -102,6 +103,9 @@ Page({
     if(this.data.intervalCount!=0){
       return
     }
+    if (this.data.canGetCaptcha){
+      this.data.canGetCaptcha=false
+    }
     this._getCaptcha()
 
   }
@@ -118,6 +122,8 @@ Page({
       callback:(b,json)=>{
         if(b){
           this.beginTimmer()
+        }else{
+          this.data.canGetCaptcha=true
         }
       }
     
@@ -130,8 +136,9 @@ Page({
       this.setData({
         intervalCount: --this.data.intervalCount
       })
-      if (this.data.intervalCount == 0) {
+      if (this.data.intervalCount <= 0) {
         clearInterval(intervalID)
+        this.data.canGetCaptcha = true
       }
 
     }, 1000)

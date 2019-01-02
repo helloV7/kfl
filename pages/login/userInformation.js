@@ -30,7 +30,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    if(options.fill){
+    if(options.fill=="true"){
       wx.getStorage({
         key: 'userInfo',
         success: res => {
@@ -40,7 +40,10 @@ Page({
           Object.keys(this.data.form).forEach(key=>{
             this.data.form[key] = res.data[key]
           })
-          let region = this.data.form.city.split("/")
+
+          let region = []
+          if (this.data.form.city!=null)
+            region = this.data.form.city.split("/")
           this.setData({
             form: this.data.form,
             fill:options.fill,
@@ -126,7 +129,7 @@ Page({
       return
     }
 
-    if (userType != "1"){
+    if (userType == "2"){
       if (this.data.form.wechat.length == 0) {
         return
       }

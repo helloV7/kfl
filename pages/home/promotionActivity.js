@@ -78,14 +78,16 @@ Page({
       },
       callback:(b,json)=>{
         if(b){
-          let data
+          let data=[]
           if (isRefresh) {
             data = json.data
             wx.stopPullDownRefresh()
           } else {
             data = this.data.data.concat(json.data)
-
           }
+          this.setData({
+            data:data
+          })
         }
       }
     })
@@ -94,7 +96,7 @@ Page({
     this._getData(false)
   },
   navToDetail(e){
-    let id = e.currengTarget.dataset.id
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
       url: '/pages/activity/activityDetail?id=' + id,
     })

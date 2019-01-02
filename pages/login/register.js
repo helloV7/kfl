@@ -22,6 +22,7 @@ Page({
     password:"",
     code:"",
     intervalCount:0,
+    canGetCaptcha:true
   },
 
   /**
@@ -206,6 +207,9 @@ Page({
     return r
   },
   _getCaptcha(){
+    if (this.data.canGetCaptcha){
+      this.data.canGetCaptcha = false
+    }
     api.request(
       {
         url:"GET_CAPTCHA",
@@ -218,6 +222,8 @@ Page({
         callback:(b,json)=>{
           if(b){
             this.beginTimmer()
+          }else{
+            this.data.canGetCaptcha = true
           }
         }
       }
@@ -251,8 +257,9 @@ Page({
       this.setData({
         intervalCount: --this.data.intervalCount
       })
-      if(this.data.intervalCount==0){
+      if(this.data.intervalCount<=0){
         clearInterval(intervalID)
+        this.data.canGetCaptcha = true
       }
 
     },1000)

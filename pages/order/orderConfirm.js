@@ -20,7 +20,7 @@ Page({
     totalPrice:0,
     totalScore:0,
     message:"",
-    useAddress:0
+    useAddress:1
   },
 
   /**
@@ -90,9 +90,15 @@ Page({
       method:"GET",
       callback:(b,json)=>{
         if(b){
+          var useAddress = 1
+          if(json.data.store==null){
+            useAddress = 2
+          }
+
           this.setData({
             store_address: json.data.store,
-            person_address: json.data.defaultAddress
+            person_address: json.data.defaultAddress,
+            useAddress: useAddress
           })
         }
       }
@@ -196,6 +202,7 @@ Page({
             },
           callback:(b,json)=>{
             if(b){
+              this._getPaySign(json.data.orderNo)
               // if (trackType=="1"){
               //   //现付
               // }else{
@@ -227,5 +234,40 @@ Page({
     this.setData({
       useAddress:type
     })
-  }
+  },
+  _getPaySign(orderNO) {
+   api.request({
+      url:"WECHAT_PAY",
+      method:"POST",
+      param:{
+        type	:"1",
+        orderNo: orderNO
+      },
+      showLoading:true,
+      callback:(b,json)=>{
+        //{"code":1,"msg":"请求成功","time":"1545718256","data":{"payType":"1","onlinePayId":"a3e701aa19ccd3aac1e7f31297df97b2","payData":{"appId":"wxa958c1084ff59b84","timeStamp":"1545718257","nonceStr":"a2dEJVwGb6gAEgSe","package":"prepay_id=wx2514105728937408ed4fe4f02455564672","signType":"MD5","paySign":"03ACCB816D4A8450F84EBE1C283B4A6A"}}}
+        if(b){
+          this.wechatPay(json.data.payData.timeStamp, json.data.payData.nonceStr, json.data.payData.package, json.data.payData.signType, json.data.payData.paySign)
+        }
+      }
+    })
+  },
+  wechatPay(timeStamp,nonceStr,_package,signType,paySign){
+    wx.requestPayment({
+      timeStamp:timeStamp,
+      nonceStr:nonceStr,
+      "package": _package,
+      signType:signType,
+      paySign:paySign,
+      success:(res)=>{
+        wx.redirectTo({
+          url: '/pages/order/PayResult',
+        })
+      },
+      fail:(res)=>{
+        app.showToast("支付失败")
+      }
+
+    })
+  },
 })

@@ -36,17 +36,17 @@
     <input class='input' placeholder-class='input-placeholder' placeholder='请输入邮箱' value='{{form.email}}' data-key="email" bindinput='bindInput'></input> 
 </view>
 
-<view class='info-item' hidden='{{userType=="1"}}'>
+<view class='info-item' hidden='{{userType!="2"}}'>
   <label >微信号</label>
     <input class='input' placeholder-class='input-placeholder' placeholder='请输入微信号' value='{{form.wechat}}' data-key="wechat" bindinput='bindInput'></input> 
 </view>
 
-<view class='info-item' hidden='{{userType=="1"}}'>
+<view class='info-item' hidden='{{userType!="2"}}'>
   <label >开户行</label>
     <input class='input' placeholder-class='input-placeholder' placeholder='请输入开户行' value='{{form.bankName}}' data-key="bankName" bindinput='bindInput'></input> 
 </view>
 
-<view class='info-item' hidden='{{userType=="1"}}'>
+<view class='info-item' hidden='{{userType!="2"}}'>
   <label >银行卡号</label>
     <input class='input' placeholder-class='input-placeholder' placeholder='请输入银行卡号' type='number' value='{{form.bankNo}}' data-key="bankNo" bindinput='bindInput'></input> 
 </view>

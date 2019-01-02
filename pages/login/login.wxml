@@ -9,7 +9,8 @@
 
   <view class='input-item' style='margin-top:63rpx;'>
     <text class='input-label' decode='true'>密&nbsp;&nbsp;&nbsp;码</text>
-    <input class='input' type='{{showPassword?"":"password"}}'  placeholder-class='input-placeholder' placeholder='请输入6-18位密码' maxlength='18' bindinput='onPasswordInput'></input>
+    <input class='input' hidden='{{!showPassword}}'  placeholder-class='input-placeholder' placeholder='请输入6-18位密码' maxlength='18' bindinput='onPasswordInput' value='{{password}}'></input>
+    <input class='input' hidden='{{showPassword}}' type='password'  placeholder-class='input-placeholder' placeholder='请输入6-18位密码' maxlength='18' bindinput='onPasswordInput' value='{{password}}'></input>
     <image class='show-password-image' src='{{showPasswordImage}}' mode='widthFix' bindtap='onPasswordVisiableReverseClick'></image>
   </view>
 
@@ -22,7 +23,7 @@
 <button class='btn login {{(password.length<6||phone.length!=11)?"disable":""}}' bindtap='onLoginClick'>登录</button>
 
 <view class='flex flex-center-vertical flex-center-horizontal' style='margin-top:49rpx' bindtap='toRegisterClick'>
-  <label class='to-register' bindtap='onNavToRegister' >新用户注册</label>
+  <label class='to-register' >新用户注册</label>
   <image style='width:11rpx;margin-left:18rpx;' src='/resource/image/ic_arrow_right_black.png' mode='widthFix'></image>
 </view>
 

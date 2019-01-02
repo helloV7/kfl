@@ -34,7 +34,7 @@
 
     <scroll-view class='scroll-view right' scroll-y bindscrolltolower="loadmore">
       <view class='content'>
-        <view class='item' wx:for='{{productList}}' wx:key="{{item.goodsId}}" bindtap='_onItemClick' data-id="{{item.goodsId}}">
+        <view class='item' wx:for='{{productList}}' wx:key="{{item.goodsId}}" bindtap='navToDetail' data-index="{{index}}" data-id="{{item.goodsId}}">
           <image class='image' src='{{item.coverImg}}'></image>
           <label class='text'>{{item.goodsName}}</label>
         </view>

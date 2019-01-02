@@ -26,6 +26,7 @@
 .input-placeholder{
   color: #AAA;
   font-size: 31rpx;
+  flex:1;
 }
 .line{
   margin-top: 32rpx;
