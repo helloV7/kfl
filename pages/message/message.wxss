@@ -26,6 +26,7 @@ page{
   background:rgba(255,255,255,1);
   border:2rpx solid rgba(229,229,229,1);
   border-radius:21rpx;
+  width:calc(100% - 64rpx);
 }
 .message-title{
   margin: 35rpx 0 0 30rpx ;
@@ -37,11 +38,12 @@ page{
   color:rgba(0,0,0,1);
 }
 .message-content{
+  width: calc(100% - 60rpx);
   margin: 30rpx;
-  display: block;
-
+  display: inline-block;
   font-size:30rpx;
   font-family:PingFangSC-Regular;
   font-weight:400;
   color:rgba(51,51,51,1);
+  white-space: normal;
 }

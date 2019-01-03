@@ -86,10 +86,11 @@ Component({
         filter.image = this._getImage(filter.currentType)
 
       }
-     
       this.setData({
         filter: this.data.filter
       })
+      this.confirm()
+
     },
     _nothing(){
 
@@ -174,7 +175,7 @@ Component({
       // screenData	string	否	items格式：[{ itemId: [1, 2, 3], searchId: 1 }]
       let scoreSort = this.data.filter.score.currentType
       let capacitySort = this.data.filter.size.currentType
-      let screenData = []
+      let screenData = {}
 
       let items=[]
       if(this.data.filterList!=null && this.data.filterList.length!=0)
@@ -200,11 +201,15 @@ Component({
       // priceArea: 1 - 2, scoreArea: 1 - 2,
       let priceArea = `${this.data.priceLower}-${this.data.priceHigher}`
       let scoreArea = `${this.data.scoreLower}-${this.data.scoreHigher}`
-      screenData.push({
-        items: items,
-        priceArea: priceArea,
-        scoreArea: scoreArea,
-      })
+      // screenData.push({
+      //   items: items,
+      //   priceArea: priceArea,
+      //   scoreArea: scoreArea,
+      // })
+      screenData.items = items   
+      screenData.priceArea = priceArea
+      screenData.scoreArea = scoreArea
+
 
       this._hideModal()
       this.triggerEvent("confirm", { scoreSort: scoreSort, capacitySort: capacitySort, screenData: screenData},{})

@@ -25,6 +25,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    hide(e){
+      this.setData({
+        show:false
+      })
+      this.triggerEvent("close",{},{})
+    }
   }
 })

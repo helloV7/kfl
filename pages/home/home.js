@@ -16,7 +16,7 @@ const topGridList = [
   },
   {
     url: "/pages/home/seasonTheme",
-    name: "应季主题",
+    name: "应季主推",
     image: "/resource/image/ic_circle_home_seasonal_main_push@2x.png",
   },
   {
@@ -56,9 +56,13 @@ Component({
         url: url,
       })
     } ,
+    onScoreDialogHide(e){
+      
+    }
+    ,
     onCloseFloatBtnClick(e) {
       this.setData({
-        isShowFloatBtn: false
+        isShowFloatBtn: false,
       })
     },
     onItemClick(e) {

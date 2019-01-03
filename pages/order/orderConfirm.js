@@ -126,9 +126,9 @@ Page({
           let totalFee = Number.parseFloat(json.data.totalFee)
           let trackPrice = Number.parseFloat(json.data.trackPrice)
           this.setData({
-            productTotalPrice: trackPrice,
+            productTotalPrice: totalFee,
             productTotalScore: totalScore,
-            freight: totalFee,
+            freight: trackPrice,
             totalPrice: trackPrice + totalFee,
             totalScore: totalScore,
             

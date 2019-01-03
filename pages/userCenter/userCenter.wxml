@@ -7,7 +7,7 @@
   <label class='state' bindtap='navToApplay'>{{userInfo.userType=="1"?"申请美容师":"美容师"}}<image src='/resource/image/ic_arrow_right_gray@2x.png'></image></label>
 
   <image src='/resource/image/ic_notice_black@2x.png'class='message-image' bindtap='onMessageClick'></image>
-  <label class='message-text' hidden='{{unreadCount==0}}'>{{unreadCount}}</label>
+  <label class='message-text' wx:if='{{unreadCount!=0}}'>{{unreadCount}}</label>
 </view>
 <view class='order-layout'>
   <label class='my-order' bindtap='navToOrderList' data-type="all">

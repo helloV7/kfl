@@ -37,6 +37,10 @@
   display: flex;
   flex-direction: column;
 }
+.filter-layout .top{
+  flex: 1;
+  overflow-y: scroll;
+}
 .filter-layout .bottom{
   display: flex;
   justify-content: space-around;
@@ -136,6 +140,7 @@
   display: flex;
   /* justify-content: center; */
   align-items: center;
+  height: 100%;
 }
 .filter-input{
   font-size:28rpx;

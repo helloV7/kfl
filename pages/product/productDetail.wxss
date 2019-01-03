@@ -2,6 +2,8 @@
 page{
   background: #F4F4F4;
   font-size: 0;
+   width: 100%;
+  height: 100%;
 }
 .productBanner{
   width: 750rpx;

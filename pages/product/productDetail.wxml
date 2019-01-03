@@ -1,5 +1,6 @@
 <!--pages/product/productDetail.wxml-->
-<scroll-view style='height:calc({{windowHeight}}px - 100rpx);' scroll-y class='scroll-y'>
+<view class='container'>
+<scroll-view scroll-y class='scroll-y'>
   <view class='productBanner'>
         <swiper current='{{currentSwipe}}' bindchange="onSwipeChange">
       <swiper-item wx:for="{{data.slidesImg}}">
@@ -67,4 +68,6 @@
     <view class='buyBtn' catchtap='addToShoppingCar'>确定</view>
   </view>
  
+</view>
+
 </view>

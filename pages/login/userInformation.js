@@ -1,6 +1,7 @@
 // pages/login/userInformation.js
 import api from '../../utils/api.js'
 var app = getApp()
+let token
 Page({
 
   /**
@@ -30,6 +31,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    token = options.token
     if(options.fill=="true"){
       wx.getStorage({
         key: 'userInfo',
@@ -129,7 +131,7 @@ Page({
       return
     }
 
-    if (userType == "2"){
+    if (this.data.userType == "2"){
       if (this.data.form.wechat.length == 0) {
         return
       }
@@ -144,10 +146,17 @@ Page({
     // let param = JSON.parse(JSON.stringify(this.data.form))
     this.data.form.city = this.data.region[0] + "/" + this.data.region[1] + "/" + this.data.region[2]
     delete this.data.form.mobile
+
+    var header={}
+    if(token!=null && token !=""){
+      header.token = token
+    }
+
     api.request({
       url:"FINISH_USER_INFO",
       method:"POST",
       showLoading:true,
+      header: header,
       param: this.data.form,
       callback:(b,json)=>{
         if(b){

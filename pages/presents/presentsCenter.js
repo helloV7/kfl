@@ -35,7 +35,7 @@ Component({
             this.setData({
               typeList: json.data
             })
-            this._getTypeProduct()
+            this._getTypeProduct(true)
           }
         }
       })
@@ -52,11 +52,11 @@ Component({
       // page	string	否	页码，从1开始
       let param = Object.assign({
         cId: type.id,
-        keyWord: this.data.searchKey
+        keyWord: this.data.searchKey,
+        page: page
       },
         filterData)
 
-      console.log(param)
       api.request({
         url: "PRESENT_PRODUCT_LIST",
         method: "GET",
@@ -72,7 +72,7 @@ Component({
             }
             data = data.concat(json.data)
             this.setData({
-              productList: json.data,
+              productList: data,
               page: page
             })
           }

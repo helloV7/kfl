@@ -16,6 +16,7 @@ Page({
    */
   onLoad: function (options) {
     this.getMessage(true)
+    
   },
 
   /**
@@ -88,6 +89,7 @@ Page({
           this.setData({
             data:this.data.data
           })
+          this.setMessageRead()
         }
       }
     })
@@ -95,5 +97,17 @@ Page({
   loadmore(){
     this.getMessage(false)
 
+  },
+  setMessageRead(){
+    api.request({
+      url:"SET_MESSAGE_TO_READ",
+      method:"POST",
+      param:{
+        setType:1
+      },
+      callback:(b,json)=>{
+        
+      }
+    })
   }
 })

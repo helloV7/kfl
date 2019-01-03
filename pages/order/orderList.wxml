@@ -53,8 +53,8 @@
           <label class='type1'>共{{item.productCount}}件商品 实付：</label>
           <label class='type2'>积分</label>
           <label class='type3'>{{item.payScore}} </label>
-          <label class='type3'> ￥{{item.totalPrice}}</label>
-          <label class='type4'>（含运费￥{{item.payFee}}） </label>
+          <label class='type3'> ￥{{item.payFee}}</label>
+          <label class='type4'>（含运费￥{{item.trackPrice}}） </label>
       </view>
     </view>
   </scroll-view>

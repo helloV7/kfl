@@ -30,11 +30,11 @@ Page({
     })
   },
   onShow(){
-    if (this.data.currentTab == 3) {
+    // if (this.data.currentTab == 3) {
       this.setData({
         refreshUserCenter: "1"
       })
-    }
+    // }
   },
   onTabClick(e){
     var tabIndex = e.currentTarget.dataset.tabIndex;

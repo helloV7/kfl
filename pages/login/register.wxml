@@ -33,7 +33,7 @@
   <view class='input-item' style='margin-top:63rpx;' hidden='{{displayType!=2}}'>
       <label class='input-label'>审核码</label>
       <input class='input' type='{{showPassword?"":"password"}}'  placeholder-class='input-placeholder' placeholder='请输入审核码' maxlength='18' bindinput='onCodeInput' value='{{code}}'></input>
-      <image class='audit-code-image' src='/resource/image/ic_circle_question_login.png ' mode='widthFix' bindtap='onPasswordVisiableReverseClick'></image>
+      <!-- <image class='audit-code-image' src='/resource/image/ic_circle_question_login.png ' mode='widthFix'></image> -->
     </view>
 
   <view class='line' hidden='{{displayType!=2}}'></view>

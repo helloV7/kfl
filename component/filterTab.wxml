@@ -19,7 +19,7 @@
 
 <view class='modal' hidden='{{!showModal}}' bindtap='_hideModal'>
   <view catchtap='_nothing' class='filter-layout'>
-    <scroll-view style='flex:1' scroll-y>
+    <scroll-view class='top' scroll-y>
       
       <view wx:for='{{filterList}}'  class='filter-group'>
         <view>

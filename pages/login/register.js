@@ -8,6 +8,7 @@ import md5 from '../../utils/js-md5.js'
 var app = getApp()
 var nickname;
 var avatar;
+let userInfo
 Page({
 
   /**
@@ -164,11 +165,11 @@ Page({
           this.toLoginClick()
         if (this.data.displayType=="1"){
           wx.navigateTo({
-            url: '/pages/login/userInformation?fill=false&userType=1',
+            url: '/pages/login/userInformation?fill=false&userType=1&token=' + userInfo.token,
           })
         }else{
           wx.navigateTo({
-            url: '/pages/login/userInformation?fill=false&userType=2',
+            url: '/pages/login/userInformation?fill=false&userType=2&token=' + userInfo.token,
           })
         }
       }else{
@@ -199,6 +200,8 @@ Page({
         callback:(b,json)=>{
           if(b){
             app.showToast(json.msg)
+            userInfo = json.data.userInfo
+            // wx.setStorageSync("userInfo", json.data.userinfo)
           }
           resolve(b)
         }

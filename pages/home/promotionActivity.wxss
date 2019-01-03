@@ -8,6 +8,7 @@ page{
   border-radius:12px;
   position: relative;
   font-size: 0;
+  background: white;
 }
 .activity .image{
   width:690rpx;

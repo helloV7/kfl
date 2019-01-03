@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-     tabs:["全部","代付款","待发货","待收获","已完成"],
+     tabs:["全部","待付款","待发货","待收获","已完成"],
      currentTab:0,
      page:1,
      data:[]
@@ -127,7 +127,7 @@ Page({
               productCount += good.buyNum
             })
             item.productCount = productCount
-            item.totalPrice = Number.parseFloat(item.payFee) + Number.parseFloat(item.trackPrice)
+            item.goodsPrice = Number.parseFloat(item.payFee) - Number.parseFloat(item.trackPrice)
           })
 
           let data =[]

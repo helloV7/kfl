@@ -100,7 +100,9 @@ const _urlList = {
   //获取个人排名
   GET_SELF_RANK: _domain + "api/rank/get_my_rank",
   //申请售后
-  APPLY_REFUND: _domain +"api/order/refund"
+  APPLY_REFUND: _domain +"api/order/refund",
+  //设置消息已读
+  SET_MESSAGE_TO_READ: _domain + "api/message/set_read"
   
 
   

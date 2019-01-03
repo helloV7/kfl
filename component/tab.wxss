@@ -9,6 +9,7 @@
   font-size: 0;
 }
 .tab.scroll{
+  width:auto;
   position: relative;
   overflow-x: scroll;
 }
@@ -25,14 +26,16 @@
   font-size:28rpx;
   font-family:PingFangSC-Regular;
   color:rgba(102,102,102,1);
-  min-width: 110rpx;
-  width:110rpx;
-  display: inline-flex;
+  /* min-width: 110rpx; */
+  /* width:auto; */
+  display: flex;
   justify-content: center;
   align-items: center;
   margin-left:30rpx;
   height: 85rpx;
   position: relative;
+  white-space: nowrap;
+  
 }
  .tab label.sel{
   color:rgba(200,150,68,1);

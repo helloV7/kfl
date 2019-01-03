@@ -2,7 +2,7 @@
 
 <scroll-view scroll-y style='height:100%;'>
   <view style='position:relative;'>
-  <swiper class='banner' indicator-dots='true'  indicator-active-color='#FFFFFF' indicator-color='#C6C6C6'>
+  <swiper class='banner' indicator-dots='true'  indicator-active-color='#FFFFFF' indicator-color='#C6C6C6' autoplay='true'>
     <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
       <image src='{{item.slideImg}}' mode='aspectFill' bindtap='onBannerClick' data-index="{{index}}"></image>
     </swiper-item>
@@ -23,9 +23,9 @@
   </view> 
 </scroll-view>
 
-<view class='floatBtn' hidden='{{!isShowFloatBtn || floatBtnData==null}}'>
+<view class='floatBtn' hidden='{{!isShowFloatBtn }}'>
   <image src='/resource/image/ic_circle_member@2x.png' class="float-image" bindtap='onFloatBtnClick'></image>
   <image src='/resource/image/ic_circle_close_white@2x.png' class='close' bindtap='onCloseFloatBtnClick'></image>
 </view>
 
-<scoreDialog show="{{showScoreDialog}}" score="{{floatBtnScore}}"></scoreDialog>
+<scoreDialog show="{{showScoreDialog}}" score="{{floatBtnScore}}" bind:close="onScoreDialogHide"></scoreDialog>

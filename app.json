@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/index/index",
     "pages/afterSales/afterSales",
-    "pages/login/login",
     "pages/test",
     "pages/more/qaCenter",
     "pages/more/feedback",
