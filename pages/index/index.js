@@ -17,7 +17,8 @@ Page({
      iconMoreNormal : resourcePath + "/ic_main_tab_more_normal.png",
      iconMorePressed : resourcePath + "/ic_main_tab_more_pressed.png",
      windowHeight:0,
-    refreshUserCenter:"1"
+    refreshUserCenter:"1",
+    refreshPresent:"1"
   },
   onLoad: function () {
     var that = this;
@@ -28,13 +29,21 @@ Page({
         })
       },
     })
+
+    console.log("load")
   },
   onShow(){
     // if (this.data.currentTab == 3) {
       this.setData({
         refreshUserCenter: "1"
-      })
+      }) 
     // }
+    if (this.data.currentTab == 2) {
+      this.setData({
+        refreshPresent: "1"
+      })
+    }
+  console.log("show")
   },
   onTabClick(e){
     var tabIndex = e.currentTarget.dataset.tabIndex;
@@ -52,6 +61,11 @@ Page({
     if (tabIndex == 3) {
       this.setData({
         refreshUserCenter: "1"
+      })
+    }else
+    if (tabIndex == 2){
+      this.setData({
+        refreshPresent:"1"
       })
     }
     
@@ -75,13 +89,25 @@ Page({
       app.showToast("请先完善个人信息")
       return
     }
+    if (userInfo.mobile.length == 0) {
+      wx.navigateTo({
+        url: '/pages/login/bindPhone',
+      })
+      app.showToast("请先绑定手机号")
+      return
+    }
 
+    // this._validateCode(10086)
     // 只允许从相机扫码       onlyFromCamera: true,
 
     wx.scanCode({
-      success(res) {
+      success:(res)=>{
         // console.log(res)
-        _validateCode(res)
+        if(res!=null){
+          this._validateCode(res.result)
+        }else{
+          app.showToast("无法识别")
+        }
       }
     })
   },

@@ -1,2 +1,3 @@
 /* pages/home/brandIntroduce.wxss */
 @import "/pages/common/common.wxss";
+@import "../../utils/wxParse/wxParse.wxss";

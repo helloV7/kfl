@@ -43,7 +43,7 @@
 <view class='function-item' bindtap='navToMyScore'> 
   我的积分<image src='/resource/image/ic_arrow_right_dark_brown@2x.png'></image>
 </view>
-<view class='function-item' bindtap='navToRank'>
+<view class='function-item' bindtap='navToRank' hidden='{{"2"!=serInfo.userType}}'>
   排行榜<image src='/resource/image/ic_arrow_right_dark_brown@2x.png'></image>
 </view>
 <view class='function-item' hidden='{{userInfo.userType=="1"}}' bindtap='navToResetCode'>

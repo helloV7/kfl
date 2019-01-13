@@ -1,6 +1,8 @@
 // pages/activity/activityDetail.js
 import api from '../../utils/api.js'
 var app = getApp()
+var WxParse = require('../../utils/wxParse/wxParse.js');
+
 Page({
 
   /**
@@ -8,7 +10,8 @@ Page({
    */
   data: {
     id:0,
-    data:{}
+    data:{},
+    richText:""
   },
 
   /**
@@ -78,6 +81,8 @@ Page({
       },
       callback:(b,json)=>{
         if(b){
+          // WxParse.wxParse('richText', 'html', json.data.content, this, 0);
+
           this.setData({
             data:json.data
           })

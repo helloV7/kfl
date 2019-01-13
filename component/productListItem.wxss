@@ -11,7 +11,7 @@
   border-radius:5rpx;
 }
 .title{
-  width:240px;
+  /* width:240px; */
   height:29px;
   font-size:30rpx;
   font-family:PingFangSC-Medium;
@@ -20,7 +20,7 @@
   top: 35rpx;
   left: 299rpx;
   right: 28rpx;
-   overflow: hidden;
+  overflow: hidden;
   white-space: nowrap;  
   text-overflow: ellipsis;
   }

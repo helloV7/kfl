@@ -12,7 +12,6 @@ Component({
       value:"1",
       observer: function (newVal, oldVal, changedPath){
         if(newVal=="1"){
-          console.log(this)
           this.refresh()
         }
       }

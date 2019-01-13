@@ -7,7 +7,20 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    refresh:{
+      type:String,
+      value:"0",
+      observer: function (newVal, oldVal, changedPath) {
+        console.log(newVal)
+        if (newVal=="1") {
+          this._getType()
+          this.setData({
+            refresh: "0"
 
+          })
+        }
+      }
+    }
   },
 
   /**
@@ -71,9 +84,10 @@ Component({
               data = this.data.productList
             }
             data = data.concat(json.data)
+          
             this.setData({
               productList: data,
-              page: page
+              page: page,
             })
           }
         }
@@ -117,6 +131,13 @@ Component({
       wx.navigateTo({
         url: '/pages/product/productDetail?id=' + id,
       })
+    },
+    tabClick(e){
+      let index = e.detail.index
+      this.setData({
+        currentTypeIndex:index
+      })
+      this._getTypeProduct(true)
     }
   },
   attached(){

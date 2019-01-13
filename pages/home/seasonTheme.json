@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "应季主题",
+  "navigationBarTitleText": "应季主推",
   "usingComponents":{
     "shoppingcar":"/component/shoppingcarFloatBtn",
     "item":"/component/productListItem"

@@ -220,6 +220,7 @@ Page({
           this.setData({
             productList: productList
           })
+          this._calcTotalPriceAndScore()
         }
       }
     })
@@ -229,8 +230,8 @@ Page({
     var totalScore=0
     this.data.productList.forEach(item =>{
       if(item.sel){
-        totalPrice += Number.parseFloat(item.goods.price) * Number.parseInt(item.buyNum)
-        totalScore += Number.parseFloat(item.goods.score) * Number.parseInt(item.buyNum)
+        totalPrice += this.accMul(Number.parseFloat(item.goods.price) ,Number.parseInt(item.buyNum))
+        totalScore += this.accMul(Number.parseFloat(item.goods.score) ,Number.parseInt(item.buyNum))
       }
     })
 
@@ -284,9 +285,32 @@ Page({
   },
   itemCountUpdate(e){
     console.log(e)
+    let newCount = e.detail.count
+    let index = e.currentTarget.dataset.index
+    this.data.productList[index].buyNum = newCount
+    if(newCount==0){
+      this.data.productList.splice(index,1)
+    }
+    this.setData({
+      productList: this.data.productList
+    })
+    this._calcTotalPriceAndScore()
   },
   loadmore(){
     this._getShoppingCarList(false)
+  },
+  accMul(arg1, arg2) {
+    var m = 0, s1 = arg1.toString(), s2 = arg2.toString();
+    try { m += s1.split(".")[1].length } catch (e) { }
+    try { m += s2.split(".")[1].length } catch (e) { }
+    return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m)
+  },
+  toDetail(e){
+    let index = e.currentTarget.dataset.index
+    let item  = this.data.productList[index]
+    wx.navigateTo({
+      url: '/pages/product/productDetail?id=' + item.goods.id,
+    })
   }
 
 })

@@ -1,6 +1,8 @@
 // pages/product/productDetail.js
 import api from '../../utils/api.js'
 var app = getApp()
+var WxParse = require('../../utils/wxParse/wxParse.js');
+
 Page({
 
   /**
@@ -12,7 +14,8 @@ Page({
     showModal:false,
     currentSwipe:0,
     id:0,
-    data:{}
+    data:{},
+    richText:""
   },
 
   /**
@@ -116,9 +119,14 @@ Page({
         goodsId:this.data.id
       },
       callback:(b,json)=>{
-        this.setData({
-          data:json.data
-        })
+        if(b){
+          WxParse.wxParse('richText', 'html', json.data.goodsDesc, this, 0);
+
+          this.setData({
+            data: json.data
+          })
+        }
+      
       }
     })
   },
@@ -150,15 +158,19 @@ Page({
   },
   redictToHome(){
 
-    var pages = getCurrentPages()
-    if (pages[pages.length-2].route=="pages/index/index"){
-      wx.navigateBack({   
-      })
-    }else{
-      wx.redirectTo({
-        url: '/pages/index/index',
-      })
-    }
+    wx.redirectTo({
+      url: '/pages/index/index',
+    })
+
+    // var pages = getCurrentPages()
+    // if (pages[pages.length-2].route=="pages/index/index"){
+    //   wx.navigateBack({   
+    //   })
+    // }else{
+    //   wx.redirectTo({
+    //     url: '/pages/index/index',
+    //   })
+    // }
    
   },
   openShoppingCar(){

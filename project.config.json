@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -80,6 +80,12 @@
 					"name": "首页",
 					"pathName": "pages/index/index",
 					"query": ""
+				},
+				{
+					"id": 7,
+					"name": "个人信息",
+					"pathName": "pages/login/userInformation",
+					"query": "fill=true&userType=1&phone=111"
 				}
 			]
 		}

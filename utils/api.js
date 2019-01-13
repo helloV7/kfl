@@ -102,8 +102,9 @@ const _urlList = {
   //申请售后
   APPLY_REFUND: _domain +"api/order/refund",
   //设置消息已读
-  SET_MESSAGE_TO_READ: _domain + "api/message/set_read"
-  
+  SET_MESSAGE_TO_READ: _domain + "api/message/set_read",
+  //获取腾讯云cos签名
+  GET_COS_SIGN: _domain + "api/index/get_cos_token"
 
   
 }
@@ -197,8 +198,19 @@ var _pull = (key)=>{
   delete requestTaskList[key]
 }
 
+function uploadFile(filePath){
+  var Key = filePath.substr(filePath.lastIndexOf('/') + 1); // 这里指定上传的文件名
+  _request({
+    url: _domain + 'api/index/get_cos_token',
+
+
+    })
+}
+
 
 
 module.exports = {
   request: _request,
+  domain:_domain,
+  urlList:_urlList
 }

@@ -8,7 +8,7 @@ import md5 from '../../utils/js-md5.js'
 var app = getApp()
 var nickname;
 var avatar;
-let userInfo
+var userInfo
 Page({
 
   /**
@@ -17,7 +17,7 @@ Page({
   data: {
     showPassword: false,
     showPasswordImage: doNotShowPasswordImage,
-    displayType:1,//1普通用户  2美容师,
+    displayType:'1',//1普通用户  2美容师,
     phone:"",
     captcha:"",
     password:"",
@@ -147,7 +147,7 @@ Page({
       // app.showToast("请输入密码")
       return
     }
-    if(this.data.displayType==2 && this.data.code.length==0){
+    if(this.data.displayType=='2' && this.data.code.length==0){
       // app.showToast("请输入审核码")
       return
     }
@@ -163,15 +163,18 @@ Page({
       if(r){
         //注册成功(
           this.toLoginClick()
-        if (this.data.displayType=="1"){
-          wx.navigateTo({
-            url: '/pages/login/userInformation?fill=false&userType=1&token=' + userInfo.token,
+        wx.navigateTo({
+          url: '/pages/login/userInformation?fill=false&userType=' + this.data.displayType+'&token=' + userInfo.token+"&phone="+this.data.phone,
           })
-        }else{
-          wx.navigateTo({
-            url: '/pages/login/userInformation?fill=false&userType=2&token=' + userInfo.token,
-          })
-        }
+        // if (this.data.displayType=="1"){
+        //   wx.navigateTo({
+        //     url: '/pages/login/userInformation?fill=false&userType=1&token=' + userInfo.token,
+        //   })
+        // }else{
+        //   wx.navigateTo({
+        //     url: '/pages/login/userInformation?fill=false&userType=2&token=' + userInfo.token,
+        //   })
+        // }
       }else{
         //注册失败
       }
@@ -187,7 +190,7 @@ Page({
     param['registerType'] = this.data.displayType
     param['nickname'] = nickname
     param['avatar'] = avatar
-    if (this.data.displayType==2)
+    if (this.data.displayType=='2')
       param['code'] = this.data.code
 
 
@@ -200,7 +203,7 @@ Page({
         callback:(b,json)=>{
           if(b){
             app.showToast(json.msg)
-            userInfo = json.data.userInfo
+            userInfo = json.data.userinfo
             // wx.setStorageSync("userInfo", json.data.userinfo)
           }
           resolve(b)

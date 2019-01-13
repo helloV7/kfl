@@ -7,7 +7,7 @@
     <label class='text'>积分</label>
 
   </view>
-  <view class='cash' wx:if='{{userType=="2"}}'>
+  <view class='cash' wx:if='{{userType=="2"}}' >
     <label class='number'>{{data.balance}}</label>
     <label class='text'>现金</label>
   </view>

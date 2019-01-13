@@ -27,7 +27,7 @@
       case "2":
         return "申请成功"
       case "3":
-        return "申请失败"
+        return "审核不通过"
     }
   }
   module.exports.format = format

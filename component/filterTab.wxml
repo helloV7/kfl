@@ -32,7 +32,7 @@
 
           <view class='filter-item '>
           <view wx:for='{{item.itemValue}}' wx:key="{{n.showName}}"  wx:for-item='n' wx:for-index='i' class='item {{n.sel?"sel":""}}' hidden='{{!item.expand&&i>=6}}' data-index="{{i}}"  bindtap="vitemClick" data-pindex="{{index}}">
-            {{n.showName}}
+            <label>{{n.showName}}</label>
           </view>
           </view>
 

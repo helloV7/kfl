@@ -70,7 +70,7 @@ Page({
   },
   navToHome(){
     wx.reLaunch({
-      url: '/pages/index/index',
+      url: '/pages/index/index?tabIndex=1',
     })
   }
 })

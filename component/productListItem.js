@@ -143,8 +143,12 @@ Component({
             })
           }
           loading=false
+          this.triggerEvent("updateCount", { extra: this.data.extra, count: 0 }, {})
+
         }
       })
+
+
     }
 
   }

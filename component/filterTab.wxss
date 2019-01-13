@@ -122,6 +122,13 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  line-height: 27rpx;
+}
+.filter-item .item>label{
+  width: 100%;
+  height: 100%;
+  text-overflow: ellipsis;
+  white-space: normal;
 }
 .filter-item  .item.sel{
   width:174rpx;
@@ -132,7 +139,6 @@
   font-family:PingFangSC-Regular;
   font-weight:400;
   color:rgba(255,255,255,1);
-  line-height:70rpx;
   border: none;
 }
 .filter-input-layout{

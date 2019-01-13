@@ -1,4 +1,6 @@
 <!--pages/product/productDetail.wxml-->
+<import src="../../utils/wxParse/wxParse.wxml"/>
+
 <view class='container'>
 <scroll-view scroll-y class='scroll-y'>
   <view class='productBanner'>
@@ -15,7 +17,7 @@
 
   <view class="info-layout">
     <label class='title'>{{data.goodsName}}</label>
-    <!-- <label class='description'>{{data.form.name}}</label> -->
+    <label class='description'>{{data.form.name}}</label>
 
     <view class='value-layout'>
       <image class='icon' src='/resource/image/ic_price_small_golden@2x.png' ></image>
@@ -28,14 +30,16 @@
     </view>
     <view class='line'></view>
 
-    <label class='score'>扫描积分：{{data.scanScore}}分</label>
+    <label class='score'>扫描积分：{{data.scanUserScore}}分</label>
     <label class='description2'>规格：{{data.capacity.showName}} 编号：{{data.goodsCode}}</label>
 
 
   </view>
 
-  <rich-text nodes="{{data.goodsDesc}}">
-  </rich-text>
+  <!-- <rich-text nodes="{{data.goodsDesc}}">
+  </rich-text> -->
+    <template is="wxParse" data="{{wxParseData:richText.nodes}}"/>
+
 </scroll-view>
 
 <view class='bottom-layout'>

@@ -49,7 +49,8 @@ Component({
       })
     },
     _itemClick(e){
-      let index = e.currengTarget.dataset.index
+      console.log(e)
+      let index = e.currentTarget.dataset.index
       let key = this.data.history[index]
       this.setData({
         inputString: key
@@ -92,11 +93,18 @@ Component({
     
     },
     _cancelClick(){
+      // this.setData({
+      //   showPage:false,
+      //   inputString:oldKey
+      // })
+      // this.triggerEvent("cancel",{},{});
+
       this.setData({
         showPage:false,
-        inputString:oldKey
+        inputString:""
       })
-      this.triggerEvent("cancel",{},{});
+      this.triggerEvent("inputConfirm", { key: "" }, {});
+
     },
     _loadHistory(){
       wx.getStorage({

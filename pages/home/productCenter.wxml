@@ -29,14 +29,15 @@
 
 
     <scroll-view class='scroll-view left' scroll-y>
-      <view class='type {{index==currentTypeIndex?"sel":""}}' wx:for="{{tabs}}" wx:key="{{item.id}}" bindtap='onTabClick' data-index="{{index}}">{{item.name}}</view>
+      <view class='type {{index==currentTypeIndex?"sel":""}}' wx:for="{{tabs}}" wx:key="{{item.id}}" bindtap='onTabClick' data-index="{{index}}">
+      <label>{{item.name}}</label></view>
     </scroll-view>
 
     <scroll-view class='scroll-view right' scroll-y bindscrolltolower="loadmore">
       <view class='content'>
         <view class='item' wx:for='{{productList}}' wx:key="{{item.goodsId}}" bindtap='navToDetail' data-index="{{index}}" data-id="{{item.goodsId}}">
           <image class='image' src='{{item.coverImg}}'></image>
-          <label class='text'>{{item.goodsName}}</label>
+          <view class='text'><label>{{item.goodsName}}</label></view>
         </view>
       </view>
     </scroll-view>

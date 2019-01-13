@@ -1,4 +1,11 @@
 <!--pages/wallet/myWallet.wxml-->
+<wxs module="m1">
+  function format(ts) {
+    var d = getDate(ts*1000)
+    return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+ d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+  }
+  module.exports.format = format
+</wxs>
 <view class='container'>
 <view class='line'></view>
 <image class='icon-question' src='/resource/image/ic_question_black@2x.png' bindtap='navToIntroduce'></image>
@@ -18,12 +25,12 @@
     <view class='detail-list-item' wx:for='{{data}}'>
       <view class='left'>
         <label class='title'>
-          扫码领取余额
+          {{item.showMsg}}
         </label>
-        <label class='date'>2018-10-22 12:11:13</label>
+        <label class='date'>{{m1.format(item.createtime)}}</label>
       </view>
       <view class='right'>
-        <label class='price'>-1000.00 元</label>
+        <label class='price'>{{item.symbol=="1"?"+":"-"}}{{item.balance}} 元</label>
       </view>
 
   

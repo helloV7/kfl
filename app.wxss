@@ -100,3 +100,8 @@ page{
   flex-direction: column;
   
 }
+rich-text{
+  width: 750rpx;
+  white-space: normal;
+  background: white;
+}

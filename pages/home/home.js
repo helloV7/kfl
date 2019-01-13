@@ -30,7 +30,7 @@ const topGridList = [
     image: "/resource/image/ic_circle_home_membership_benefits@2x.png",
   },
   {
-    url: "",
+    url: "/pages/home/officialWebsite",
     name: "手机官网",
     image: "/resource/image/ic_circle_home_web@2x.png",
   }

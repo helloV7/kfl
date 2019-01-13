@@ -30,7 +30,7 @@
 
     <view class='bottom-btn-layout'>
       <view class='btn' bindtap='sendApply' wx:if="{{data.returnStatus=='0'}}">发送申请</view>
-      <view class='btn doing'  wx:if="{{data.returnStatus=='1'}}">申请中</view>
+      <view class='btn doing'  wx:if="{{data.returnStatus=='1'}}">处理中</view>
       <view class='btn done'  wx:if="{{data.returnStatus=='2'}}">款项已退回我的钱包</view>
       <view class='btn ok'  wx:if="{{data.returnStatus=='3'}}">被驳回</view>
 

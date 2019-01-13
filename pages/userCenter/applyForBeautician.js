@@ -93,6 +93,10 @@ Page({
             wx.navigateTo({
               url: '/pages/login/userInformation?fill=true&userType=2',
             })
+          }else{
+            wx.navigateBack({
+
+            })
           }
          
         }else{

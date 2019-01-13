@@ -29,13 +29,14 @@ page{
   width:calc(100% - 64rpx);
 }
 .message-title{
-  margin: 35rpx 0 0 30rpx ;
+  margin: 35rpx 30rpx 0 30rpx ;
   display: block;
-
+  width: calc(100% - 60rpx);
   font-size:32rpx;
   font-family:PingFangSC-Medium;
   font-weight:500;
   color:rgba(0,0,0,1);
+  white-space: normal;
 }
 .message-content{
   width: calc(100% - 60rpx);

@@ -3,6 +3,7 @@ const sel_icon = '/resource/image/ic_circle_brown_selected@2x.png'
 const unsel_icon = '/resource/image/ic_circle_gray_no_choose@2x.png'
 import api from '../../utils/api.js'
 var app = getApp()
+let orderNO
 Page({
 
   /**
@@ -202,6 +203,7 @@ Page({
             },
           callback:(b,json)=>{
             if(b){
+              orderNO = json.data.orderNo
               this._getPaySign(json.data.orderNo)
               // if (trackType=="1"){
               //   //现付
@@ -261,7 +263,7 @@ Page({
       paySign:paySign,
       success:(res)=>{
         wx.redirectTo({
-          url: '/pages/order/PayResult',
+          url: '/pages/order/PayResult?orderNo=' + orderNO,
         })
       },
       fail:(res)=>{

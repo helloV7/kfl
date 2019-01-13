@@ -1,8 +1,12 @@
 <!--pages/activity/activityDetail.wxml-->
+<import src="../../utils/wxParse/wxParse.wxml"/>
+
 <scroll-view scroll-y style='white-space:nowrap;overflow:scroll;height:100%;'>
-  <image class='image' src='{{data.activitionImg}}'></image>
+  <image class='image' src='{{data.activitionImg}}' mode='aspectFill'></image>
   <rich-text style='background:white;' nodes="{{data.content}}">
   </rich-text>
+  <!-- <template is="wxParse" data="{{wxParseData:richText.nodes}}"/> -->
+
 
   <view style='margin-top:25rpx;'></view>
 

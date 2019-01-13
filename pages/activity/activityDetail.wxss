@@ -1,4 +1,6 @@
 /* pages/activity/activityDetail.wxss */
+@import "../../utils/wxParse/wxParse.wxss";
+
 page{
   height: 100%;
   background: #F4F4F4;

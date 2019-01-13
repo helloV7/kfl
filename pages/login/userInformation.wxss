@@ -58,3 +58,17 @@ page{
 .inline-block{
   display: inline-block;
 }
+.info-item.avatar{
+  height: auto;
+  justify-content:  space-between;
+}
+.info-item.avatar .image{
+  width:110rpx;
+  height:110rpx;
+  border-radius:50%;
+  float: right;
+  margin-right: 30rpx;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  background: #F0F0F0;
+}

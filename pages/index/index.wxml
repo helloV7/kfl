@@ -8,7 +8,7 @@
       <home></home>
     </view>
     <view hidden='{{currentTab!=2}}' class='page-decoration'>
-       <presents></presents>
+       <presents refresh="{{refreshPresent}}"></presents>
     </view>
       <view hidden='{{currentTab!=3}}' class='page-decoration'>
        <self refresh="{{refreshUserCenter}}"></self>
@@ -18,7 +18,7 @@
     </view>
 </scroll-view> 
 <view class='toolbar'>
-    <view class='flex flex-center-vertical flex-center-horizontal flex-space-around'>
+    <view class='flex flex-center-vertical flex-center-horizontal flex-space-around' style='width:100%;'>
     <view class='item  {{currentTab==0?"sel":""}}' bindtap='onTabClick' data-tab-index="0">
         <image  mode='widthFix' src='{{currentTab==0?iconHomePressed:iconHomeNormal}}'></image>
         <label>首页</label>

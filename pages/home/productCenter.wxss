@@ -61,6 +61,7 @@
 }
 .scroll-view.right .content .item .text{
   width:177rpx;
+  min-width: 177rpx;
   height:75rpx;
   font-size:24rpx;
   font-family:PingFangSC-Regular;
@@ -69,6 +70,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+
+
+
+}
+.text label{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 
 }
 .type{
@@ -84,6 +94,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+
+}
+.type label{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .type.sel{
   width:180rpx;

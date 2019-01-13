@@ -1,6 +1,8 @@
 // pages/home/brandIntroduce.js
 import api from '../../utils/api.js'
 var app = getApp()
+var WxParse = require('../../utils/wxParse/wxParse.js');
+
 Page({
 
   /**
@@ -9,7 +11,8 @@ Page({
   data: {
     // tabs: ["品牌故事", "品牌故事", "品牌故事", "品牌故事", "品牌故事", "品牌故事"],
     data:[],
-    currentTab:0
+    currentTab:0,
+    richText:""
   },
 
   /**
@@ -25,6 +28,9 @@ Page({
           this.setData({
             data:json.data
           })
+        
+          this.parseRichText(this.data.data[0].content)
+
         }
       }
     })
@@ -83,5 +89,13 @@ Page({
     this.setData({
       currentTab:index
     })
+
+
+    this.parseRichText(this.data.data[index].content)
+  },
+  parseRichText(richText){
+    // console.log(richText)
+    // WxParse.wxParse('richText', 'html', richText, this, 0);
+
   }
 })
