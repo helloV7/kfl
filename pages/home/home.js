@@ -79,7 +79,9 @@ Component({
 
       switch (banner.slideType) {
         case "1":
-
+          wx.navigateTo({
+            url: '/pages/home/webview?src=' + banner.extra,
+          })
           break;
         case "2":
           wx.navigateTo({
@@ -93,6 +95,13 @@ Component({
       if(userInfo==null){
         return
       }
+      if (userInfo.mobile.length == 0) {
+        wx.navigateTo({
+          url: '/pages/login/bindPhone',
+        })
+        app.showToast("请先绑定手机号")
+        return
+      }
       if(userInfo.isfix!="1"){
         wx.navigateTo({
           url: '/pages/login/userInformation?fill=true&userType='+userInfo.userType,
@@ -101,13 +110,7 @@ Component({
        
         return 
       }
-      if(userInfo.mobile.length==0){
-        wx.navigateTo({
-          url: '/pages/login/bindPhone',
-        })
-        app.showToast("请先绑定手机号")
-        return
-      }
+   
       api.request({
         url: "FREE_ENJOY",
         method: "POST",

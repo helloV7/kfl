@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -86,6 +86,12 @@
 					"name": "个人信息",
 					"pathName": "pages/login/userInformation",
 					"query": "fill=true&userType=1&phone=111"
+				},
+				{
+					"id": -1,
+					"name": "订单列表",
+					"pathName": "pages/order/orderDetail",
+					"query": "orderNo=20190115101918018792"
 				}
 			]
 		}

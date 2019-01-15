@@ -4,7 +4,7 @@
 <view class='top-layout'>
   <image class='avatar' src='{{userInfo.avatar}}'></image>
   <label class='name' bindtap='navToUserInfo'>{{userInfo.nickname}} <image src='/resource/image/ic_edit_black@2x.png'></image></label>
-  <label class='state' bindtap='navToApplay'>{{userInfo.userType=="1"?"申请美容师":"美容师"}}<image src='/resource/image/ic_arrow_right_gray@2x.png'></image></label>
+  <label class='state' bindtap='navToApplay'>{{userInfo.userType=="2"?"美容师":"申请美容师"}}<image src='/resource/image/ic_arrow_right_gray@2x.png'></image></label>
 
   <image src='/resource/image/ic_notice_black@2x.png'class='message-image' bindtap='onMessageClick'></image>
   <label class='message-text' wx:if='{{unreadCount!=0}}'>{{unreadCount}}</label>
@@ -43,10 +43,10 @@
 <view class='function-item' bindtap='navToMyScore'> 
   我的积分<image src='/resource/image/ic_arrow_right_dark_brown@2x.png'></image>
 </view>
-<view class='function-item' bindtap='navToRank' hidden='{{"2"!=serInfo.userType}}'>
+<view class='function-item' bindtap='navToRank' hidden='{{"2"!=userInfo.userType}}'>
   排行榜<image src='/resource/image/ic_arrow_right_dark_brown@2x.png'></image>
 </view>
-<view class='function-item' hidden='{{userInfo.userType=="1"}}' bindtap='navToResetCode'>
+<view class='function-item' hidden='{{userInfo.userType!="2"}}' bindtap='navToResetCode'>
   更换审核码<image src='/resource/image/ic_arrow_right_dark_brown@2x.png'></image>
 </view>
 </view>

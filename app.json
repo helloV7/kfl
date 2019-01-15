@@ -34,7 +34,8 @@
     "pages/score/introduce",
     "pages/login/bindPhone",
     "pages/userCenter/rank",
-    "pages/home/productCenterSearch"
+    "pages/home/productCenterSearch",
+    "pages/home/webview"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -268,6 +268,13 @@ Page({
       },
       fail:(res)=>{
         app.showToast("支付失败")
+         wx.navigateBack({
+           delta: 1,
+         })
+        wx.navigateTo({
+          url: '/pages/order/orderDetail?orderNo=' + orderNo,
+        })
+
       }
 
     })

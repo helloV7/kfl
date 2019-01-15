@@ -103,6 +103,11 @@ Page({
           this.setData({
             showError:true
           })
+          if(json.code==4){
+            wx.navigateTo({
+              url: '/pages/login/bindPhone',
+            })
+          }
         }
       }
 

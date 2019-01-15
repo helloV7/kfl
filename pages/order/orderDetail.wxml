@@ -51,7 +51,7 @@
 <!-- 地址信息 -->
       <view class='address-layout'>
         <image class='image' src='/resource/image/ic_address_black@2x.png'></image>
-        <view >
+        <view style='width:calc(100% - 100rpx)'>
           <label class='name'>{{data.order_address.contactPerson}} <label class='phone'>{{data.order_address.contactMobile}}</label></label>
           <label class='address'>{{data.order_address.address}}</label>
         </view>
@@ -97,8 +97,8 @@
       </view>
 <!-- 卖家留言 -->
       <view class='message-layout'>
-        <label class='text'>买家留言（非必填）</label>
-        <label class='text'>{{data.remarks}}</label>
+        <label class='title'>买家留言（非必填）</label>
+        <text class='message'>{{data.remarks}}</text>
       </view>
   </scroll-view>
 

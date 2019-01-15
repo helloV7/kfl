@@ -206,6 +206,7 @@ Page({
       param:{
         page:page
       },
+      showLoading:true,
       callback:(b,json)=>{
         if(b){
           var productList = [] 

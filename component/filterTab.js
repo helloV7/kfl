@@ -131,6 +131,7 @@ Component({
       })
     },
     onShowAllClick(e){
+      console.log(e)
       let index = e.currentTarget.dataset.index
       let key = `filterList[${index}].expand`
       let expand = !(this.data.filterList[index].expand)

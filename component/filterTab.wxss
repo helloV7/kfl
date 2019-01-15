@@ -129,6 +129,10 @@
   height: 100%;
   text-overflow: ellipsis;
   white-space: normal;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 .filter-item  .item.sel{
   width:174rpx;

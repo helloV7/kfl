@@ -40,7 +40,7 @@
 
     <view class='message-layout'>
       <label class='title'>买家留言：</label>
-      <input class='message-input' placeholder='填写内容已与卖家协商确认' placeholder-class='message-placeholder' value='{{message}}' bindinput='onMessageInput'></input>
+      <textarea class='message-input' placeholder='填写内容已与卖家协商确认' placeholder-class='message-placeholder' value='{{message}}' bindinput='onMessageInput'></textarea>
     </view>
 
   </scroll-view>

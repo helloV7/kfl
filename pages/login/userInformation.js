@@ -176,29 +176,40 @@ Page({
   },
   onFinishClick(){
     if (this.data.form.name.length==0){
+      app.showToast("请输入姓名")
       return
     }
     if (this.data.form.nickname.length == 0) {
+      app.showToast("请输入昵称")
+
       return
     }
     if (this.data.form.email.length == 0) {
+      app.showToast("请输入邮箱")
       return
     }
     // if (this.data.form.mobile.length == 0 && this.data.fill) {
     //   return
     // }
     if (this.data.region.length == 0) {
+      app.showToast("请选择所属地")
       return
     }
 
     if (this.data.userType == "2"){
       if (this.data.form.wechat.length == 0) {
+        app.showToast("请输入微信号")
+
         return
       }
       if (this.data.form.bankName.length == 0) {
+        app.showToast("请输入开户行名称")
+
         return
       }
       if (this.data.form.bankNo.length == 0) {
+        app.showToast("请输入卡号")
+
         return
       }
     }
