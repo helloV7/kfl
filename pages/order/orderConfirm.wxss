@@ -41,6 +41,7 @@ page{
 .address-layout .right{
   display: inline-flex;
   flex-direction: column;
+  width: 300rpx;
 }
 .address-layout .title{
   font-size:30rpx;
