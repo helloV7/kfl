@@ -139,10 +139,16 @@ Component({
       method:"GET",
       callback:(b,json)=>{
         if(b){
+          let showFBtn = false
+          if(json.data.freeScore){
+            showFBtn = true
+          }
+
           this.setData({
             banner:json.data.slide,
             productList:json.data.activition,
-            floatBtnData: json.data.freeScore
+            floatBtnData: json.data.freeScore,
+            isShowFloatBtn:showFBtn
           })
         }
       }

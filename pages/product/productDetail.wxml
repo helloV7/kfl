@@ -4,7 +4,7 @@
 <view class='container'>
 <scroll-view scroll-y class='scroll-y'>
   <view class='productBanner'>
-        <swiper current='{{currentSwipe}}' bindchange="onSwipeChange">
+        <swiper current='{{currentSwipe}}' bindchange="onSwipeChange" autoplay='true'>
       <swiper-item wx:for="{{data.slidesImg}}">
         <image src='{{item}}' mode='aspectFill'></image>
       </swiper-item>
@@ -30,7 +30,7 @@
     </view>
     <view class='line'></view>
 
-    <label class='score'>扫描积分：{{ data.scanBeauticianScore || data.scanUserScore }}分</label>
+    <label class='score'>扫描积分：{{ data.scanBeauticianScore || data.scanUserScore ||0 }}分</label>
     <label class='description2'>规格：{{data.capacity.showName}} 编号：{{data.goodsCode}}</label>
 
 

@@ -110,7 +110,7 @@ Page({
 
   },toDetail(e) {
     console.log(e)
-    let id = e.detail.goodsId;
+    let id = e.currentTarget.dataset.goodsId;
     wx.navigateTo({
       url: '/pages/product/productDetail?id=' + id,
     })

@@ -30,7 +30,8 @@
 
     <scroll-view class='scroll-view left' scroll-y>
       <view class='type {{index==currentTypeIndex?"sel":""}}' wx:for="{{tabs}}" wx:key="{{item.id}}" bindtap='onTabClick' data-index="{{index}}">
-      <label>{{item.name}}</label></view>
+      <view class='label'>{{item.name}}</view>
+      </view>
     </scroll-view>
 
     <scroll-view class='scroll-view right' scroll-y bindscrolltolower="loadmore">

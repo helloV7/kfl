@@ -12,7 +12,7 @@
 
     <view class='type-layout'>
       <label class='type-hint'>申请类型</label>
-      <label class='type-value'>换货不退款</label>
+      <label class='type-value'>退款</label>
     </view>
 
     <textarea class='reason' placeholder='请输入申请售后理由...' disabled='{{data.returnStatus!="0"}}' value='{{data.returnReason}}' bindinput='reasonInput'>

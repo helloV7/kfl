@@ -6,7 +6,9 @@
 
     <view class='item-decorator' wx:for="{{productList}}" wx:key="{{item.goodsId}}">
              <!-- show-value1="false" show-value2="false" type="action"  extra="{{item}}" pId="{{item.goodsId}}" scId="{{item.shopCar.shopcarId}}" count="{{item.shopCar.buyNum}}" -->
-        <item cover="{{item.coverImg}}" title="{{item.goodsName}}" specification="{{item.capacity.showName}}" number="{{item.goodsCode}}" bind:itemClick="toDetail" show-value1="false" show-value2="false"></item>
+        <view bindtap="toDetail" data-goods-id="{{item.goodsId}}" >
+          <item cover="{{item.coverImg}}" title="{{item.goodsName}}" specification="{{item.capacity.showName}}" number="{{item.goodsCode}}" show-value1="false" show-value2="false"></item>
+        </view>
 
     </view>
 
