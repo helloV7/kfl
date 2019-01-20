@@ -4,6 +4,7 @@ page{
 }
 .decoration{
   background: white;
+  position: relative;
 }
 .decoration::after{
   content: "";

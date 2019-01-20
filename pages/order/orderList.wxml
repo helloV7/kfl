@@ -47,7 +47,7 @@
         {{m1.parseOS(item.orderStatus)}}
       </view>
       <view class='item-decoration bottom-line' wx:for='{{item.goods_list}}' wx:for-item="good" wx:key="{{index}}">
-        <item cover="{{good.goods.coverImg}}" title="{{good.goods.goodsName}}" value1="{{good.goods.score}}" value2="{{good.goods.price}}"></item>
+        <item cover="{{good.goods.coverImg}}" title="{{good.goods.goodsName}}" value1="{{good.goods.score}}" value2="{{good.goods.price}}" specification="{{good.goods.capacity.showName}}" number="{{good.goods.goodsCode}}" ></item>
       </view>
       <view class='total-info-layout'>
           <label class='type1'>共{{item.productCount}}件商品 实付：</label>

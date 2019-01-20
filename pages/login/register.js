@@ -135,7 +135,7 @@ Page({
   ,register(e){
     avatar = e.detail.userInfo.avatarUrl
     nickname = e.detail.userInfo.nickName
-    if(this.data.phone.length==0){
+    if (this.data.phone.length == 0 || this.data.password.length<11){
       // app.showToast("请输入手机号")
       return
     }
@@ -143,7 +143,7 @@ Page({
       // app.showToast("请输入验证码")
       return
     }
-    if(this.data.password.length==0){
+    if (this.data.password.length == 0 || this.data.password.length<6){
       // app.showToast("请输入密码")
       return
     }
@@ -269,5 +269,15 @@ Page({
       }
 
     },1000)
+  },
+  navToProtocol(){
+    wx.navigateTo({
+      url: '/pages/login/ritchText?url=SYSTEM_SETTING_INFO&title=用户协议&key=userDeal' ,
+    })
+  },
+  navToCode(){
+    wx.navigateTo({
+      url: '/pages/login/ritchText?url=SYSTEM_SETTING_INFO&title=关于审核码&key=codeTip',
+    })
   }
 })

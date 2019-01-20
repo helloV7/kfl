@@ -18,6 +18,7 @@
       <image class='sel-icon' src='{{useAddress=="2"?sel_icon:unsel_icon}}'  data-type="2" catchtap='addressCheck'></image>
       <view class='right'>
         <label class='title'>寄到个人地址</label>
+        <label class='username' wx:if="{{person_address.contactPerson!=null}}">{{person_address.contactPerson}}<label class='phone'>{{person_address.contactMobile}}</label> </label>
         <label class='address'>{{(person_address==null||person_address.length==0)?"完善收货地址":(person_address.province+person_address.city+person_address.district+person_address.address)}}</label>
       </view>
     </view>

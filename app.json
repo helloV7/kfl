@@ -35,7 +35,8 @@
     "pages/login/bindPhone",
     "pages/userCenter/rank",
     "pages/home/productCenterSearch",
-    "pages/home/webview"
+    "pages/home/webview",
+    "pages/login/ritchText"
   ],
   "window": {
     "backgroundTextStyle": "light",

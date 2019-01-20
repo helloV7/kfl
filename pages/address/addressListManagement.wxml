@@ -3,8 +3,9 @@
   <scroll-view class='scroll-y' scroll-y>
     
     <view class='address-item-layout' wx:for='{{data}}'>
-      <view class='address-name'>{{item.contactPerson}}</view>
-      <view class='address-phone'>{{item.contactMobile}}</view>
+      <view class='address-name'>{{item.contactPerson}}      
+         <view class='address-phone'>{{item.contactMobile}}</view>
+      </view>
       <view class='address-address'>      
         <view class='address-isdefaule' hidden='{{item.isdefault=="0"}}'>[默认地址]</view>
         {{item.province}}{{item.city}}{{item.district}}{{item.address}}

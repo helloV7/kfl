@@ -7,7 +7,7 @@
       <view class='product-info' bindtouchstart='onItemTouchStart'  bindtouchmove='onItemTouchMove'  bindtouchend='onItemTouchEnd' data-index='{{index}}'>
         <image class='sel-icon' src='{{item.sel?sel_icon:unsel_icon}}' catchtap='onSelClick' data-index='{{index}}'></image>
         <view class='item-decoration' bindtap='toDetail' data-index="{{index}}" >
-          <item data-index="{{index}}" type='action' cover="{{item.goods.coverImg}}" value1="{{item.goods.score}}" value2="{{item.goods.price}}" specification="{{item.capacity.showName}}" number="{{item.goods.goodsCode}}" count="{{item.buyNum}}" title="{{item.goods.goodsName}}"   sc-id="{{item.shopcarId}}" p-id="{{item.goods.id}}" bind:updateCount="itemCountUpdate" extra="{{item}}"></item>
+          <item data-index="{{index}}" type='action' cover="{{item.goods.coverImg}}" value1="{{item.goods.score}}" value2="{{item.goods.price}}" specification="{{item.goods.capacity.showName}}" number="{{item.goods.goodsCode}}" count="{{item.buyNum}}" title="{{item.goods.goodsName}}"   sc-id="{{item.shopcarId}}" p-id="{{item.goods.id}}" bind:updateCount="itemCountUpdate" extra="{{item}}"></item>
         </view>
       </view>
       <view class='del' catchtap='itemDel' data-index="{{index}}">删除</view>

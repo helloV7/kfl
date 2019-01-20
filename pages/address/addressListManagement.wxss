@@ -16,10 +16,11 @@ page{
 }
 .address-item-layout{
   width:750rpx;
-  height:230rpx;
+  /* height:230rpx; */
   background:rgba(255,255,255,1);
   position: relative;
   margin-bottom: 20rpx;
+  padding-top: 33rpx;
 }
 .address-item-layout:last-of-type:after{
   content: none;
@@ -30,27 +31,36 @@ page{
   font-family:PingFangSC-Regular;
   font-weight:400;
   color:rgba(0,0,0,1);
-  position: absolute;
+  margin-left: 30rpx;
+  /* position: absolute;
   left: 30rpx;
-  top: 33rpx;
+  top: 33rpx; */
 }
 .address-phone {
   font-size:30rpx;
   font-family:PingFangSC-Regular;
   font-weight:400;
   color:rgba(0,0,0,1);
-  position: absolute;
+  margin-left: 30rpx;
+  display: inline;
+  /* position: absolute;
   top: 37rpx;
-  left: 149rpx;
+  left: 149rpx; */
 }
 .address-address {
   font-size:28rpx;
   font-family:PingFangSC-Regular;
   font-weight:400;
   color:rgba(102,102,102,1);
-  position: absolute;
+  width: calc(100% - 60rpx);
+  margin-left: 30rpx;
+  margin-top: 27rpx;
+  margin-bottom: 30rpx;
+  white-space: normal;
+  word-break: break-all;
+  /* position: absolute;
   left: 30rpx;
-  top: 86rpx;
+  top: 86rpx; */
 }
 .address-isdefaule {
   font-size:28rpx;
@@ -77,10 +87,10 @@ page{
   background:rgba(255,255,255,1);
   display: flex;
   align-items: center;
-  position: absolute;
-  top: 147rpx;
+  position: relative;
+  /* top: 147rpx;
   left: 0;
-  right: 0;
+  right: 0; */
 }
 .control-layout::before{
     content: "";

@@ -26,9 +26,11 @@ page{
 }
 .address-layout{
   width: 750rpx;
-  height: 150rpx;
+  /* height: 150rpx; */
+  padding-top: 35rpx;
+  padding-bottom: 33rpx;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: flex-start;
   background: white;
 }
@@ -50,6 +52,21 @@ page{
   color:rgba(0,0,0,1);
   display: block;
 }
+.address-layout .username{
+  margin-top: 28rpx;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+
+}
+.address-layout .phone{
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+  margin-left: 29rpx;
+}
 .address-layout .address{
   margin-top: 26rpx;
   font-size:28rpx;
@@ -57,6 +74,9 @@ page{
   font-weight:400;
   color:rgba(102,102,102,1);
   text-overflow: ellipsis;
+  width: 600rpx;
+  white-space: normal;
+  word-break:break-all;
 }
 .line{
   margin-left: 27rpx;

@@ -4,7 +4,7 @@
 <view class='top-layout'>
   <image class='avatar' src='{{userInfo.avatar}}'></image>
   <label class='name' bindtap='navToUserInfo'>{{userInfo.nickname}} <image src='/resource/image/ic_edit_black@2x.png'></image></label>
-  <label class='state' bindtap='navToApplay'>{{userInfo.userType=="2"?"美容师":"申请美容师"}}<image src='/resource/image/ic_arrow_right_gray@2x.png'></image></label>
+  <label class='state' bindtap='navToApplay'>{{userInfo.userType=="2"?"美容师":"申请美容师"}}<image src='/resource/image/ic_arrow_right_gray@2x.png'  hidden='{{userInfo.userType=="2"}}'></image></label>
 
   <image src='/resource/image/ic_notice_black@2x.png'class='message-image' bindtap='onMessageClick'></image>
   <label class='message-text' wx:if='{{unreadCount!=0}}'>{{unreadCount}}</label>

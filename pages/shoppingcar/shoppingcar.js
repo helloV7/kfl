@@ -86,6 +86,7 @@ Page({
   onShareAppMessage: function () {
 
   },
+  //单选
   onSelClick(e){
     let index = e.currentTarget.dataset.index
     var item = this.data.productList[index]
@@ -94,14 +95,14 @@ Page({
 
     var totalPrice 
     var totalScore 
-    var singlePrice = Number.parseFloat(item.goods.price) * Number.parseInt(item.buyNum)
-    var singleScore = Number.parseFloat(item.goods.score) * Number.parseInt(item.buyNum)
+    var singlePrice = this.accMul(Number.parseFloat(item.goods.price) , Number.parseInt(item.buyNum))
+    var singleScore = this.accMul(Number.parseFloat(item.goods.score) , Number.parseInt(item.buyNum))
     if (sel){
-      totalPrice = this.data.totalScore + singleScore
-      totalScore = this.data.totalPrice + singlePrice
+      totalScore  = this.accAdd(this.data.totalScore , singleScore)
+      totalPrice = this.accAdd(this.data.totalPrice , singlePrice)
     }else{
-      totalPrice = this.data.totalScore - singleScore
-      totalScore = this.data.totalPrice - singlePrice
+      totalScore = this.subtr(this.data.totalScore , singleScore)
+      totalPrice = this.subtr(this.data.totalPrice , singlePrice)
     }
 
 
@@ -305,6 +306,24 @@ Page({
     try { m += s1.split(".")[1].length } catch (e) { }
     try { m += s2.split(".")[1].length } catch (e) { }
     return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m)
+  },
+  //加法  
+  accAdd(arg1, arg2) {
+    var r1, r2, m;
+    try { r1 = arg1.toString().split(".")[1].length } catch (e) { r1 = 0 }
+    try { r2 = arg2.toString().split(".")[1].length } catch (e) { r2 = 0 }
+    m = Math.pow(10, Math.max(r1, r2))
+    return (arg1 * m + arg2 * m) / m
+  },
+  //减法  
+  subtr(arg1, arg2) {
+    var r1, r2, m, n;
+    try { r1 = arg1.toString().split(".")[1].length } catch (e) { r1 = 0 }
+    try { r2 = arg2.toString().split(".")[1].length } catch (e) { r2 = 0 }
+    m = Math.pow(10, Math.max(r1, r2));
+    n = (r1 >= r2) ? r1 : r2;
+    return ((arg1 * m - arg2 * m) / m).toFixed(n);
+
   },
   toDetail(e){
     let index = e.currentTarget.dataset.index

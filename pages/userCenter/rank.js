@@ -122,6 +122,7 @@ Page({
       currentArea:this.data.area[index]
     })
     this._getRank()
+    this._getSelfRank()
   },
   onTabClick(e){
     let index = e.currentTarget.dataset.index
@@ -140,9 +141,13 @@ Page({
     
   },
   _getSelfRank(){
+    let area = this.data.currentArea || ""
     api.request({
       url:"GET_SELF_RANK",
       method:"GET",
+      param:{
+        area: area
+      },
       callback:(b,json)=>{
         if(b){
           this.setData({

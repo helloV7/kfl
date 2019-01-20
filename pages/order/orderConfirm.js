@@ -254,6 +254,7 @@ Page({
       }
     })
   },
+
   wechatPay(timeStamp,nonceStr,_package,signType,paySign){
     wx.requestPayment({
       timeStamp:timeStamp,
@@ -272,7 +273,7 @@ Page({
            delta: 1,
          })
         wx.navigateTo({
-          url: '/pages/order/orderDetail?orderNo=' + orderNo,
+          url: '/pages/order/orderDetail?orderNo=' + orderNO,
         })
 
       }

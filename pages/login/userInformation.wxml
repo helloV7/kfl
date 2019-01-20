@@ -55,6 +55,11 @@
     <input class='input' placeholder-class='input-placeholder' placeholder='请输入银行卡号' type='number' value='{{form.bankNo}}' data-key="bankNo" bindinput='bindInput'></input> 
 </view>
 
+<view class='info-item' hidden='{{fill!="true" && userType!="2"}}'>
+  <label >审核码</label>
+    <input class='input' placeholder-class='input-placeholder' placeholder='' type='number' value='{{code}}' data-key="bankNo" bindinput='bindInput' disabled='true'></input> 
+</view>
+
 
 <label class='btn' bindtap='onFinishClick'>
   完成

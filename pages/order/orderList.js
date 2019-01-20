@@ -109,7 +109,7 @@ Page({
     api.request({
       url:"ORDER_LIST",
       method:"GET",
-      showLoading:true,
+      // showLoading:true,
       param:{
         orderStatus:this.data.currentTab,
         page:page

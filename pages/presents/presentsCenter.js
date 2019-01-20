@@ -73,7 +73,7 @@ Component({
       api.request({
         url: "PRESENT_PRODUCT_LIST",
         method: "GET",
-        showLoading: true,
+        // showLoading: true,
         param: param,
         callback: (b, json) => {
           if (b) {

@@ -9,3 +9,6 @@ page{
   width: 750rpx;
   height: 240rpx;
 }
+.richText{
+  padding: 25rpx 30rpx;
+}

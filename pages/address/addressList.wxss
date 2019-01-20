@@ -16,7 +16,9 @@ page{
 }
 .address-item-layout{
   width:750rpx;
-  height:145rpx;
+  /* height:145rpx; */
+  padding-top: 33rpx;
+  padding-bottom: 30rpx;
   background:rgba(255,255,255,1);
   position: relative;
 }
@@ -37,27 +39,36 @@ page{
   font-family:PingFangSC-Regular;
   font-weight:400;
   color:rgba(0,0,0,1);
-  position: absolute;
+  /* position: absolute;
   left: 30rpx;
-  top: 33rpx;
+  top: 33rpx; */
+  margin-left: 30rpx;
 }
 .address-phone {
   font-size:30rpx;
   font-family:PingFangSC-Regular;
   font-weight:400;
   color:rgba(0,0,0,1);
-  position: absolute;
+  /* position: absolute;
   top: 37rpx;
-  left: 149rpx;
+  left: 149rpx; */
+  margin-left: 24rpx;
+  display: inline;
 }
 .address-address {
+  margin-left: 30rpx;
+  margin-top: 27rpx;
   font-size:28rpx;
   font-family:PingFangSC-Regular;
   font-weight:400;
+  display: block;
+  white-space: normal;
+  word-break: break-all;
   color:rgba(102,102,102,1);
-  position: absolute;
+  /* position: absolute;
   left: 30rpx;
-  top: 86rpx;
+  top: 86rpx; */
+  width: calc(100% - 60rpx);
 }
 .address-isdefaule {
   font-size:28rpx;

@@ -30,7 +30,8 @@ Page({
     phone:"",
     region:[]
     ,fill: false
-    ,userType:"1"
+    ,userType:"1",
+    code:""
 
   },
 
@@ -50,6 +51,7 @@ Page({
           }
           Object.keys(this.data.form).forEach(key=>{
             this.data.form[key] = res.data[key]
+            this.data.code = res.data["storeCode"]
           })
 
           let region = []
@@ -58,6 +60,7 @@ Page({
 
           this.data.avatar = res.data.avatar
           this.setData({
+            code:this.data.code,
             form: this.data.form,
             fill:options.fill,
             userType: options.userType,
