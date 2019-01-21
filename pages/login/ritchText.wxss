@@ -1,0 +1,6 @@
+/* pages/login/ritchText.wxss */
+.rich-text{
+  padding-top: 40rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}

@@ -1,0 +1,5 @@
+<!--pages/login/ritchText.wxml-->
+<view class='rich-text '>
+  <rich-text nodes="{{ritchText}}" >
+  </rich-text>
+</view>
