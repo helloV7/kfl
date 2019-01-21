@@ -3,7 +3,7 @@
   <image class='image' src='/resource/image/bg_ranking_list@2x.png'></image>
   <image class='rank-title' src='/resource/image/ic_ranking_list@2x.png'></image>
   <image class='rank-icon' src='/resource/image/ic_prize@2x.png'></image>
-  <label class='rank'>当前排名 第{{selfRank}} 名</label>
+  <label class='rank'>当前排名 第{{currentTab==0?selfRank:selfSub}} 名</label>
 </view>
 <view class='tab'>
   <view class='item {{currentTab==0?"sel":""}}' bindtap='onTabClick' data-index="0">

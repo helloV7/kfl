@@ -14,7 +14,9 @@ Page({
     currentArea:"",
     dataAll:[],
     dataSub:[],
-    selfRank:0
+    selfRank:0,
+    selfSub: 0,
+
   },
 
   /**
@@ -150,9 +152,16 @@ Page({
       },
       callback:(b,json)=>{
         if(b){
-          this.setData({
-            selfRank:json.data.myRank
-          })
+
+          if (area == "") {
+            this.setData({
+              selfRank: json.data.myRank
+            })
+          } else {
+            this.setData({
+              selfSub: json.data.myRank
+            })
+          }
         }
       }
     })

@@ -36,12 +36,12 @@
 
   </view>
 
-  <!-- <view>
+  <view class='richText'>
       <rich-text nodes="{{data.goodsDesc}}">
       </rich-text>
-  </view> -->
+  </view>
 
-    <template is="wxParse" data="{{wxParseData:richText.nodes}}"/>
+    <!-- <template is="wxParse" data="{{wxParseData:richText.nodes}}"/> -->
 
 </scroll-view>
 

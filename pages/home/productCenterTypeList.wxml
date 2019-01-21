@@ -1,0 +1,6 @@
+<!--pages/home/productCenterTypeList.wxml-->
+<view wx:for="{{productList}}" class='item' bindtap='navToDetail' data-index="{{index}}">
+  <image class='cover' src='{{item.coverImg}}'></image>
+  <label class='text'>{{item.goodsName}}</label>
+  <image class='image' src='/resource/image/ic_circle_arrow_white@2x.png'></image>
+</view>

@@ -2,15 +2,15 @@
 @import "/pages/common/common.wxss";
 .banner{
   width:750rpx;
-  height:280rpx;
+  height:400rpx;
 }
 .banner image{
   width:750rpx;
-  height:280rpx;
+  height:400rpx;
   }
 .banner swiper-item{
    width:750rpx;
-  height:280rpx;
+  height:400rpx;
 }
 .banner-mask{
   position: absolute;

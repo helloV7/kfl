@@ -1,0 +1,47 @@
+/* pages/home/productCenter2.wxss */
+.banner{
+  width: 750rpx;
+  height: 400rpx;
+  position: relative;
+}
+.banner image{
+  width: 750rpx;
+  height: 400rpx;
+}
+.banner swiper-item{
+ width: 750rpx;
+  height: 400rpx;
+}
+.banner-mask{
+  position: absolute;
+  bottom: 0;
+  width:750rpx;
+}
+.type{
+  width:750rpx;
+  /* min-height:120rpx; */
+  padding-top: 36rpx;
+  padding-bottom: 36rpx;
+  background:linear-gradient(0deg,rgba(144,144,144,1),rgba(255,255,255,1));
+  position: relative;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+
+}
+.text{
+  width:  580rpx;
+  padding-left: 40rpx;
+  white-space: normal;
+  word-break: break-all;
+  padding-right: 40rpx;
+  font-size:32rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(62,66,72,1);
+}
+.image{
+  margin-right: 40rpx;
+  width: 48rpx;
+  height: 48rpx;
+}

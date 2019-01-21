@@ -36,7 +36,9 @@
     "pages/userCenter/rank",
     "pages/home/productCenterSearch",
     "pages/home/webview",
-    "pages/login/ritchText"
+    "pages/login/ritchText",
+    "pages/home/productCenter2",
+    "pages/home/productCenterTypeList"
   ],
   "window": {
     "backgroundTextStyle": "light",

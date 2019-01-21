@@ -10,7 +10,7 @@ const topGridList = [
     image:"/resource/image/ic_circle_home_brand_introduction@2x.png",
   },
   {
-    url: "/pages/home/productCenter",
+    url: "/pages/home/productCenter2",
     name: "产品中心",
     image: "/resource/image/ic_circle_home_product_center@2x.png",
   },

@@ -104,8 +104,9 @@ const _urlList = {
   //设置消息已读
   SET_MESSAGE_TO_READ: _domain + "api/message/set_read",
   //获取腾讯云cos签名
-  GET_COS_SIGN: _domain + "api/index/get_cos_token"
-
+  GET_COS_SIGN: _domain + "api/index/get_cos_token",
+  //获取轮播图
+  GET_BANNER: _domain + "api/index/get_slide"
   
 }
 

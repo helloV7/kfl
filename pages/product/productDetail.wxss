@@ -185,3 +185,7 @@ page{
   font-family:PingFangSC-Medium;
   color:rgba(0,0,0,1);
 }
+.richText{
+  padding: 20rpx;
+  width: 100%;
+}

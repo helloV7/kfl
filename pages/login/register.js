@@ -135,20 +135,20 @@ Page({
   ,register(e){
     avatar = e.detail.userInfo.avatarUrl
     nickname = e.detail.userInfo.nickName
-    if (this.data.phone.length == 0 || this.data.password.length<11){
-      // app.showToast("请输入手机号")
+    if (this.data.phone.length == 0 || this.data.phone.length<11){
+      app.showToast("请输入手机号")
       return
     }
     if(this.data.captcha.length==0){
-      // app.showToast("请输入验证码")
+      app.showToast("请输入验证码")
       return
     }
     if (this.data.password.length == 0 || this.data.password.length<6){
-      // app.showToast("请输入密码")
+      app.showToast("请输入密码")
       return
     }
     if(this.data.displayType=='2' && this.data.code.length==0){
-      // app.showToast("请输入审核码")
+      app.showToast("请输入审核码")
       return
     }
 
@@ -199,6 +199,7 @@ Page({
         url:"REGISTER",
         method:"POST",
         noToken:true,
+        showLoading:true,
         param:param,
         callback:(b,json)=>{
           if(b){
