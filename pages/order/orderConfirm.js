@@ -180,17 +180,17 @@ Page({
       sendStore = "0"
     }
 
-    wx.showActionSheet({
-      itemList: ["运费现付","运费到付"],
-      success:(res)=>{
-        switch (res.tapIndex){
-          case 0:
-            trackType="1"
-            break;
-            case 1:
-            trackType = "0"
-            break;
-        }
+    // wx.showActionSheet({
+    //   itemList: ["运费现付","运费到付"],
+    //   success:(res)=>{
+    //     switch (res.tapIndex){
+    //       case 0:
+    //         trackType="1"
+    //         break;
+    //         case 1:
+    //         trackType = "0"
+    //         break;
+    //     }
         api.request({
           url: "CREATE_ORDER",
           method: "POST",
@@ -198,7 +198,8 @@ Page({
             addressId: addressId,
             sendStore: sendStore,
             goodsList: JSON.stringify(goodsList),
-            trackType: trackType,
+            // trackType: trackType,
+            trackType: "0",
             remarks:remarks
             },
           callback:(b,json)=>{
@@ -219,8 +220,8 @@ Page({
           }
         })
 
-      }
-    })
+      // }
+    // })
     
   
  
