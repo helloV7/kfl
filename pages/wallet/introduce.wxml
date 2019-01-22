@@ -2,6 +2,8 @@
 <view class='container'>
   <view class='line'></view>
   <scroll-view class='scroll-y' scroll-y>
+  <view class='richText'>
     <rich-text nodes="{{data}}"></rich-text>
+    </view>
   </scroll-view>
 </view>

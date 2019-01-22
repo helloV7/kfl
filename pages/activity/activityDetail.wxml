@@ -4,8 +4,8 @@
 <scroll-view scroll-y style='white-space:nowrap;overflow:scroll;height:100%;'>
   <image class='image' src='{{data.activitionImg}}' mode='aspectFill'></image>
   <view class='richText'>
-  <rich-text style='background:white;' nodes="{{data.content}}">
-  </rich-text>
+    <rich-text style='background:white;' nodes="{{data.content}}">
+    </rich-text>
   </view>
   <!-- <template is="wxParse" data="{{wxParseData:richText.nodes}}"/> -->
 

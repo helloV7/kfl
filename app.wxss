@@ -105,3 +105,7 @@ rich-text{
   white-space: normal;
   background: white;
 }
+.richText{
+  padding: 20rpx;
+  background: white;
+}
