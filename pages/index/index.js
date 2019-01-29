@@ -18,7 +18,8 @@ Page({
      iconMorePressed : resourcePath + "/ic_main_tab_more_pressed.png",
      windowHeight:0,
     refreshUserCenter:"1",
-    refreshPresent:"1"
+    refreshPresent:"1",
+    refreshHome:"1"
   },
   onLoad: function () {
     var that = this;
@@ -34,6 +35,19 @@ Page({
   },
   onShow(){
     // if (this.data.currentTab == 3) {
+    if (this.data.refreshPresent=="1"){
+      this.setData({
+        refreshPresent:"1"
+      })
+    }
+    if (this.data.refreshHome=="1"){
+      this.setData({
+        refreshHome:"1"
+      })
+    }
+
+
+
       this.setData({
         refreshUserCenter: "1"
       }) 

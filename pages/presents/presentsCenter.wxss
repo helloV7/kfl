@@ -44,3 +44,64 @@ page{
 .item-decorator:last-of-type:after{
   content: none;
 }
+.buy-decorator{
+  width:252rpx;
+  height:70rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #C89644;
+  border-radius:30rpx;
+  margin-top:20rpx
+}
+.buy-image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.buy-text{
+  color: white; 
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  }
+
+.buy-image-btn{
+  width: 252rpx;
+  height: 70rpx;
+  margin-top: 17rpx;
+}
+  .stv-layout{
+  /* width:; */
+  height: 100rpx;
+  background: white;
+  display: inline-flex;
+
+}
+.stv-layout .background{
+  margin:20rpx 15rpx 20rpx 30rpx;
+  width:425rpx;
+  height:60rpx;
+  background:rgba(243,243,243,1);
+  border-radius:30px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.stv-layout .background.have{
+  justify-content: flex-start;
+  padding-left: 26rpx;
+}
+.stv-layout .image{
+  width: 31rpx;
+  height: 31rpx;
+}
+.stv-layout .text{
+  margin-left: 15rpx;
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+}
+.stv-layout .text.have{
+  color: #000;
+}

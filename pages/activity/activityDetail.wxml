@@ -2,7 +2,7 @@
 <import src="../../utils/wxParse/wxParse.wxml"/>
 
 <scroll-view scroll-y style='white-space:nowrap;overflow:scroll;height:100%;'>
-  <image class='image' src='{{data.activitionImg}}' mode='aspectFill'></image>
+  <image wx:if="{{data.activitionImg}}" class='image' src='{{data.activitionImg}}' mode='aspectFill'></image>
   <view class='richText'>
     <rich-text style='background:white;' nodes="{{data.content}}">
     </rich-text>
@@ -24,4 +24,4 @@
     </label>
   </scroll-view>
 
-  <shoppingcar></shoppingcar>
+  <!-- <shoppingcar></shoppingcar> -->

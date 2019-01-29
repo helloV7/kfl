@@ -10,13 +10,13 @@
 <label class='description'>规格{{specification}} 编号{{number}}
 </label>
 
-<view class='value1-layout' wx:if="{{showValue1=='true'}}">
-  <image class='image-icon' src='/resource/image/ic_price_small_golden@2x.png' mode="widthFix" wx:if="{{showIcon=='true'}}"></image>
+<view class='value1-layout' wx:if="{{showValue1=='true' && (value1!='0.00' && value1!='0') }}">
+  <image class='image-icon' src='/resource/image/ic_integral_small_golden@2x.png'  mode="widthFix" wx:if="{{showIcon=='true'}}"></image>
   <!-- 积分 1000 -->
   <label class='value1'>积分 {{value1}}</label>
 </view>
-<view class='value2-layout' wx:if="{{showValue2=='true'}}">
-  <image class='image-icon' src='/resource/image/ic_integral_small_golden@2x.png' mode="widthFix" wx:if="{{showIcon=='true'}}"></image>
+<view class='value2-layout' wx:if="{{showValue2=='true' && (value2!='0.00' && value2!='0') }}">
+  <image class='image-icon' src='/resource/image/ic_price_small_golden@2x.png'  mode="widthFix" wx:if="{{showIcon=='true'}}"></image>
   <!-- ￥1000 -->
   <label class='value2'>￥{{value2}}</label>
 </view>

@@ -1,19 +1,10 @@
 <!--pages/more/qaCenter.wxml-->
 <view class='container'>
   <view class='line'></view>
-  <scroll-view class='scroll-y' scroll-y>
-  
-    <!-- <view class='question-layout' wx:for='123123'> -->
-      <!-- <label class='question'>
-      问题1：如何发布供应才能让更多人看见？
-      </label>
-      <view class='answer'>回答1：发布供应信息时，尽可能填写详细的产品描述内容，并提供真实、美观的产品图片。 系统将优化展示内容填写详细的供应信息。
-      </view> -->
 
-    <!-- </view> -->
-    <rich-text nodes="{{text}}"></rich-text>
+  <view class='richText'>
+      <rich-text nodes="{{text}}"></rich-text>
 
+  </view>
 
-
-  </scroll-view>
 </view>

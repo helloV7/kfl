@@ -158,11 +158,25 @@ var _request = function ({url,method,noToken,showLoading,param,callback,header})
       }
       if(res.statusCode==200){
         //code是3的时候是登陆失效，4的时候是要绑定手机号，1是正常，0是异常
+        switch(
+        res.data.code
+        ){
+          case 1:
+            callback(true, res.data)
+            break
+          case 3:
+              wx.reLaunch({
+                url: '/pages/login/login',
+              })
+              break
+          default:
+            callback(false, res.data)
+            showToast(res.data.msg)
+            break
+        }
         if(res.data.code==1){
-          callback(true,res.data)
         }else{
-          callback(false, res.data)
-          showToast(res.data.msg)
+         
         }
       }else{
         showToast("网络异常")

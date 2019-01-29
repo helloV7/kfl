@@ -1,7 +1,6 @@
 // pages/product/productDetail.js
 import api from '../../utils/api.js'
 var app = getApp()
-var WxParse = require('../../utils/wxParse/wxParse.js');
 
 Page({
 
@@ -15,7 +14,8 @@ Page({
     currentSwipe:0,
     id:0,
     data:{},
-    richText:""
+    richText:"",
+    justShow:true
   },
 
   /**
@@ -23,6 +23,7 @@ Page({
    */
   onLoad: function (options) {
     this.data.id = options.id
+    let justShow = options.justShow||false
     wx.getSystemInfo({
       success: (res)=>{
           this.setData({
@@ -31,6 +32,9 @@ Page({
       },
     })
     this.getProductInfo()
+    this.setData({
+      justShow:justShow
+    })
   },
 
   /**
@@ -120,8 +124,6 @@ Page({
       },
       callback:(b,json)=>{
         if(b){
-          WxParse.wxParse('richText', 'html', json.data.goodsDesc, this, 0);
-
           this.setData({
             data: json.data
           })
@@ -158,19 +160,18 @@ Page({
   },
   redictToHome(){
 
-    wx.redirectTo({
-      url: '/pages/index/index',
-    })
+    // wx.redirectTo({
+    //   url: '/pages/index/index',
+    // })
 
-    // var pages = getCurrentPages()
-    // if (pages[pages.length-2].route=="pages/index/index"){
-    //   wx.navigateBack({   
-    //   })
-    // }else{
-    //   wx.redirectTo({
-    //     url: '/pages/index/index',
-    //   })
-    // }
+    var pages = getCurrentPages()
+    for (let i = pages.length - 1; i >=0 ;i--){
+      if (pages[i].route == "pages/index/index"){
+        wx.navigateBack({
+          delta :(pages.length - i -1 )
+        })
+      }
+    }
    
   },
   openShoppingCar(){

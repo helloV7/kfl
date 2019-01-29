@@ -4,7 +4,7 @@
 page{
   background: #F4F4F4;
   /* font-size: 0; */
-   width: 100%;
+   width: 100%，，;
   height: 100%;
 }
 .productBanner{
@@ -41,19 +41,20 @@ page{
 }
 .bannerIndicator label:first-of-type{
   font-size:36rpx;
+  line-height:5rpx;
+
 }
 .info-layout{
-  padding: 28rpx;
+  padding: 28rpx 28rpx 0 ;
   background: white;
 }
 .title{
-  font-size:32rpx;
+  font-size:40rpx;
   font-family:PingFangSC-Regular;
   color:rgba(0,0,0,1);
   display: block;
   white-space: normal;
   width: 100%;
-
 }
 .description{
   margin-top: 19rpx;
@@ -64,10 +65,14 @@ page{
 }
 .value-layout{
   margin-top: 24rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 .icon{
-  width: 36rpx;
-  height: 36rpx;
+  width: 38rpx;
+  height: 38rpx;
 }
 .value{
   margin-left: 22rpx;
@@ -75,6 +80,7 @@ page{
   font-family:PingFangSC-Regular;
   font-weight:bold;
   color:rgba(215,35,35,1);
+  line-height:34rpx;
 }
 .line{
   margin-top: 24rpx;
@@ -84,11 +90,11 @@ page{
   font-family:PingFangSC-Regular;
   font-weight:400;
   color:rgba(102,102,102,1);
-  display: block;
-  margin-top: 32rpx;
+  /* display: block; */
+  margin-top: 16rpx;
 }
 .description2{
-  margin-top: 29rpx;
+  margin-top: 20rpx;
   font-size:30rpx;
   font-family:PingFangSC-Regular;
   color:rgba(102,102,102,1);
@@ -184,8 +190,4 @@ page{
   font-size:34rpx;
   font-family:PingFangSC-Medium;
   color:rgba(0,0,0,1);
-}
-.richText{
-  padding: 20rpx;
-  width: 100%;
 }

@@ -121,9 +121,24 @@ Page({
           if(b){
             wx.setStorageSync("userInfo", json.data.userinfo)
 
-            wx.redirectTo({
-              url: '/pages/index/index',
-            }) 
+            var pages = getCurrentPages()
+            console.log(pages)
+            if (pages[pages.length - 2] != null &&  pages[pages.length-2].route=="pages/index/index"){
+              wx.navigateBack({
+              })
+              pages[pages.length - 2].setData({
+                refreshHome: "1" ,
+                refreshUserCenter: "1",
+                refreshPresent: "1"
+              })
+             
+
+            }else{
+              wx.redirectTo({
+                url: '/pages/index/index',
+              })
+            }
+          
           }
              
            }
@@ -155,9 +170,32 @@ Page({
             
             wx.setStorageSync("userInfo", json.data.userinfo)
 
-            wx.redirectTo({
-              url: '/pages/index/index',
-            })
+            var pages = getCurrentPages()
+
+            
+            console.log(pages)
+            if (pages[pages.length - 2]!=null && pages[pages.length - 2].route == "pages/index/index") {
+              console.log(1)
+              let page = pages[pages.length - 2]
+              console.log(page)
+              page.data.refreshHome = "1"
+              page.data.refreshUserCenter = "1"
+              page.data.refreshPresent = "1"
+              // .setData({
+              //   refreshHome: "1",
+              //   refreshUserCenter: "1",
+              //   refreshPresent: "1"
+              // })
+              wx.navigateBack({
+              })
+
+            }else{
+              console.log(2)
+
+              wx.redirectTo({
+                url: '/pages/index/index',
+              })
+            }
             // avatar
             // :
             // "https://wx.qlogo.cn/mmopen/vi_32/Nhr2By0AKpuau9focTzib5xfq3jPE93ccBb2hI6jWxKWGxKZqib8tV9Ttib6ks64KXuTytBqHP9hNLkVlbGToRMsg/132"

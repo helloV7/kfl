@@ -130,7 +130,7 @@ Page({
             productTotalPrice: totalFee,
             productTotalScore: totalScore,
             freight: trackPrice,
-            totalPrice: trackPrice + totalFee,
+            totalPrice: app.accAdd(trackPrice , totalFee),
             totalScore: totalScore,
             
           })

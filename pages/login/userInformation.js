@@ -200,11 +200,11 @@ Page({
     }
 
     if (this.data.userType == "2"){
-      if (this.data.form.wechat.length == 0) {
-        app.showToast("请输入微信号")
+      // if (this.data.form.wechat.length == 0) {
+      //   app.showToast("请输入微信号")
 
-        return
-      }
+      //   return
+      // }
       if (this.data.form.bankName.length == 0) {
         app.showToast("请输入开户行名称")
 

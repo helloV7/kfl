@@ -85,7 +85,7 @@ page{
   background-color: rgba(0,0,0,0.5);
 }
 .scroll-y{
-  overflow-y: scroll;
+  overflow: scroll;
   white-space: nowrap;
   flex: 1;
 }
@@ -101,11 +101,14 @@ page{
   
 }
 rich-text{
-  width: 750rpx;
+  width: 710rpx;
+  display: block;
   white-space: normal;
   background: white;
+  overflow: hidden;
 }
 .richText{
-  padding: 20rpx;
+  width: 710rpx;
+  padding: 10rpx 20rpx;
   background: white;
 }

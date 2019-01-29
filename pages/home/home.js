@@ -36,7 +36,17 @@ const topGridList = [
   }
 ]
 Component({
-
+  properties: {
+    refresh: {
+      type: String,
+      value: "1",
+      observer: function (newVal, oldVal, changedPath) {
+        if (newVal == "1") {
+          this.refresh()
+        }
+      }
+    }
+  },
   /**
    * 页面的初始数据
    */
@@ -47,7 +57,8 @@ Component({
     isShowFloatBtn:true,
     floatBtnData:null,
     showScoreDialog:false,
-    floatBtnScore:"0"
+    floatBtnScore:"0",
+    flatBtnImage:null
   },
   methods:{
     _onTopGridItemClick(e){
@@ -58,8 +69,7 @@ Component({
     } ,
     onScoreDialogHide(e){
       
-    }
-    ,
+    },
     onCloseFloatBtnClick(e) {
       this.setData({
         isShowFloatBtn: false,
@@ -110,7 +120,7 @@ Component({
        
         return 
       }
-   
+  
       api.request({
         url: "FREE_ENJOY",
         method: "POST",
@@ -124,36 +134,42 @@ Component({
               isShowFloatBtn: false,
               showScoreDialog:true,
               floatBtnScore:res.data.score
-
             })
 
             app.showToast(res.msg)
           }
         }
       })
+    },
+    refresh(){
+      api.request({
+        url: "HOME_INDEX",
+        method: "GET",
+        callback: (b, json) => {
+          if (b) {
+            let showFBtn = false
+            if (json.data.freeScore) {
+              showFBtn = true
+            }
+
+            this.setData({
+              banner: json.data.slide,
+              productList: json.data.activition,
+              floatBtnData: json.data.freeScore,
+              isShowFloatBtn: showFBtn,
+            })
+          }
+          this.setData({
+            refresh: "0"
+          })
+        }
+      })
     }
   },
   attached:function(){
-    api.request({
-      url: "HOME_INDEX",
-      method:"GET",
-      callback:(b,json)=>{
-        if(b){
-          let showFBtn = false
-          if(json.data.freeScore){
-            showFBtn = true
-          }
-
-          this.setData({
-            banner:json.data.slide,
-            productList:json.data.activition,
-            floatBtnData: json.data.freeScore,
-            isShowFloatBtn:showFBtn
-          })
-        }
-      }
-    })
+    this.refresh()
   },
+
  
 
 

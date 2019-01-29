@@ -90,7 +90,7 @@ Page({
     let index = e.currentTarget.dataset.index
     console.log(index)
     wx.navigateTo({
-      url: '/pages/home/productCenterTypeList?cId='+this.data.tabs[index].id,
+      url: '/pages/home/productCenterTypeList?cId=' + this.data.tabs[index].id + '&title=' + this.data.tabs[index].name,
     })
   },
   getBanner(){

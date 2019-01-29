@@ -86,7 +86,7 @@ Component({
       api.request({
         url:"SHOPPING_CAR_ADD",
         method:"POST",
-        showLoading:true,
+        showLoading:false,
         param:{
           goodsId: this.data.pId,
           buyNum:1,
@@ -107,7 +107,7 @@ Component({
       api.request({
         url: "SHOPPING_CAR_UPDATE",
         method: "POST",
-        showLoading: true,
+        showLoading: false,
         param: {
           shopcarId:this.data.scId,
           goodsId: this.data.pId,
@@ -132,7 +132,7 @@ Component({
       api.request({
         url:"SHOPPING_CAR_DEL",
         method:"POST",
-        showLoading:true,
+        showLoading: false,
         param:{
           shopcarId:this.data.scId
         },

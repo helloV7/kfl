@@ -18,6 +18,10 @@ Page({
    */
   onLoad: function (options) {
     cId = options.cId
+    let title =  options.title
+    wx.setNavigationBarTitle({
+      title: title,
+    })
     this._getProductList(true)
   },
 
@@ -111,7 +115,7 @@ Page({
   navToDetail(e){
     let index = e.currentTarget.dataset.index
     wx.navigateTo({
-      url: '/pages/product/productDetail?id=' + this.data.productList[index].goodsId,
+      url: '/pages/product/productDetail?justShow=true&id=' + this.data.productList[index].goodsId,
     })
   }
 })

@@ -11,6 +11,10 @@ Component({
     show:{
       type:Boolean,
       value:true
+    },
+    background:{
+      type:String,
+      value:null
     }
   },
 

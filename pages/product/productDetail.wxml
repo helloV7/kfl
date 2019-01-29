@@ -1,8 +1,6 @@
 <!--pages/product/productDetail.wxml-->
-<import src="../../utils/wxParse/wxParse.wxml"/>
-
 <view class='container'>
-<scroll-view scroll-y class='scroll-y'>
+<scroll-view scroll-y class='scroll-y' >
   <view class='productBanner'>
         <swiper current='{{currentSwipe}}' bindchange="onSwipeChange" autoplay='true'>
       <swiper-item wx:for="{{data.slidesImg}}">
@@ -19,19 +17,19 @@
     <label class='title'>{{data.goodsName}}</label>
     <label class='description'>{{data.form.name}}</label>
 
-    <view class='value-layout'>
+    <view class='value-layout' style='margin-top:8rpx;' wx:if="{{data.price!='0.00' && data.price!='0' && !justShow}}">
       <image class='icon' src='/resource/image/ic_price_small_golden@2x.png' ></image>
       <label class='value'>{{data.price}}</label>
     </view>
 
-    <view class='value-layout'>
+    <view class='value-layout' style='margin-top:8rpx;' wx:if="{{data.score!='0.00' && data.score!='0' && !justShow }}">
       <image class='icon' src='/resource/image/ic_integral_small_golden@2x.png'></image>
       <label class='value'>{{data.score}}</label>
     </view>
     <view class='line'></view>
 
-    <label class='score'>扫描积分：{{ data.scanBeauticianScore || data.scanUserScore ||0 }}分</label>
-    <label class='description2'>规格：{{data.capacity.showName}} 编号：{{data.goodsCode}}</label>
+    <label class='score'  style='display:{{( (data.scanBeauticianScore==0 || data.scanUserScore==0) && !jushShow)?"none":"block"}}'>扫描积分：{{ data.scanBeauticianScore || data.scanUserScore ||0 }}分</label>
+    <label class='description2'>规格：{{data.capacity.showName}} <label style='margin-left:80rpx;'>编号：{{data.goodsCode}}</label></label>
 
 
   </view>
@@ -45,7 +43,7 @@
 
 </scroll-view>
 
-<view class='bottom-layout'>
+<view class='bottom-layout' wx:if="{{!justShow}}">
   <view class='left'>
     <view class='item' bindtap='redictToHome'>
       <image src='/resource/image/ic_home_black@2x.png' style='width:45rpx;' mode='widthFix'></image>
@@ -53,7 +51,7 @@
     </view>
      <view  class='item' bindtap='openShoppingCar'>
       <image src='/resource/image/ic_shopping_black@2x.png' style='width:44rpx;' mode='widthFix'></image>
-      <label>购物车</label>
+      <label>结算</label>
     </view>
   </view>
   <view class='right'>

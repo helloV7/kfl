@@ -1,6 +1,20 @@
 <!--pages/presents/presentsCenter.wxml-->
 <view class='page'>
-  <searchView bindtap="openSearchPage" key="{{searchKey}}"></searchView>
+  <view style='height:100rpx;background:white;display:flex;'>
+        <view class='stv-layout' bindtap="openSearchPage">
+          <view class='background {{(searchKey!=null && searchKey.length!=0)?"have":""}}'>
+            <image src='/resource/image/ic_search_gray@2x.png' class='image'></image>
+            <label class='text {{(searchKey!=null && searchKey.length!=0)?"have":""}}'>{{(searchKey!=null && searchKey.length!=0)?key:"商品名称"}}</label>
+          </view>
+</view>
+    <!-- <view class='buy-decorator'>
+      <image class='buy-image' src="/resource/image/ic_circle_shopping_brown@2x.png"></image>
+      <label class='buy-text' >结算</label>
+    </view> -->
+    
+     <image bindtap='navToShopCar' class='buy-image-btn' src='/resource/image/btn_settlement@2x.png'></image>
+  </view>
+
   <view class='line'></view>
   <tab type='scroll' tabs="{{typeList}}" tabNameKey="name" bind:tabClick="tabClick"></tab>
 
@@ -15,7 +29,7 @@
   </scroll-view>
 </view>
 
-<shoppingcar></shoppingcar>
+<!-- <shoppingcar></show  ppingcar> -->
 
 <view class='search-page-decoration' wx:if='{{showSearchPage}}'>
   <searchPage showPage="{{showSearchPage}}" bind:inputConfirm="searchPageConfirm" bind:cancel="searchPageCancel"></searchPage>

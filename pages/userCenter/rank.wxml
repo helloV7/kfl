@@ -27,9 +27,11 @@
     <image class='top3'wx:if="{{index==0}}" src='/resource/image/ic_first@2x.png'></image>
     <image class='top3'wx:if="{{index==1}}" src='/resource/image/ic_second@2x.png'></image>
     <image class='top3'wx:if="{{index==2}}" src='/resource/image/ic_third@2x.png'></image>
-    <image class='normal' wx:if="{{index==3}}" src='/resource/image/ic_fourth@2x.png'></image>
+    <!-- <image class='normal' wx:if="{{index==3}}" src='/resource/image/ic_fourth@2x.png'></image>
     <image class='normal' wx:if="{{index==4}}" src='/resource/image/ic_ffifth@2x.png'></image>
-    <image class='normal' wx:if="{{index==5}}" src='/resource/image/ic_sixth@2x.png'></image>
+    <image class='normal' wx:if="{{index==5}}" src='/resource/image/ic_sixth@2x.png'></image> -->
+
+    <label class='normal-text' wx:if="{{index>=3}}">{{index+1}}</label>
     
     <image class='avatar' src='{{item.avatar}}'></image>
     <label class='name'>{{item.nickname}}</label>

@@ -5,7 +5,7 @@
 
 <scroll-view style='height:calc({{windowHeight}}px - 98rpx);z-index:999;' scroll-y>
     <view hidden='{{currentTab!=0}}' class='page-decoration'>
-      <home></home>
+      <home refresh="{{refreshHome}}"></home>
     </view>
     <view hidden='{{currentTab!=2}}' class='page-decoration'>
        <presents refresh="{{refreshPresent}}"></presents>

@@ -138,6 +138,11 @@ Component({
         currentTypeIndex:index
       })
       this._getTypeProduct(true)
+    },
+    navToShopCar(){
+      wx.navigateTo({
+        url: '/pages/shoppingcar/shoppingcar',
+      })
     }
   },
   attached(){

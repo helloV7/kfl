@@ -165,3 +165,13 @@ page{
   right: 40rpx;
   top: 47rpx;
 }
+.normal-text{
+  left: 46rpx;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(245,209,123,1);
+  font-style:italic;
+  font-weight: bold;
+  top: 40rpx;
+  position: absolute;
+}
