@@ -3,7 +3,8 @@
 
     <view class='decoration' wx:for="{{data}}" wx:key="{{item.goodsId}}">
              
-        <item type="action" show-icon="true" cover="{{item.coverImg}}" title="{{item.goodsName}}" specification="{{item.capacity.showName}}" number="{{item.goodsCode}}" value1="{{item.score}}" value2="{{item.price}}" sc-id="{{item.shopCar.shopcarId}}" count="{{item.shopCar.buyNum}}" p-id="{{item.goodsId}}" extra="{{item}}" bind:itemClick="itemClick"></item>
+        <item type="none" show-icon="true" cover="{{item.coverImg}}" title="{{item.goodsName}}" specification="{{item.capacity.showName}}" number="{{item.goodsCode}}" value1="{{item.score}}" value2="{{item.price}}" sc-id="{{item.shopCar.shopcarId}}" count="{{item.shopCar.buyNum}}" p-id="{{item.goodsId}}" extra="{{item}}" ></item>
+        <!-- bind:itemClick="itemClick" -->
     </view>
 
 <!-- 
@@ -12,4 +13,4 @@
     </label> -->
   </scroll-view>
 
-  <shoppingcar></shoppingcar>
+  <!-- <shoppingcar></shoppingcar> -->

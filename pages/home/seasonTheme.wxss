@@ -6,6 +6,9 @@ page{
   background: white;
   position: relative;
 }
+.decoration:last-of-type::after{
+  content:none;
+}
 .decoration::after{
   content: "";
   position: absolute;

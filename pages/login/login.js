@@ -22,6 +22,19 @@ Page({
    */
   onLoad: function (options) {
 
+
+    var pages = getCurrentPages()
+    if(pages.length==1){
+      wx.getStorage({
+        key: 'userInfo',
+        success: function (res) {
+          wx.redirectTo({
+            url: '/pages/index/index',
+          })
+        },
+      })
+    }
+ 
   },
 
   /**
@@ -173,7 +186,6 @@ Page({
             var pages = getCurrentPages()
 
             
-            console.log(pages)
             if (pages[pages.length - 2]!=null && pages[pages.length - 2].route == "pages/index/index") {
               console.log(1)
               let page = pages[pages.length - 2]

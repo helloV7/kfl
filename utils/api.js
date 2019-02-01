@@ -1,4 +1,6 @@
-const _domain = "http://119.23.66.37/kalianfu_backend/public/";
+// const _domain = "http://119.23.66.37/kalianfu_backend/public/";
+const _domain = "https://www.np9o.cn/";
+
 var isShowLoading  = false
 const _urlList = {
   //微信登录
@@ -165,6 +167,7 @@ var _request = function ({url,method,noToken,showLoading,param,callback,header})
             callback(true, res.data)
             break
           case 3:
+              wx.clearStorage()
               wx.reLaunch({
                 url: '/pages/login/login',
               })
