@@ -21,7 +21,7 @@
   <view catchtap='_nothing' class='filter-layout'>
     <scroll-view class='top' scroll-y>
       
-      <view wx:for='{{filterList}}'  class='filter-group'>
+      <view wx:for='{{filterList}}' wx:key="{{index}}"  class='filter-group'>
         <view>
             <label class='name'>{{item.searchName}}</label>
 

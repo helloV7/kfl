@@ -57,6 +57,12 @@ Component({
     _getTypeProduct(isRefresh) {
       let page = isRefresh ? 1 : (this.data.page + 1)
       let type = this.data.typeList[this.data.currentTypeIndex]
+
+      if(type==null){
+        wx.stopPullDownRefresh()
+        return;
+      }
+
       // cId	string	是	分类id
       // scoreSort	string	否	积分排序：1代表从高到低，2代表从低到高
       // capacitySort	string	否	容量排序：1代表从高到低，2代表从低到高
