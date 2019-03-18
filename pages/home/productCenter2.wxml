@@ -7,7 +7,7 @@
   </swiper>
   <image src='/resource/image/banner_mask.png' class="banner-mask" mode='widthFix'></image>
 </view>
-<view class='type' wx:for="{{tabs}}" bindtap='click' data-index="{{index}}">
+<view class='type' wx:for="{{tabs}}" wx:key="{{index}}" bindtap='click' data-index="{{index}}">
   <label class='text'>{{item.name}}</label>
   <image class='image' src='/resource/image/ic_circle_arrow_white@2x.png'></image>
 </view>

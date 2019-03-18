@@ -3,7 +3,7 @@
 <scroll-view scroll-y class='scroll-y' >
   <view class='productBanner'>
         <swiper current='{{currentSwipe}}' bindchange="onSwipeChange" autoplay='true'>
-      <swiper-item wx:for="{{data.slidesImg}}">
+      <swiper-item wx:for="{{data.slidesImg}}" wx:key="{{index}}">
         <image src='{{item}}' mode='aspectFill'></image>
       </swiper-item>
     </swiper>
