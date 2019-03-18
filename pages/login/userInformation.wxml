@@ -35,15 +35,15 @@
   </picker>
 </view>
 
-<view class='info-item'>
+<!-- <view class='info-item'>
   <label >邮箱</label>
     <input class='input' placeholder-class='input-placeholder' placeholder='请输入邮箱' value='{{form.email}}' data-key="email" bindinput='bindInput'></input> 
-</view>
+</view> -->
 
-<view class='info-item' hidden='{{userType!="2"}}'>
+<!-- <view class='info-item' hidden='{{userType!="2"}}'>
   <label >微信号</label>
     <input class='input' placeholder-class='input-placeholder' placeholder='请输入微信号' value='{{form.wechat}}' data-key="wechat" bindinput='bindInput'></input> 
-</view>
+</view> -->
 
 <view class='info-item' hidden='{{userType!="2"}}'>
   <label >开户行</label>
@@ -55,7 +55,7 @@
     <input class='input' placeholder-class='input-placeholder' placeholder='请输入银行卡号' type='number' value='{{form.bankNo}}' data-key="bankNo" bindinput='bindInput'></input> 
 </view>
 
-<view class='info-item' hidden='{{fill!="true" && userType!="2"}}'>
+<view class='info-item' wx:if='{{fill=="true" && userType=="2"}}'>
   <label >审核码</label>
     <input class='input' placeholder-class='input-placeholder' placeholder='' type='number' value='{{code}}' data-key="bankNo" bindinput='bindInput' disabled='true'></input> 
 </view>

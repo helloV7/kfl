@@ -64,7 +64,7 @@ Page({
 
   },
   navToOrderDetail(){
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/order/orderDetail?orderNo=' + orderNo,
     })
   },

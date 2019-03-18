@@ -88,7 +88,9 @@ const _urlList = {
   //礼品 筛选
   SEARCH_FILTER_ITEM: _domain + "api/gift/get_search_items",
   //绑定手机号
-  BIND_PHONE: _domain + "api/user/changemobile",
+  BIND_PHONE: _domain + "api/user/bindmobile",
+  //修改手机号
+  CHANGED_PHONE: _domain + "api/user/changemobile",
   //取消订单
   ORDER_CANCEL: _domain + "api/order/cancel",
   //微信支付

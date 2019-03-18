@@ -32,9 +32,7 @@ Page({
     this.setData({
       productList: productList
     })
-    this._getDefaultAddress()
 
-    this._calcPrice()
   },
 
   /**
@@ -48,6 +46,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this._getDefaultAddress()
+    this._calcPrice()
 
   },
 
@@ -146,9 +146,27 @@ Page({
     })
   },
   selAddress(){
-    wx.navigateTo({
-      url: '/pages/address/addressList?key=person_address',
-    })
+    if (this.data.person_address!=null && this.data.person_address.contactPerson != null){
+      wx.navigateTo({
+        url: '/pages/address/addressList?key=person_address',
+      })
+    }else{
+      wx.showModal({
+        title: '提示',
+        content: '请完善收货地址信息',
+        showCancel: true,
+        cancelText: '取消',
+        confirmText: '新增地址',
+        success: function(res) {
+          wx.navigateTo({
+            url: '/pages/address/editAddress',
+          })
+        },
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    }
+    
   },
   createOrder(){
     if (this.data.addressCheck == 0
@@ -250,7 +268,14 @@ Page({
       callback:(b,json)=>{
         //{"code":1,"msg":"请求成功","time":"1545718256","data":{"payType":"1","onlinePayId":"a3e701aa19ccd3aac1e7f31297df97b2","payData":{"appId":"wxa958c1084ff59b84","timeStamp":"1545718257","nonceStr":"a2dEJVwGb6gAEgSe","package":"prepay_id=wx2514105728937408ed4fe4f02455564672","signType":"MD5","paySign":"03ACCB816D4A8450F84EBE1C283B4A6A"}}}
         if(b){
-          this.wechatPay(json.data.payData.timeStamp, json.data.payData.nonceStr, json.data.payData.package, json.data.payData.signType, json.data.payData.paySign)
+          if (1 == json.data.payResult){
+            wx.redirectTo({
+              url: '/pages/order/PayResult?orderNo=' + orderNO,
+            })
+          }else{
+            this.wechatPay(json.data.payData.timeStamp, json.data.payData.nonceStr, json.data.payData.package, json.data.payData.signType, json.data.payData.paySign)
+          }
+          
         }
       }
     })
@@ -270,10 +295,7 @@ Page({
       },
       fail:(res)=>{
         app.showToast("支付失败")
-         wx.navigateBack({
-           delta: 1,
-         })
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/order/orderDetail?orderNo=' + orderNO,
         })
 

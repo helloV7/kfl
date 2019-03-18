@@ -153,6 +153,11 @@ page{
   top: 47rpx;
   line-height: 28rpx;
   height: 26rpx;
+  width: 320rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  overflow: hidden;
 }
 .rank-layout .score{
   height:24rpx;

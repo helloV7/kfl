@@ -5,8 +5,8 @@
   <input placeholder='审核码' placeholder-class='input-placeholder' class='apply-code' bindinput='onCodeInput' value='{{code}}' ></input>
 </view>
 <view class='apply-layout-under-line'></view>
-<label class='error-hint' wx:if="{{showError}}" >
+<!-- <label class='error-hint' wx:if="{{showError}}" >
   审核码有误，请核实
-</label>
+</label> -->
 
 <view class='btn {{code.length==0?"disable":""}}' bindtap='validateCode'>确认</view>

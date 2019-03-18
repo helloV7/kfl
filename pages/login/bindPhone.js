@@ -1,6 +1,10 @@
 // pages/login/bindPhone.js
 import api from "../../utils/api.js"
 var app = getApp()
+var force = false
+
+var intervalID
+
 Page({
 
   /**
@@ -16,7 +20,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    force = options.force || false
+    
   },
 
   /**
@@ -44,7 +49,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    if (intervalID){
+      clearInterval(intervalID)
+    }
   },
 
   /**
@@ -71,10 +78,16 @@ Page({
     if(this.data.captcha.length==0 || this.data.phone.length!=11){
       return
     }
+    var url
+    if(force){
+      url = "BIND_PHONE"
+    }else{
+      url = "CHANGED_PHONE"
+    }
     // mobile	string	是	手机号
     // captcha	string	是	验证码
     api.request({
-      url:"BIND_PHONE",
+      url: url,
       method:"POST",
       showLoading:true,
       param:{
@@ -86,8 +99,8 @@ Page({
           wx.navigateBack({
             delta: 1,
           })
-          app.showToast(json.msg)
         }
+        app.showToast(json.msg)
       }
     })
 
@@ -132,7 +145,7 @@ Page({
   },
   beginTimmer() {
     this.setData({ intervalCount: 60 })
-    var intervalID = setInterval(() => {
+    intervalID = setInterval(() => {
       console.log(this.data.intervalCount)
       this.setData({
         intervalCount: --this.data.intervalCount

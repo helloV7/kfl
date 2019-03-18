@@ -4,7 +4,7 @@ let showPasswordImage = "/resource/image/ic_show.png"
 let doNotShowPasswordImage = "/resource/image/ic_dont_show.png"
 import api from '../../utils/api.js'
 import md5 from '../../utils/js-md5.js'
-
+let wechatCode
 var app = getApp()
 var nickname;
 var avatar;
@@ -135,51 +135,66 @@ Page({
   ,register(e){
     avatar = e.detail.userInfo.avatarUrl
     nickname = e.detail.userInfo.nickName
-    if (this.data.phone.length == 0 || this.data.phone.length<11){
+    wx.login({
+      success: (res) => {
+        wechatCode = res.code
+
+        console.log("wechatCode",wechatCode)
+        this.doRegister()
+      }
+    })
+    // if(true){
+    // // this.toLoginClick()
+    // wx.navigateTo({
+    //   url: '/pages/login/userInformation?isRegister=true&fill=false&userType=1',
+    // })
+    // return
+    //   wx.hideToast()
+    //   wx.hideLoading()
+    //   app.showToast("注册成功，请登录！")
+
+    // return 
+    // }
+  
+
+   
+    
+  },
+  doRegister(){
+   
+    if (this.data.phone.length == 0 || this.data.phone.length < 11) {
       app.showToast("请输入手机号")
       return
     }
-    if(this.data.captcha.length==0){
+    if (this.data.captcha.length == 0) {
       app.showToast("请输入验证码")
       return
     }
-    if (this.data.password.length == 0 || this.data.password.length<6){
+    if (this.data.password.length == 0) {
       app.showToast("请输入密码")
       return
     }
-    if(this.data.displayType=='2' && this.data.code.length==0){
+    if (this.data.password.length < 6) {
+      app.showToast("请输入6位以上密码")
+      return
+    }
+    if (this.data.displayType == '2' && this.data.code.length == 0) {
       app.showToast("请输入审核码")
       return
     }
+    this._register().then(r => {
+      if (r) {
 
-    // var result = this._validateCaptcha().then(r => {
-    //   if (r) {
-    //     return this._register()
-    //   }else{
-    //     return false
-    //   }
-    // })
-    this._register().then(r=>{
-      if(r){
         //注册成功(
-          this.toLoginClick()
-        wx.navigateTo({
-          url: '/pages/login/userInformation?fill=false&userType=' + this.data.displayType+'&token=' + userInfo.token+"&phone="+this.data.phone,
-          })
-        // if (this.data.displayType=="1"){
-        //   wx.navigateTo({
-        //     url: '/pages/login/userInformation?fill=false&userType=1&token=' + userInfo.token,
-        //   })
-        // }else{
-        //   wx.navigateTo({
-        //     url: '/pages/login/userInformation?fill=false&userType=2&token=' + userInfo.token,
-        //   })
-        // }
-      }else{
+        // this.toLoginClick()
+        wx.redirectTo({
+          url: '/pages/login/userInformation?isRegister=true&fill=false&userType=' + this.data.displayType + '&token=' + userInfo.token + "&phone=" + this.data.phone,
+        })
+
+      } else {
         //注册失败
       }
     })
-    // console.log("register", result)
   }
   ,_register(){
 
@@ -190,6 +205,7 @@ Page({
     param['registerType'] = this.data.displayType
     param['nickname'] = nickname
     param['avatar'] = avatar
+    param['openid'] = wechatCode
     if (this.data.displayType=='2')
       param['code'] = this.data.code
 
@@ -203,7 +219,7 @@ Page({
         param:param,
         callback:(b,json)=>{
           if(b){
-            app.showToast(json.msg)
+            // app.showToast(json.msg)
             userInfo = json.data.userinfo
             // wx.setStorageSync("userInfo", json.data.userinfo)
           }

@@ -19,9 +19,10 @@ Page({
      windowHeight:0,
     refreshUserCenter:"1",
     refreshPresent:"1",
-    refreshHome:"1"
+    refreshHome:"1",
+    forceBind:true
   },
-  onLoad: function () {
+  onLoad: function (options) {
     var that = this;
     wx.getSystemInfo({
       success: function(res) {
@@ -30,10 +31,19 @@ Page({
         })
       },
     })
+    this.data.bindPhone = options.bindPhone || true
 
     console.log("load")
   },
   onShow(){
+
+    console.log("bindPhone",this.data.bindPhone)
+    if (!this.data.bindPhone){
+      this.data.bindPhone = true
+      wx.navigateTo({
+        url: '/pages/login/bindPhone?force=true',
+      })
+   }
     // if (this.data.currentTab == 3) {
     if (this.data.refreshPresent=="1"){
       this.setData({
@@ -88,19 +98,21 @@ Page({
     })
   },
   _scan(){
+
+    // var mock = {
+    //   goodsName:"222",
+    //   score:222,
+    //   balance:333
+    // }
+    // wx.navigateTo({
+    //   url: '/pages/scan/scanResult?data=' + JSON.stringify(mock) + "&code=500"  ,
+    // })
     let userInfo = wx.getStorageSync("userInfo")
     if(userInfo==null){
       wx.redirectTo({
         url: '/pages/login/login',
       })
       app.showToast("请先登录")
-      return
-    }
-    if (userInfo.isfix!="1") {
-      wx.navigateTo({
-        url: '/pages/login/userInformation?fill=true&userType='+userInfo.userType,
-      })
-      app.showToast("请先完善个人信息")
       return
     }
     if (userInfo.mobile.length == 0) {
@@ -110,6 +122,14 @@ Page({
       app.showToast("请先绑定手机号")
       return
     }
+    // if (userInfo.isfix!="1") {
+    //   wx.navigateTo({
+    //     url: '/pages/login/userInformation?fill=true&userType='+userInfo.userType,
+    //   })
+    //   app.showToast("请先完善个人信息")
+    //   return
+    // }
+ 
 
     // this._validateCode(10086)
     // 只允许从相机扫码       onlyFromCamera: true,

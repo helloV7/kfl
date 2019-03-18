@@ -63,6 +63,10 @@ Component({
   methods:{
     _onTopGridItemClick(e){
       var url = e.currentTarget.dataset.url;
+      
+      
+
+
       wx.navigateTo({
         url: url,
       })
@@ -88,14 +92,22 @@ Component({
       let banner = this.data.banner[index]
 
       switch (banner.slideType) {
+        //跳转链接
         case "1":
           wx.navigateTo({
             url: '/pages/home/webview?src=' + banner.extra,
           })
           break;
+          //跳转礼品
         case "2":
           wx.navigateTo({
             url: '/pages/product/productDetail?id=' + banner.extra,
+          })
+          break;
+          //3跳转产品
+        case "3":
+          wx.navigateTo({
+            url: '/pages/product/productDetail?justShow=true&id=' + banner.extra,
           })
           break;
       }

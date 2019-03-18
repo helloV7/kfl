@@ -113,9 +113,10 @@ Page({
       showLoading:true,
       callback:(b,json)=>{
         if(b){
-          wx.navigateBack({
-            
+          wx.redirectTo({
+            url: '/pages/order/orderDetail?orderNo=' + this.data.data.orderNo,
           })
+          wx.hideLoading()
           app.showToast(json.msg)
         }
       }
@@ -136,7 +137,14 @@ Page({
       callback:(b,json)=>{
         //{"code":1,"msg":"请求成功","time":"1545718256","data":{"payType":"1","onlinePayId":"a3e701aa19ccd3aac1e7f31297df97b2","payData":{"appId":"wxa958c1084ff59b84","timeStamp":"1545718257","nonceStr":"a2dEJVwGb6gAEgSe","package":"prepay_id=wx2514105728937408ed4fe4f02455564672","signType":"MD5","paySign":"03ACCB816D4A8450F84EBE1C283B4A6A"}}}
         if(b){
-          this.wechatPay(json.data.payData.timeStamp, json.data.payData.nonceStr, json.data.payData.package, json.data.payData.signType, json.data.payData.paySign)
+          if(1==json.data.payResult){
+            wx.redirectTo({
+              url: '/pages/order/PayResult?orderNo=' + this.data.data.orderNo,
+            })
+          }else{
+            this.wechatPay(json.data.payData.timeStamp, json.data.payData.nonceStr, json.data.payData.package, json.data.payData.signType, json.data.payData.paySign)
+          }
+        
         }
       }
     })
@@ -150,11 +158,15 @@ Page({
       paySign:paySign,
       success:(res)=>{
         wx.redirectTo({
-          url: '/pages/order/PayResult',
+          url: '/pages/order/PayResult?orderNo=' + this.data.data.orderNo ,
         })
       },
       fail:(res)=>{
+        wx.redirectTo({
+          url: '/pages/order/orderDetail?orderNo=' + orderNO,
+        })
         app.showToast("支付失败")
+
       }
 
     })

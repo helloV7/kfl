@@ -3,7 +3,7 @@ import api from '../../utils/api.js'
 var uploadFile = require('../../utils/uploadfile.js')
 var COS = require('../../utils/cos-wx-sdk-v5.js')
 
-
+var isRegister
 var app = getApp()
 let token
 var cos 
@@ -20,8 +20,8 @@ Page({
       // province:"",
       city:"",
       // district:"",
-      email:"",
-      wechat:"",
+      // email:"",
+      // wechat:"",
       bankName:"",
       bankNo:"",
     },
@@ -41,6 +41,15 @@ Page({
   onLoad: function (options) {
     console.log(options)
     token = options.token
+    isRegister = options.isRegister || false
+    var openBindPhone =options.openBindPhone||false
+    if(openBindPhone){
+      wx.navigateTo({
+        url: '/pages/login/bindPhone?force=true',
+      })
+    }
+
+  
   
     if(options.fill=="true"){
       wx.getStorage({
@@ -63,7 +72,7 @@ Page({
             code:this.data.code,
             form: this.data.form,
             fill:options.fill,
-            userType: options.userType,
+            userType: options.userType+"",
             region:region,
             avatar:this.data.avatar
           })
@@ -73,6 +82,8 @@ Page({
       let phone = options.phone
       this.data.form.mobile = phone
       this.setData({
+        fill: options.fill,
+        userType: options.userType + "",
         form:this.data.form
       })
     }
@@ -178,6 +189,7 @@ Page({
     })
   },
   onFinishClick(){
+    console.log(isRegister == 'true')
     if (this.data.form.name.length==0){
       app.showToast("请输入姓名")
       return
@@ -187,10 +199,10 @@ Page({
 
       return
     }
-    if (this.data.form.email.length == 0) {
-      app.showToast("请输入邮箱")
-      return
-    }
+    // if (this.data.form.email.length == 0) {
+    //   app.showToast("请输入邮箱")
+    //   return
+    // }
     // if (this.data.form.mobile.length == 0 && this.data.fill) {
     //   return
     // }
@@ -264,21 +276,49 @@ Page({
       var header = {}
       if (token != null && token != "") {
         header.token = token
+      }else{
+        header.token = wx.getStorageSync("userInfo").token;
       }
       api.request({
         url: "FINISH_USER_INFO",
         method: "POST",
         showLoading: true,
+        noToken:true,
         header: header,
         param: this.data.form,
         callback: (b, json) => {
           if (b) {
-            wx.navigateBack({
 
-            })
+            if(isRegister=='true'){
+              console.log("info save")
+              wx.setStorageSync("showRegisterSucText", true)
+              wx.navigateBack({
+
+              })
+
+              // wx.hideLoading()
+              // wx.hideToast()
+              // wx.showToast({
+              //   title: '注册成功,请登录',
+              //   icon: 'none',
+              //   duration: 2000,
+              //   success: function () {
+              //     setTimeout(function () {
+              //       wx.navigateBack({
+              //       })
+              //     }, 2000);
+              //   }
+              // });
+            }else{
+              wx.navigateBack({
+                
+              })
+            }
+          }else{
             app.showToast(json.msg)
 
           }
+
         }
       })
       

@@ -30,7 +30,7 @@
         <label class='date'>{{m1.format(item.createtime)}}</label>
       </view>
       <view class='right'>
-        <label class='price'>{{item.symbol=="1"?"+":"-"}}{{item.balance}} 元</label>
+        <label class='price'>{{item.symbol=="1"?"+":""}}{{item.balance}} 元</label>
       </view>
 
   

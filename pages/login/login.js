@@ -48,6 +48,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    // wx.setStorageSync("showRegisterSucText",true)
+
+    var showRegisterSucT = wx.getStorageSync("showRegisterSucText")
+
+    
+    console.log("showRegisterSucT",showRegisterSucT)
+    if (showRegisterSucT){
+      console.log("login show")
+
+      wx.hideToast()
+      wx.hideLoading()
+      app.showToast("注册成功，请登录！")
+      wx.setStorageSync("showRegisterSucText", false)
+    }
 
   },
 
@@ -135,22 +149,24 @@ Page({
             wx.setStorageSync("userInfo", json.data.userinfo)
 
             var pages = getCurrentPages()
-            console.log(pages)
             if (pages[pages.length - 2] != null &&  pages[pages.length-2].route=="pages/index/index"){
+              
               wx.navigateBack({
               })
               pages[pages.length - 2].setData({
                 refreshHome: "1" ,
                 refreshUserCenter: "1",
-                refreshPresent: "1"
+                refreshPresent: "1",
+                bindPhone: (json.data.bindMobile || false)
               })
              
 
             }else{
               wx.redirectTo({
-                url: '/pages/index/index',
+                url: '/pages/index/index?bindPhone=true',
               })
             }
+
           
           }
              
@@ -190,9 +206,14 @@ Page({
               console.log(1)
               let page = pages[pages.length - 2]
               console.log(page)
-              page.data.refreshHome = "1"
-              page.data.refreshUserCenter = "1"
-              page.data.refreshPresent = "1"
+
+              page.setData({
+                refreshHome: "1",
+                refreshUserCenter: "1",
+                refreshPresent: "1",
+                bindPhone: (json.data.bindMobile || false)
+              })
+
               // .setData({
               //   refreshHome: "1",
               //   refreshUserCenter: "1",
@@ -205,7 +226,7 @@ Page({
               console.log(2)
 
               wx.redirectTo({
-                url: '/pages/index/index',
+                url: '/pages/index/index?bindPhone='+json.data.bindMobile || false,
               })
             }
             // avatar

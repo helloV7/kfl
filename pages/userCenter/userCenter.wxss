@@ -29,7 +29,11 @@
   position: absolute;
   left: 244rpx;
   top:81rpx;
-
+  width: 426rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
 }
 .name image{
   margin-left: 19rpx;

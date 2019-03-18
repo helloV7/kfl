@@ -73,15 +73,29 @@ Component({
     },
     navToApplay() {
       if (this.data.userInfo.userType == "1"){
-        wx.navigateTo({
-          url: '/pages/userCenter/applyForBeautician?jump=true',
-        })
+        let userInfo = wx.getStorageSync("userInfo")
+        if (userInfo == null) {
+          return
+        }
+        if (userInfo.mobile.length == 0) {
+          wx.navigateTo({
+            url: '/pages/login/bindPhone',
+          })
+          wx.hideLoading()
+          app.showToast("请先绑定手机号")
+          return
+        }else{
+          wx.navigateTo({
+            url: '/pages/userCenter/applyForBeautician?jump=true',
+          })
+        }
+       
       }
     },
     navToUserInfo(){
     
       wx.navigateTo({
-        url: '/pages/login/userInformation?fill=true&userType=' + this.data.userInfo.userType,
+        url: '/pages/login/userInformation?&fill=true&userType=' + this.data.userInfo.userType,
       })
     },
     navToMyWallet(){

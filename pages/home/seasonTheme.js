@@ -111,6 +111,15 @@ Page({
     })
   },
   itemClick(e){
+
+    var userInfo = wx.getStorageSync("userInfo")
+    
+    if ("2" == userInfo.userType) {
+      // app.showToast("只有普通用户可以进入")
+      return
+    }
+    
+
     let id = e.detail.goodsId
     wx.navigateTo({
       url: '/pages/product/productDetail?id='+id,

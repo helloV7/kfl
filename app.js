@@ -10,7 +10,8 @@ App({
     if(message!=null && message!='')
     wx.showToast({
       title: message,
-      icon:'none'
+      icon:'none',
+      duration:3000
     })
   },
   //除法

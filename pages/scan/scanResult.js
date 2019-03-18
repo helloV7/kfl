@@ -106,6 +106,7 @@ Page({
     })
   },
   toLogin(){
+    wx.clearStorage()
     wx.reLaunch({
       url: '/pages/login/login',
     })

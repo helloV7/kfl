@@ -16,8 +16,7 @@
         case "4":
           return "已完成";
         case "5":
-          return "已取消"
-
+          return "交易关闭"
     }
   }
   function parseRtStatus(ts){
@@ -84,8 +83,11 @@
         </view>
         <view class='info'>
           <label>运费</label>
-          <label>￥{{data.trackPrice}}</label>
+          <label wx:if="{{data.trackType!='0'}}">￥{{data.trackPrice}}</label>
+          <label wx:if="{{data.trackType=='0'}}">到付</label>
+
         </view>
+        
         <view class='line' style='margin:32rpx 0;'></view>
         <view class='total-price'>
           <label class='total'>合计</label>

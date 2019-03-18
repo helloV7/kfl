@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    autoToUserInfo = options.jump
+    autoToUserInfo = options.jump || false
   },
 
   /**
@@ -100,6 +100,7 @@ Page({
           }
          
         }else{
+          app.showToast(json.msg)
           this.setData({
             showError:true
           })
